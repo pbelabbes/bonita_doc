@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head --><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Build and deploy (Best Practices) | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="Build and deploy (Best Practices)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to build and deploy Living Apps (Best Practices)" />
+<meta property="og:description" content="How to build and deploy Living Apps (Best Practices)" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-17T11:57:15+02:00" />
+<script type="application/ld+json">
+{"description":"How to build and deploy Living Apps (Best Practices)","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy","headline":"Build and deploy (Best Practices)","dateModified":"2018-07-17T11:57:15+02:00","datePublished":"2018-07-17T11:57:15+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="react-search"></div>
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">
+            
+            <img src="/bonita_doc/assets/img/logo_bcd.png" />
+            
+                
+
+                <span>Bcd  2.0</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/release_notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/requirements-and-compatibility">Requirements and compatibility</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/getting_started">Getting started</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bcd-services-and-scenarios" aria-controls="bcd-services-and-scenarios"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD services and scenarios</strong></a><ul id="bcd-services-and-scenarios" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_controller">Controller Docker image</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli">Command-line interface</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios">Scenario file reference</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites">Configure Amazon Web Services (AWS) for BCD</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_sso">Configure AWS single sign-on</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_organizations">Assume IAM role within AWS Organizations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/deploy_with_static_inventory">Deploy with a static inventory</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#customize-the-bonita-container" aria-controls="customize-the-bonita-container"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Customize the Bonita container</strong></a><ul id="customize-the-bonita-container" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/custom_init">Using initialization scripts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization">Configuring REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_enable_remote_monitoring_jmx">Enabling remote monitoring with JMX</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#manage-bonita-living-applications" aria-controls="manage-bonita-living-applications"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita Living Applications</strong></a><ul id="manage-bonita-living-applications" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build">Build a Living App repository</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_deploy">Deploy Living App artifacts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy">Build and deploy (Best Practices)</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/how_to_use_bcd_with_data_encrypted">Use BCD with sensitive data encrypted</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/jenkins_example">Integrate BCD with Jenkins</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/troubleshooting_guide">Troubleshooting guide</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-continuous-delivery-doc/edit/2.0/md/livingapp_build_and_deploy.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="how-to-build-and-deploy-living-apps-best-practices">How to build and deploy Living Apps (Best Practices)</h1>
+
+<p>Bonita Continuous Delivery enables you to easily build and deploy a Bonita Living Applications on a running Bonita platform.
+It uses the <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build">Bonita Living Application Builder</a> and the <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_deploy">Bonita Living Application Deployer</a>.</p>
+
+<p>In the following, we present best practices and various uses cases to let you easily build and deploy your Bonita Living Application repository.</p>
+
+<p>All examples assume that:</p>
+<ul>
+  <li>you have cloned the demo <a href="https://github.com/bonitasoft/bonita-vacation-management-example">Bonita Vacation Management example repository</a>
+GitHub repository as described in the <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build">Bonita Living Application Builder</a> documentation</li>
+  <li>you have already defined a scenario file called <code class="highlighter-rouge">build_and_deploy.yml</code> stored in the BCD <code class="highlighter-rouge">scenarios</code> directory</li>
+  <li>you already have a Bonita stack up and running, defined by the <code class="highlighter-rouge">build_and_deploy.yml</code> scenario file</li>
+</ul>
+
+<p>If you want to deploy into a Bonita platform running on an existing machine, you can find an example of a scenario file <code class="highlighter-rouge">bonita-continuous-delivery_2.0.0/scenario/build_and_deploy.yml.EXAMPLE</code> 
+with its inventory file in <code class="highlighter-rouge">bonita-continuous-delivery_2.0.0/ansible/inventory/static-inventory/livingapp-build-deploy-static-inventory.EXAMPLE</code>.</p>
+
+<div class="list-group"><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy#best-practices-about-repositories" class="list-group-item toc-h2">Best practices about repositories</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy#one-repository-per-project" class="list-group-item toc-h3">One repository per project</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy#use-versioning-to-manage-your-history" class="list-group-item toc-h3">Use versioning to manage your history</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy#build-and-deploy-straight" class="list-group-item toc-h2">Build and deploy straight</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy#build-and-select-what-to-deploy" class="list-group-item toc-h2">Build and select what to deploy</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy#build-and-select-how-to-deploy-parts-of-the-application-archive" class="list-group-item toc-h2">Build and select how to deploy parts of the Application Archive</a>
+</div>
+<h2 id="best-practices-about-repositories">Best practices about repositories</h2>
+
+<p id="best-practices-about-repositories">The <em>Bonita Living Application Builder</em> is made to build an entire Bonita repository.<br />
+It is usually pretty fast, but depending on the size of your repository, the amount of artifacts to build, it can become longer. To avoid such situations, there is some best practices about Bonita repositories that you should respect.</p>
+
+<h3 id="one-repository-per-project">One repository per project</h3>
+
+<p>A Bonita repository should only contain artifacts related to a given project.
+For example, if you want to use Bonita to build a <em>loan application</em> and a <em>leave request application</em>, we strongly advise you to manage those two projects in two different repositories. It will allow you to build, deploy and test each project separately easily using Bonita Continuous Delivery.</p>
+
+<p>A repository should only contain the resources and the dependencies required to build and deploy the Living Applications of the project. Resources not used by the Living Applications should not be in the repository of the project.</p>
+
+<h3 id="use-versioning-to-manage-your-history">Use versioning to manage your history</h3>
+
+<p>During the life-cycle of a project, resources are brought to evolve. You may need to perform important changes on a process or on a Rest API extension for example. The best way to track the evolution is to use versioning.</p>
+
+<p>Before to perform an important change on a resource, make sure to save the current state of your repository by creating a tag for example if you are using Git. Then you can increase the version of your resource and perform the change, knowing that you can easily do a rollback if needed.</p>
+
+<p><strong>We do not recommend</strong> to <em>duplicate</em> the resource in your repository. If you start to manage your versions this way, your repository will get bigger and bigger, and the time required by the <em>Bonita Living Application Builder</em> to build your repository will increase. Moreover, it is really painful to work on a repository containing all the history of a project, it can lead to many confusions and errors during the development ( dependency issues …).</p>
+
+<p><strong>The recommended way</strong> is definitively to keep the latest version of each resources in the working repository, and the history on your Version Control System.<br />
+Since the version 7.7.0 of Bonita, the popular Version Control System <em>Git</em> is integrated in Bonita Studio. It is a fine way to manage properly the versioning of your projects. The Bonita documentation provides an example on <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/share-a-repository-on-github">how to share a repository on GitHub</a>.</p>
+
+<h2 id="build-and-deploy-straight">Build and deploy straight</h2>
+
+<p>This is the simplest use case: you want to build a Bonita repository and deploy all associated resources.</p>
+
+<p>To do so, you only have to pass the repository path to the build command and chain a deploy command without path parameter
+like in the following:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bcd -y -s &lt;path/to/scenario&gt; livingapp build -p &lt;path/to/bonita/repository&gt; deploy
+</code></pre></div></div>
+
+<p>This command will first build the Bonita repository. The output of the build is a zip file. It is located in the <em>target</em> directory, created by the builder. This zip file corresponds to the <em>Application Archive</em> used by the deployer. It contains all the resources built from the input repository.</p>
+
+<p>In a second time, the deployer deploys all those resources on the running Bonita platform.</p>
+
+<h2 id="build-and-select-what-to-deploy">Build and select what to deploy</h2>
+
+<p>Sometimes, you may need to perform some actions between the build phase and the deploy phase. You may want to deploy only a subpart of the repository that has been built, or add some external resources in the application archive to deploy. Here are some hints on how to do it.<br />
+The idea is always the same:</p>
+
+<ul>
+  <li><strong>Build</strong> a Bonita repository with BCD</li>
+  <li><strong>Update</strong> the application archive created by the builder</li>
+  <li><strong>Deploy</strong> the updated application archive</li>
+</ul>
+
+<p>First, we build the Bonita repository:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bcd -y -s &lt;path/to/scenario&gt; livingapp build -p &lt;path/to/bonita/repository&gt;
+</code></pre></div></div>
+<p>The build operation creates a <strong>target</strong> directory in the Bonita repository. Let’s move to this directory:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd &lt;path/to/bonita/repository&gt;/target
+</code></pre></div></div>
+<p>This directory contains built artifacts, including the application archive we want to update. Keep in mind that the deployer can take a zip file or a directory as input. So, we are going to unzip the raw application archive, in a <em>to-deploy</em> directory:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip -d to-deploy &lt;bonita-repository-name&gt;_&lt;timestamp&gt;.zip
+</code></pre></div></div>
+<p>A new directory <em>to-deploy</em> has been createda and it contains all the built artifacts from your Bonita repository.</p>
+
+<p>You can perform some actions on the content of this directory to customize your deployment. Here are some use cases:</p>
+
+<h4 id="example-1-i-only-want-to-deploy-the-business-data-model-from-my-bonita-repository">Example 1: I only want to deploy the Business Data Model from my Bonita repository</h4>
+
+<p>In this example, we only want to deploy the BDM. The <em>to-deploy</em> directory should contain a subfolder <em>bdm</em>. We simply need to tell the deployer to deploy this subfolder as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bcd -y -s &lt;path/to/scenario&gt; livingapp deploy -p &lt;path/to/bonita/repository&gt;/target/to-deploy/bdm
+</code></pre></div></div>
+
+<h4 id="example-2-i-only-want-to-deploy-all-the-resources-from-my-bonita-repository-except-applications">Example 2: I only want to deploy all the resources from my Bonita repository except applications</h4>
+
+<p>The <em>to-deploy</em> directory should contain a subfolder <em>applications</em>. We simply need to delete this subfolder, then tell the deployer to deploy the <em>to-deploy</em> directory as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf &lt;path/to/bonita/repository&gt;/target/to-deploy/applications/
+bcd -y -s &lt;path/to/scenario&gt; livingapp deploy -p &lt;path/to/bonita/repository&gt;/target/to-deploy
+</code></pre></div></div>
+
+<h4 id="example-3-i-want-to-add-some-custom-pages-in-the-resources-to-deploy">Example 3: I want to add some custom pages in the resources to deploy</h4>
+
+<p>This use case is a bit more advanced. Imagine that your Bonita repository is stored on a given Git repository and your custom pages used by your applications in an other Git repository. You will have to build your Bonita repository as described above, then to retrieve your custom pages (Git clone…) and to add them to the application archive to deploy.</p>
+
+<h2 id="build-and-select-how-to-deploy-parts-of-the-application-archive">Build and select how to deploy parts of the Application Archive</h2>
+
+<p>As described in the <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_deploy">Bonita Living Application Deployer documentation</a>, it is possible to pass to the deployer a <em>deployment descriptor file</em>. This file must be called <em>deploy.json</em> and be at the root of the application archive.<br />
+The deployment descriptor file is used to specify which resources have to be deployed, and with which policy. It is an alternative way to select a sub part of the application archive to deploy.<br />
+An interesting way to use it is to store some deployment descriptor files in your Bonita repository, one for each ‘build and deploy’ scenario you want to perform. Between the build and the deploy  phase, just move the fine deployment descriptor at the root of your application archive, as described above.</p>
+<div class="alert alert-warning">
+<p>The format of the deployment descriptor file is not friendly to use. It might evolve in further versions.</p>
+</div>
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>

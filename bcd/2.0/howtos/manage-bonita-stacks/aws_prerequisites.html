@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head --><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Configure Amazon Web Services (AWS) for BCD | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="Configure Amazon Web Services (AWS) for BCD" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to configure Amazon Web Services (AWS) for BCD" />
+<meta property="og:description" content="How to configure Amazon Web Services (AWS) for BCD" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-17T11:57:15+02:00" />
+<script type="application/ld+json">
+{"description":"How to configure Amazon Web Services (AWS) for BCD","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites","headline":"Configure Amazon Web Services (AWS) for BCD","dateModified":"2018-07-17T11:57:15+02:00","datePublished":"2018-07-17T11:57:15+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="react-search"></div>
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">
+            
+            <img src="/bonita_doc/assets/img/logo_bcd.png" />
+            
+                
+
+                <span>Bcd  2.0</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/release_notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/requirements-and-compatibility">Requirements and compatibility</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/getting_started">Getting started</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bcd-services-and-scenarios" aria-controls="bcd-services-and-scenarios"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD services and scenarios</strong></a><ul id="bcd-services-and-scenarios" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_controller">Controller Docker image</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli">Command-line interface</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios">Scenario file reference</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites">Configure Amazon Web Services (AWS) for BCD</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_sso">Configure AWS single sign-on</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_organizations">Assume IAM role within AWS Organizations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/deploy_with_static_inventory">Deploy with a static inventory</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#customize-the-bonita-container" aria-controls="customize-the-bonita-container"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Customize the Bonita container</strong></a><ul id="customize-the-bonita-container" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/custom_init">Using initialization scripts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization">Configuring REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_enable_remote_monitoring_jmx">Enabling remote monitoring with JMX</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#manage-bonita-living-applications" aria-controls="manage-bonita-living-applications"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita Living Applications</strong></a><ul id="manage-bonita-living-applications" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build">Build a Living App repository</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_deploy">Deploy Living App artifacts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy">Build and deploy (Best Practices)</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/how_to_use_bcd_with_data_encrypted">Use BCD with sensitive data encrypted</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/jenkins_example">Integrate BCD with Jenkins</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/troubleshooting_guide">Troubleshooting guide</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-continuous-delivery-doc/edit/2.0/md/aws_prerequisites.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="how-to-configure-amazon-web-services-aws-for-bcd">How to configure Amazon Web Services (AWS) for BCD</h1>
+
+<p>This tutorial describes how to configure Amazon Web Services (AWS) for BCD.<br />
+These configuration steps are required to allow BCD to programmatically manage your AWS instances and to be able to connect to your Bonita stack.</p>
+
+<div class="list-group"><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites#sign-up-for-aws" class="list-group-item toc-h2">Sign Up for AWS</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites#aws-setup-for-bcd" class="list-group-item toc-h2">AWS Setup for BCD</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites#dynamic-ec2-inventory-configuration" class="list-group-item toc-h2">Dynamic EC2 inventory configuration</a>
+</div>
+<h2 id="sign-up-for-aws">Sign Up for AWS</h2>
+
+<p id="sign-up-for-aws">If you do not have an Amazon Web Services account yet, first sign up as described in this AWS user guide: <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#sign-up-for-aws">Sign Up for AWS</a>.</p>
+
+<h2 id="aws-setup-for-bcd">AWS Setup for BCD</h2>
+
+<p>In order to use Amazon EC2 instances, some configuration steps need to be performed as a prerequisite.<br />
+The following steps are the basic requirements to set up AWS credentials for Ansible automation.<br />
+Further configuration instructions for <strong>AWS single sign-on</strong> can be found <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_sso">on this page</a>.</p>
+
+<ol>
+  <li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html">Create an IAM Policy</a> to grant full access to Amazon EC2 on a specific region (eg. us-west-2)
+    <ul>
+      <li><strong>Policy name</strong>: EC2FullAccess_us-west-2</li>
+      <li><strong>Policy document</strong>:
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec2:*"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"StringEquals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"ec2:Region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us-west-2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+ </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Create an IAM Policy to allow to describe DB instances and list tags (mandatory for dynamic inventory script).
+    <ul>
+      <li><strong>Policy name</strong>: RDSDescribeDBInstances</li>
+      <li><strong>Policy document</strong>:
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Sid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stmt1498730873000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"rds:DescribeDBInstances"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"rds:ListTagsForResource"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"*"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+ </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Create an IAM Policy to grant full access to Amazon RDS on a specific region (eg. us-west-2). In order to do it you will need your account id (eg. 012345678901)
+    <ul>
+      <li><strong>Policy name</strong>: RDSFullAccess_us-west-2</li>
+      <li><strong>Policy document</strong>:
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"rds:*"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arn:aws:rds:us-west-2:012345678901:*"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+ </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Create an IAM Policy to give <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">PassRole</a> permission in order to be able to associate a specific role with the EC2 instances of a cluster.
+    <ul>
+      <li><strong>Policy name</strong>: IAMPassRole</li>
+      <li><strong>Policy document</strong>:
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iam:PassRole"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+ </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_create.html">Create an IAM Group</a>
+    <ul>
+      <li><strong>Group name</strong>: bonita-provisioning</li>
+      <li>Select the IAM Policies created previously</li>
+    </ul>
+
+    <p><em>For some usage you may be interested to create a role and attach to it the corresponding policies, see <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_sso">Configure AWS single sign-on</a> or <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_organizations">Assume IAM role within AWS Organizations</a>.</em></p>
+  </li>
+  <li>Create an IAM Policy to allow ec2 instances of a cluster to autodiscover themselves on a specific region (eg. us-west-2).
+    <ul>
+      <li><strong>Policy name</strong>: ClusterBCD_us-west-2</li>
+      <li><strong>Policy document</strong>:
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"ec2:DescribeInstances"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"StringEquals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"ec2:Region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us-west-2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+ </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+<div class="alert alert-warning">
+<p><i class="fa fa-exclamation-triangle"></i> Pay attention that for security reasons, pushing AWS user credentials to EC2 instances (as done with BCD 1.0.x) is no longer supported.</p>
+</div>
+<ol>
+  <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html">Create an IAM Role for an AWS service</a>
+    <ul>
+      <li>Select EC2 to “Allows EC2 instances to call AWS services on your behalf.”</li>
+      <li>Select the IAM Policy created previously (ClusterBCD_us-west-2)</li>
+      <li><strong>Role name</strong>: ClusterBCD</li>
+    </ul>
+  </li>
+  <li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Create an IAM User</a>
+    <ul>
+      <li><strong>Access type</strong>: Programmatic access</li>
+      <li>Add user to the IAM group created previously</li>
+      <li>Download as .csv (or copy) Access key information (<strong>Access key ID</strong> and <strong>Secret access key</strong>) for later use</li>
+    </ul>
+  </li>
+  <li>Now let’s assume you are using an EC2 region which supports the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">EC2-VPC platform</a>.
+Therefore a <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html">default VPC and default subnets</a> should already be available.</li>
+  <li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#creating-security-group">Create an EC2 Security Group</a>
+    <ul>
+      <li><strong>Security group name</strong>: sg_bonita-provisioning</li>
+      <li>Add an Inbound rule to allow communication between Bonita stack components
+        <ul>
+          <li><strong>Type</strong>: All Traffic, <strong>Source</strong>: &lt;security_group_id_of_sg_bonita-provisioning&gt;</li>
+        </ul>
+      </li>
+      <li>Add an Inbound rule to allow Ansible to connect via SSH
+        <ul>
+          <li><strong>Type</strong>: SSH, <strong>Source</strong>: My IP</li>
+        </ul>
+      </li>
+      <li>Add an Inbound rule to allow remote connection to Bonita Tomcat via HTTP
+        <ul>
+          <li><strong>Type</strong>: Custom TCP Rule, <strong>Port Range</strong>: 8081, <strong>Source</strong>: My IP</li>
+        </ul>
+      </li>
+      <li>Add an Inbound rule to allow remote connection to Bonita databases
+        <ul>
+          <li><strong>Type</strong>: Custom TCP Rule, <strong>Source</strong>: My IP
+            <ul>
+              <li>with <code class="highlighter-rouge">bonita_db_vendor: postgres</code> - <strong>Port Range</strong>: 5432</li>
+              <li>with <code class="highlighter-rouge">bonita_db_vendor: mysql</code> - <strong>Port Range</strong>: 3306</li>
+              <li>with <code class="highlighter-rouge">bonita_db_vendor: oracle</code> - <strong>Port Range</strong>: 1521</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Create an EC2 Key Pair</a>
+    <ul>
+      <li><em>Note: A key pair is linked to an AWS region</em></li>
+      <li>Download the <code class="highlighter-rouge">.pem</code> private key file</li>
+      <li>Ensure private key file permissions: <code class="highlighter-rouge">$ chmod 400 &lt;keyfile_basename&gt;.pem</code></li>
+    </ul>
+  </li>
+</ol>
+
+<p>BCD is compatible with official Ubuntu cloud images as EC2 AMI (Amazon Machine Images).<br />
+Use the <a href="https://cloud-images.ubuntu.com/locator/ec2/">Amazon EC2 AMI Locator</a> tools to identify IDs of such images.</p>
+
+<h2 id="dynamic-ec2-inventory-configuration">Dynamic EC2 inventory configuration</h2>
+
+<p>When deploying to AWS, BCD uses <a href="http://docs.ansible.com/ansible/latest/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script">dynamic Amazon EC2 inventory</a> with a <code class="highlighter-rouge">ec2_wrapper.sh</code> script.</p>
+
+<p>This <code class="highlighter-rouge">ec2_wrapper.sh</code> script can be further configured with the <code class="highlighter-rouge">ec2.ini.j2</code> template.</p>
+
+<p>For instance, if you are running the BCD controller <strong>from outside EC2</strong>, the <code class="highlighter-rouge">vpc_destination_variable</code> parameter should be set to <code class="highlighter-rouge">ip_address</code>. If you are running the BCD controller <strong>from within EC2</strong>, the <code class="highlighter-rouge">vpc_destination_variable</code> parameter should be set to <code class="highlighter-rouge">private_ip_address</code>.<br />
+This parameter is managed by the <code class="highlighter-rouge">ec2_vpc_destination_variable</code> BCD variable.</p>
+
+<p>More information on dynamic EC2 inventory management can be found in <a href="https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/">this blog post</a>.</p>
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>

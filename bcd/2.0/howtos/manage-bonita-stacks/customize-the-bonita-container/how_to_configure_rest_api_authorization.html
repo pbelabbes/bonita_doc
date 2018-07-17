@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head --><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Configuring REST API authorization | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="Configuring REST API authorization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to configure REST API authorization" />
+<meta property="og:description" content="How to configure REST API authorization" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-17T11:57:15+02:00" />
+<script type="application/ld+json">
+{"description":"How to configure REST API authorization","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization","headline":"Configuring REST API authorization","dateModified":"2018-07-17T11:57:15+02:00","datePublished":"2018-07-17T11:57:15+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="react-search"></div>
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">
+            
+            <img src="/bonita_doc/assets/img/logo_bcd.png" />
+            
+                
+
+                <span>Bcd  2.0</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/release_notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/requirements-and-compatibility">Requirements and compatibility</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/getting_started">Getting started</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bcd-services-and-scenarios" aria-controls="bcd-services-and-scenarios"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD services and scenarios</strong></a><ul id="bcd-services-and-scenarios" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_controller">Controller Docker image</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli">Command-line interface</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios">Scenario file reference</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites">Configure Amazon Web Services (AWS) for BCD</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_sso">Configure AWS single sign-on</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_organizations">Assume IAM role within AWS Organizations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/deploy_with_static_inventory">Deploy with a static inventory</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#customize-the-bonita-container" aria-controls="customize-the-bonita-container"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Customize the Bonita container</strong></a><ul id="customize-the-bonita-container" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/custom_init">Using initialization scripts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization">Configuring REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_enable_remote_monitoring_jmx">Enabling remote monitoring with JMX</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#manage-bonita-living-applications" aria-controls="manage-bonita-living-applications"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita Living Applications</strong></a><ul id="manage-bonita-living-applications" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build">Build a Living App repository</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_deploy">Deploy Living App artifacts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy">Build and deploy (Best Practices)</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/how_to_use_bcd_with_data_encrypted">Use BCD with sensitive data encrypted</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/jenkins_example">Integrate BCD with Jenkins</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/troubleshooting_guide">Troubleshooting guide</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-continuous-delivery-doc/edit/2.0/md/how_to_configure_rest_api_authorization.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="how-to-configure-rest-api-authorization">How to configure REST API authorization</h1>
+
+<p>The Bonita container is launched with REST_API_DYN_AUTH_CHECKS flag set to true by default.<br />
+It means that all <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization#toc2">dynamic permissions checks</a> are activated.</p>
+
+<p>In the sections below we will manipluate configuration into templates and not at a specific tenant. Indeed the default tenant (1) will be created during the first startup of bonita.</p>
+
+<div class="list-group"><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization#deactivating-dynamic-permissions-checks" class="list-group-item toc-h2">Deactivating dynamic permissions checks</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization#adding-custom-permissions" class="list-group-item toc-h2">Adding custom permissions</a><a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization#enabling-debug-mode" class="list-group-item toc-h2">Enabling debug mode</a>
+</div>
+<h2 id="deactivating-dynamic-permissions-checks">Deactivating dynamic permissions checks</h2>
+
+<p id="deactivating-dynamic-permissions-checks">Since 2.0.x, BCD manages the REST_API_DYN_AUTH_CHECKS environment through the <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios">scenario variable</a> <code class="highlighter-rouge">bonita_rest_api_dyn_auth_checks</code>.<br />
+So to deactivate dynamic permissions checks you will just have to add the following line into your scenario:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bonita_rest_api_dyn_auth_checks: false
+</code></pre></div></div>
+
+<h2 id="adding-custom-permissions">Adding custom permissions</h2>
+
+<p>As described in <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization?hash=debug#toc1">Bonita documentation</a>, the custom-permissions-mapping.properties file contains custom rules that supplement the resource permissions and compound permissions. By default, this file is empty, because the compound permissions definitions automatically manage the permissions needed for default and custom profiles, and for default and custom pages.</p>
+
+<p>If you want to override the default behavior, you can add rules to this file by adding this kind of script <code class="highlighter-rouge">roles/bonita/files/custom-init.d/add-custom-permissions.sh</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">set</span> <span class="nt">-euxo</span> pipefail
+
+<span class="nv">indicator_path</span><span class="o">=</span>/opt/<span class="k">$(</span><span class="nb">basename</span> <span class="nv">$BASH_ARGV</span><span class="k">)</span><span class="nt">-executed</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="k">${</span><span class="nv">indicator_path</span><span class="k">}</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nb">echo</span> <span class="s2">"Custom script already executed"</span> <span class="o">&amp;&amp;</span> <span class="k">return </span>0
+<span class="k">fi
+
+</span><span class="nv">BONITA_PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">:-</span><span class="p">/opt/bonita</span><span class="k">}</span>
+<span class="nv">BONITA_FILES</span><span class="o">=</span><span class="k">${</span><span class="nv">BONITA_FILES</span><span class="k">:-</span><span class="p">/opt/files</span><span class="k">}</span>
+<span class="nv">BONITA_SETUP_SH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">}</span><span class="s2">/Bonita*Subscription-</span><span class="k">${</span><span class="nv">BONITA_VERSION</span><span class="k">}</span><span class="s2">-Tomcat-</span><span class="k">${</span><span class="nv">TOMCAT_VERSION</span><span class="k">}</span><span class="s2">/setup/setup.sh"</span>
+
+<span class="c"># define custom permissions</span>
+<span class="c"># the profile User have now the permission Organization management and Organization visualization</span>
+<span class="k">${</span><span class="nv">BONITA_SETUP_SH</span><span class="k">}</span> pull
+<span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">profile|User=[organization_management, organization_visualization]"</span> <span class="o">&gt;&gt;</span> <span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">}</span>/Bonita<span class="k">*</span>Subscription-<span class="k">${</span><span class="nv">BONITA_VERSION</span><span class="k">}</span><span class="nt">-Tomcat-</span><span class="k">${</span><span class="nv">TOMCAT_VERSION</span><span class="k">}</span>/setup/platform_conf/current/tenant_template_portal/custom-permissions-mapping.properties
+<span class="k">${</span><span class="nv">BONITA_SETUP_SH</span><span class="k">}</span> push
+
+<span class="c"># Create indicator file</span>
+<span class="nb">touch</span> <span class="k">${</span><span class="nv">indicator_path</span><span class="k">}</span>
+</code></pre></div></div>
+
+<p>For a more advanced configuration you can also provide directly a file <code class="highlighter-rouge">roles/bonita/files/custom-init.d/custom-permissions-mapping.properties</code> and push it with a script like <code class="highlighter-rouge">roles/bonita/files/custom-init.d/add-custom-permissions-file.sh</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">set</span> <span class="nt">-euxo</span> pipefail
+
+<span class="nv">indicator_path</span><span class="o">=</span>/opt/<span class="k">$(</span><span class="nb">basename</span> <span class="nv">$BASH_ARGV</span><span class="k">)</span><span class="nt">-executed</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="k">${</span><span class="nv">indicator_path</span><span class="k">}</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nb">echo</span> <span class="s2">"Custom script already executed"</span> <span class="o">&amp;&amp;</span> <span class="k">return </span>0
+<span class="k">fi
+
+</span><span class="nv">BONITA_PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">:-</span><span class="p">/opt/bonita</span><span class="k">}</span>
+<span class="nv">BONITA_FILES</span><span class="o">=</span><span class="k">${</span><span class="nv">BONITA_FILES</span><span class="k">:-</span><span class="p">/opt/files</span><span class="k">}</span>
+<span class="nv">BONITA_SETUP_SH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">}</span><span class="s2">/Bonita*Subscription-</span><span class="k">${</span><span class="nv">BONITA_VERSION</span><span class="k">}</span><span class="s2">-Tomcat-</span><span class="k">${</span><span class="nv">TOMCAT_VERSION</span><span class="k">}</span><span class="s2">/setup/setup.sh"</span>
+
+<span class="c"># define custom permissions</span>
+<span class="k">${</span><span class="nv">BONITA_SETUP_SH</span><span class="k">}</span> pull
+<span class="nb">cp</span> /opt/custom-init.d/custom-permissions-mapping.properties <span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">}</span>/Bonita<span class="k">*</span>Subscription-<span class="k">${</span><span class="nv">BONITA_VERSION</span><span class="k">}</span><span class="nt">-Tomcat-</span><span class="k">${</span><span class="nv">TOMCAT_VERSION</span><span class="k">}</span>/setup/platform_conf/current/tenant_template_portal/
+<span class="k">${</span><span class="nv">BONITA_SETUP_SH</span><span class="k">}</span> push
+
+<span class="c"># Create indicator file</span>
+<span class="nb">touch</span> <span class="k">${</span><span class="nv">indicator_path</span><span class="k">}</span>
+</code></pre></div></div>
+
+<h2 id="enabling-debug-mode">Enabling debug mode</h2>
+
+<p>If <a href="https://documentation.bonitasoft.com/bonita/2.0/rest-api-authorization?hash=debug">debug mode</a> is activated, whenever you update a configuration file or a dynamic check script, the changes take effect immediately.</p>
+
+<p>To activate debug mode you can create a script like <code class="highlighter-rouge">roles/bonita/files/custom-init.d/activate-debug-mode.sh</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">set</span> <span class="nt">-euxo</span> pipefail
+
+<span class="nv">indicator_path</span><span class="o">=</span>/opt/<span class="k">$(</span><span class="nb">basename</span> <span class="nv">$BASH_ARGV</span><span class="k">)</span><span class="nt">-executed</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="k">${</span><span class="nv">indicator_path</span><span class="k">}</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nb">echo</span> <span class="s2">"Custom script already executed"</span> <span class="o">&amp;&amp;</span> <span class="k">return </span>0
+<span class="k">fi
+
+</span><span class="nv">BONITA_PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">:-</span><span class="p">/opt/bonita</span><span class="k">}</span>
+<span class="nv">BONITA_FILES</span><span class="o">=</span><span class="k">${</span><span class="nv">BONITA_FILES</span><span class="k">:-</span><span class="p">/opt/files</span><span class="k">}</span>
+<span class="nv">BONITA_SETUP_SH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">}</span><span class="s2">/Bonita*Subscription-</span><span class="k">${</span><span class="nv">BONITA_VERSION</span><span class="k">}</span><span class="s2">-Tomcat-</span><span class="k">${</span><span class="nv">TOMCAT_VERSION</span><span class="k">}</span><span class="s2">/setup/setup.sh"</span>
+
+<span class="c"># activate debug mode</span>
+<span class="k">${</span><span class="nv">BONITA_SETUP_SH</span><span class="k">}</span> pull
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/security.rest.api.authorizations.check.debug.*/security.rest.api.authorizations.check.debug true/'</span> <span class="k">${</span><span class="nv">BONITA_PATH</span><span class="k">}</span>/Bonita<span class="k">*</span>Subscription-<span class="k">${</span><span class="nv">BONITA_VERSION</span><span class="k">}</span><span class="nt">-Tomcat-</span><span class="k">${</span><span class="nv">TOMCAT_VERSION</span><span class="k">}</span>/setup/platform_conf/current/tenant_template_portal/security-config.properties
+<span class="k">${</span><span class="nv">BONITA_SETUP_SH</span><span class="k">}</span> push
+
+<span class="c"># Create indicator file</span>
+<span class="nb">touch</span> <span class="k">${</span><span class="nv">indicator_path</span><span class="k">}</span>
+</code></pre></div></div>
+
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>

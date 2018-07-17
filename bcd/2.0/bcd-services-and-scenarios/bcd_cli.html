@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head --><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Command-line interface | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="Command-line interface" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="BCD command-line interface" />
+<meta property="og:description" content="BCD command-line interface" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-17T11:57:15+02:00" />
+<script type="application/ld+json">
+{"description":"BCD command-line interface","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli","headline":"Command-line interface","dateModified":"2018-07-17T11:57:15+02:00","datePublished":"2018-07-17T11:57:15+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="react-search"></div>
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">
+            
+            <img src="/bonita_doc/assets/img/logo_bcd.png" />
+            
+                
+
+                <span>Bcd  2.0</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/release_notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/requirements-and-compatibility">Requirements and compatibility</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/getting_started">Getting started</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bcd-services-and-scenarios" aria-controls="bcd-services-and-scenarios"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD services and scenarios</strong></a><ul id="bcd-services-and-scenarios" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_controller">Controller Docker image</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli">Command-line interface</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios">Scenario file reference</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites">Configure Amazon Web Services (AWS) for BCD</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_sso">Configure AWS single sign-on</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_organizations">Assume IAM role within AWS Organizations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/deploy_with_static_inventory">Deploy with a static inventory</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#customize-the-bonita-container" aria-controls="customize-the-bonita-container"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Customize the Bonita container</strong></a><ul id="customize-the-bonita-container" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/custom_init">Using initialization scripts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization">Configuring REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_enable_remote_monitoring_jmx">Enabling remote monitoring with JMX</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#manage-bonita-living-applications" aria-controls="manage-bonita-living-applications"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita Living Applications</strong></a><ul id="manage-bonita-living-applications" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build">Build a Living App repository</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_deploy">Deploy Living App artifacts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy">Build and deploy (Best Practices)</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/how_to_use_bcd_with_data_encrypted">Use BCD with sensitive data encrypted</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/jenkins_example">Integrate BCD with Jenkins</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/troubleshooting_guide">Troubleshooting guide</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-continuous-delivery-doc/edit/2.0/md/bcd_cli.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="bcd-command-line-interface">BCD command-line interface</h1>
+
+<p>On this page you will find detailed information about the BCD CLI with usage examples and reference.</p>
+
+<div class="list-group">
+  <p><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli#requirements" class="list-group-item toc-h2">Requirements</a><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli#usage-examples" class="list-group-item toc-h2">Usage examples</a><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli#multi-command-chaining" class="list-group-item toc-h2">Multi command chaining</a><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli#command-line-reference" class="list-group-item toc-h2">Command-line reference</a></p>
+</div>
+<h2 id="requirements">Requirements</h2>
+
+<ul id="requirements">
+  <li>First, the <code class="highlighter-rouge">bcd</code> command requires that the <strong><code class="highlighter-rouge">BCD_HOME</code></strong> environment variable is set.<br />
+By default <code class="highlighter-rouge">BCD_HOME</code> is set to <code class="highlighter-rouge">/home/bonita/bonita-continuous-delivery</code> in the controller container.</li>
+  <li>Next, the <code class="highlighter-rouge">bcd</code> command takes a mandatory option called <code class="highlighter-rouge">scenario</code> through the <code class="highlighter-rouge">-s / --scenario</code> command line option.<br />
+This option expects an existing relative or absolute path to a <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios">BCD YAML scenario</a> file.<br />
+The BCD scenario path can also be specified through the <strong><code class="highlighter-rouge">BCD_SCENARIO</code></strong> environment variable, hence allowing to skip the <code class="highlighter-rouge">-s / --scenario</code> command line option.</li>
+  <li>Finally, the BCD CLI expects to find Bonita version-specific dependencies in the <strong><code class="highlighter-rouge">$BCD_HOME/dependencies</code></strong> directory. This directory must contain:
+    <ul>
+      <li><code class="highlighter-rouge">bonita-subscription_*.tar.gz</code> - (Mandatory) The Bonita Docker image archive</li>
+      <li><code class="highlighter-rouge">bonita-la-builder-*-exec.jar</code> - (Mandatory) The Bonita Living Application Builder library</li>
+      <li><code class="highlighter-rouge">bonita-sp-*-maven-repository.zip</code> - (Optional) The Bonita Maven repository zip if required by your Living Application workspace.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="usage-examples">Usage examples</h2>
+
+<p>Running the <code class="highlighter-rouge">create</code> subcommand of the <code class="highlighter-rouge">stack</code> command with scenario command-line option:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bcd -s scenarios/uswest2_cluster.yml stack create
+</code></pre></div></div>
+
+<p>Running the <code class="highlighter-rouge">deploy</code> subcommand of the <code class="highlighter-rouge">stack</code> command with scenario command-line option and overridden <code class="highlighter-rouge">mail_notification</code> variable:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bcd -s scenarios/vagrant_single.yml -e mail_notification=no -y stack deploy
+</code></pre></div></div>
+
+<p>Running the <code class="highlighter-rouge">destroy</code> subcommand of the <code class="highlighter-rouge">stack</code> command with <code class="highlighter-rouge">BCD_SCENARIO</code> environment variable and subcommand <code class="highlighter-rouge">--dry-run</code> option:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ export BCD_SCENARIO=scenarios/uswest2_performance.yml
+$ bcd stack destroy --dry-run
+</code></pre></div></div>
+
+<p>Running the <code class="highlighter-rouge">build</code> subcommand of the <code class="highlighter-rouge">livingapp</code> command with <code class="highlighter-rouge">BCD_SCENARIO</code> environment variable and subcommand <code class="highlighter-rouge">-p</code> and <code class="highlighter-rouge">-e</code> options:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ export BCD_SCENARIO=scenarios/euwest1_performance.yml
+$ bcd livingapp build -p path/to/livingapp-repo -e Qualification
+</code></pre></div></div>
+
+<p>Running the <code class="highlighter-rouge">version</code> command which does not require a scenario file:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bcd version
+</code></pre></div></div>
+
+<h2 id="multi-command-chaining">Multi command chaining</h2>
+
+<p>The BCD CLI allows to invoke more than one command in one go. This is useful to chain commands as a pipeline.</p>
+
+<p>If one command fails then <code class="highlighter-rouge">bcd</code> stops executing any subsequent command it may have.</p>
+
+<p><strong>Examples</strong>:</p>
+
+<p>Running <code class="highlighter-rouge">create</code> then <code class="highlighter-rouge">deploy</code> subcommands of the <code class="highlighter-rouge">stack</code> command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bcd -s scenarios/uswest2_cluster.yml -y stack create deploy
+</code></pre></div></div>
+
+<p>Running <code class="highlighter-rouge">build</code> then <code class="highlighter-rouge">deploy</code> subcommands of the <code class="highlighter-rouge">livingapp</code> command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bcd -s scenarios/vagrant_single.yml --yes \
+    livingapp build -p path/to/livingapp-repo -e Qualification deploy
+</code></pre></div></div>
+
+<h2 id="command-line-reference">Command-line reference</h2>
+
+<p>This section describes the comprehensive usage information for the <code class="highlighter-rouge">bcd</code> command.</p>
+
+<p>You can also see this information by running <code class="highlighter-rouge">bcd --help</code> and <code class="highlighter-rouge">bcd [SUBCOMMAND] --help</code> - where SUBCOMMAND is in <code class="highlighter-rouge">[livingapp, stack]</code> - from the command line.</p>
+
+<div class="section" id="bcd">
+  <p><span class="h2">bcd</span></p>
+  <p>Bonita Continuous Delivery CLI.</p>
+  <div class="highlight-shell notranslate">
+    <div class="highlight">
+      <pre><span></span>bcd <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre>
+    </div>
+  </div>
+  <p class="rubric">Options</p>
+  <dl class="option">
+    <dt id="cmdoption-bcd-v">
+<code class="descname">-v</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--verbose</code><code class="descclassname"></code></dt>
+    <dd>
+      <p>Enable Ansible verbose mode</p>
+    </dd>
+  </dl>
+
+  <dl class="option">
+    <dt id="cmdoption-bcd-y">
+<code class="descname">-y</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--yes</code><code class="descclassname"></code></dt>
+    <dd>
+      <p>Execute action without confirmation prompt</p>
+    </dd>
+  </dl>
+
+  <dl class="option">
+    <dt id="cmdoption-bcd-nocolor">
+<code class="descname">--nocolor</code><code class="descclassname"></code></dt>
+    <dd>
+      <p>Turn output colorization off</p>
+    </dd>
+  </dl>
+
+  <dl class="option">
+    <dt id="cmdoption-bcd-s">
+<code class="descname">-s</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--scenario</code><code class="descclassname"> &lt;scenario&gt;</code></dt>
+    <dd>
+      <p>YAML scenario file path - Optional if <cite>BCD_SCENARIO</cite> environment variable is defined.</p>
+    </dd>
+  </dl>
+
+  <dl class="option">
+    <dt id="cmdoption-bcd-e">
+<code class="descname">-e</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--extra-vars</code><code class="descclassname"> &lt;extra_vars&gt;</code></dt>
+    <dd>
+      <p>Extra vars for Ansible (multiple) - Variables are passed using the key=value syntax.</p>
+    </dd>
+  </dl>
+
+  <dl class="option">
+    <dt id="cmdoption-bcd-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+    <dd>
+      <p>Show this help message</p>
+    </dd>
+  </dl>
+
+  <dl class="option">
+    <dt id="cmdoption-bcd-version">
+<code class="descname">--version</code><code class="descclassname"></code></dt>
+    <dd>
+      <p>Show the version and exit.</p>
+    </dd>
+  </dl>
+
+  <div class="section" id="bcd-livingapp">
+    <p><span class="h3">livingapp</span></p>
+    <p>Manage Bonita Living Application</p>
+    <div class="highlight-shell notranslate">
+      <div class="highlight">
+        <pre><span></span>bcd livingapp <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND1 <span class="o">[</span>ARGS<span class="o">]</span>... <span class="o">[</span>COMMAND2 <span class="o">[</span>ARGS<span class="o">]</span>...<span class="o">]</span>...
+</pre>
+      </div>
+    </div>
+    <p class="rubric">Options</p>
+    <dl class="option">
+      <dt id="cmdoption-bcd-livingapp-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+      <dd>
+        <p>Show this help message</p>
+      </dd>
+    </dl>
+
+    <div class="section" id="bcd-livingapp-build">
+      <p><span class="h4">build</span></p>
+      <p>Build Bonita Living Application</p>
+      <div class="highlight-shell notranslate">
+        <div class="highlight">
+          <pre><span></span>bcd livingapp build <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre>
+        </div>
+      </div>
+      <p class="rubric">Options</p>
+      <dl class="option">
+        <dt id="cmdoption-bcd-livingapp-build-p">
+<code class="descname">-p</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--path</code><code class="descclassname"> &lt;path&gt;</code></dt>
+        <dd>
+          <p>Bonita Living Application workspace path</p>
+        </dd>
+      </dl>
+
+      <dl class="option">
+        <dt id="cmdoption-bcd-livingapp-build-e">
+<code class="descname">-e</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--environment</code><code class="descclassname"> &lt;environment&gt;</code></dt>
+        <dd>
+          <p>Name of the process configuration environment as defined in Bonita Studio</p>
+        </dd>
+      </dl>
+
+      <dl class="option">
+        <dt id="cmdoption-bcd-livingapp-build-x">
+<code class="descname">-X</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--debug</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Enable debug mode</p>
+        </dd>
+      </dl>
+
+      <dl class="option">
+        <dt id="cmdoption-bcd-livingapp-build-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show this help message</p>
+        </dd>
+      </dl>
+
+    </div>
+    <div class="section" id="bcd-livingapp-deploy">
+      <p><span class="h4">deploy</span></p>
+      <p>Deploy Bonita Living Application</p>
+      <div class="highlight-shell notranslate">
+        <div class="highlight">
+          <pre><span></span>bcd livingapp deploy <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre>
+        </div>
+      </div>
+      <p class="rubric">Options</p>
+      <dl class="option">
+        <dt id="cmdoption-bcd-livingapp-deploy-p">
+<code class="descname">-p</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--path</code><code class="descclassname"> &lt;path&gt;</code></dt>
+        <dd>
+          <p>Bonita Living Application file path</p>
+        </dd>
+      </dl>
+
+      <dl class="option">
+        <dt id="cmdoption-bcd-livingapp-deploy-x">
+<code class="descname">-X</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--debug</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Enable debug mode</p>
+        </dd>
+      </dl>
+
+      <dl class="option">
+        <dt id="cmdoption-bcd-livingapp-deploy-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show this help message</p>
+        </dd>
+      </dl>
+
+    </div>
+  </div>
+  <div class="section" id="bcd-stack">
+    <p><span class="h3">stack</span></p>
+    <p>Manage Bonita stack (infrastructure)</p>
+    <div class="highlight-shell notranslate">
+      <div class="highlight">
+        <pre><span></span>bcd stack <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND1 <span class="o">[</span>ARGS<span class="o">]</span>... <span class="o">[</span>COMMAND2 <span class="o">[</span>ARGS<span class="o">]</span>...<span class="o">]</span>...
+</pre>
+      </div>
+    </div>
+    <p class="rubric">Options</p>
+    <dl class="option">
+      <dt id="cmdoption-bcd-stack-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+      <dd>
+        <p>Show this help message</p>
+      </dd>
+    </dl>
+
+    <div class="section" id="bcd-stack-create">
+      <p><span class="h4">create</span></p>
+      <p>Create AWS instances</p>
+      <div class="highlight-shell notranslate">
+        <div class="highlight">
+          <pre><span></span>bcd stack create <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre>
+        </div>
+      </div>
+      <p class="rubric">Options</p>
+      <dl class="option">
+        <dt id="cmdoption-bcd-stack-create-d">
+<code class="descname">-d</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--dry-run</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show an execution plan only</p>
+        </dd>
+      </dl>
+
+      <dl class="option">
+        <dt id="cmdoption-bcd-stack-create-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show this help message</p>
+        </dd>
+      </dl>
+
+    </div>
+    <div class="section" id="bcd-stack-deploy">
+      <p><span class="h4">deploy</span></p>
+      <p>Deploy Bonita stack (creates Docker containers)</p>
+      <div class="highlight-shell notranslate">
+        <div class="highlight">
+          <pre><span></span>bcd stack deploy <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre>
+        </div>
+      </div>
+      <p class="rubric">Options</p>
+      <dl class="option">
+        <dt id="cmdoption-bcd-stack-deploy-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show this help message</p>
+        </dd>
+      </dl>
+
+    </div>
+    <div class="section" id="bcd-stack-destroy">
+      <p><span class="h4">destroy</span></p>
+      <p>Destroy AWS machines (EC2 instances)</p>
+      <div class="highlight-shell notranslate">
+        <div class="highlight">
+          <pre><span></span>bcd stack destroy <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre>
+        </div>
+      </div>
+      <p class="rubric">Options</p>
+      <dl class="option">
+        <dt id="cmdoption-bcd-stack-destroy-d">
+<code class="descname">-d</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--dry-run</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show an execution plan only</p>
+        </dd>
+      </dl>
+
+      <dl class="option">
+        <dt id="cmdoption-bcd-stack-destroy-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show this help message</p>
+        </dd>
+      </dl>
+
+    </div>
+    <div class="section" id="bcd-stack-status">
+      <p><span class="h4">status</span></p>
+      <p>Show the platform status</p>
+      <div class="highlight-shell notranslate">
+        <div class="highlight">
+          <pre><span></span>bcd stack status <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre>
+        </div>
+      </div>
+      <p class="rubric">Options</p>
+      <dl class="option">
+        <dt id="cmdoption-bcd-stack-status-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show this help message</p>
+        </dd>
+      </dl>
+
+    </div>
+    <div class="section" id="bcd-stack-undeploy">
+      <p><span class="h4">undeploy</span></p>
+      <p>Undeploy Bonita stack (removes Docker containers)</p>
+      <div class="highlight-shell notranslate">
+        <div class="highlight">
+          <pre><span></span>bcd stack undeploy <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre>
+        </div>
+      </div>
+      <p class="rubric">Options</p>
+      <dl class="option">
+        <dt id="cmdoption-bcd-stack-undeploy-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+        <dd>
+          <p>Show this help message</p>
+        </dd>
+      </dl>
+
+    </div>
+  </div>
+  <div class="section" id="bcd-version">
+    <p><span class="h3">version</span></p>
+    <p>Show BCD version information</p>
+    <div class="highlight-shell notranslate">
+      <div class="highlight">
+        <pre><span></span>bcd version <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre>
+      </div>
+    </div>
+    <p class="rubric">Options</p>
+    <dl class="option">
+      <dt id="cmdoption-bcd-version-h">
+<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code></dt>
+      <dd>
+        <p>Show this help message</p>
+      </dd>
+    </dl>
+
+  </div>
+</div>
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>

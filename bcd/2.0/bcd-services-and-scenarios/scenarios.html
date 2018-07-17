@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head --><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Scenario file reference | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="Scenario file reference" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="BCD Scenario reference" />
+<meta property="og:description" content="BCD Scenario reference" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-17T11:57:15+02:00" />
+<script type="application/ld+json">
+{"description":"BCD Scenario reference","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios","headline":"Scenario file reference","dateModified":"2018-07-17T11:57:15+02:00","datePublished":"2018-07-17T11:57:15+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="react-search"></div>
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">
+            
+            <img src="/bonita_doc/assets/img/logo_bcd.png" />
+            
+                
+
+                <span>Bcd  2.0</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/release_notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/requirements-and-compatibility">Requirements and compatibility</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/getting_started">Getting started</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bcd-services-and-scenarios" aria-controls="bcd-services-and-scenarios"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD services and scenarios</strong></a><ul id="bcd-services-and-scenarios" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_controller">Controller Docker image</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli">Command-line interface</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios">Scenario file reference</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites">Configure Amazon Web Services (AWS) for BCD</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_sso">Configure AWS single sign-on</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_organizations">Assume IAM role within AWS Organizations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/deploy_with_static_inventory">Deploy with a static inventory</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#customize-the-bonita-container" aria-controls="customize-the-bonita-container"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Customize the Bonita container</strong></a><ul id="customize-the-bonita-container" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/custom_init">Using initialization scripts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization">Configuring REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_enable_remote_monitoring_jmx">Enabling remote monitoring with JMX</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#manage-bonita-living-applications" aria-controls="manage-bonita-living-applications"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita Living Applications</strong></a><ul id="manage-bonita-living-applications" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build">Build a Living App repository</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_deploy">Deploy Living App artifacts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy">Build and deploy (Best Practices)</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/how_to_use_bcd_with_data_encrypted">Use BCD with sensitive data encrypted</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/jenkins_example">Integrate BCD with Jenkins</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/troubleshooting_guide">Troubleshooting guide</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-continuous-delivery-doc/edit/2.0/md/scenarios.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="bcd-scenario-reference">BCD Scenario reference</h1>
+
+<p>Scenarios enable you to define your infrastructure and Bonita stack. A scenario is a YAML Ansible variable file that BCD injects to the underlying Ansible playbooks. Its syntax basically follows <a href="http://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">Ansible’s YAML syntax</a>.</p>
+
+<p>The variables described in a scenario have precedence over those defined in the playbooks or the group vars. It is still possible to overload scenario variables with <code class="highlighter-rouge">--extra-vars</code> declaration in the <code class="highlighter-rouge">bcd</code> command line. For instance overloading <code class="highlighter-rouge">bonita_version</code> can be interesting if you want to test multiple versions of Bonita without duplicating scenario files.</p>
+
+<div class="alert alert-info">
+<p>An example scenario file named <strong>uswest_performance.yml.EXAMPLE</strong> is provided in the <strong>scenarios</strong> directory. Use this example to customize your scenario and save it with a <code class="highlighter-rouge">.yml</code> file extension.</p>
+</div>
+
+<div class="list-group"><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios#core-variables" class="list-group-item toc-h2">Core variables</a><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios#aws-provider-variables" class="list-group-item toc-h2">AWS provider variables</a><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios#bonita-variables" class="list-group-item toc-h2">Bonita variables</a><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios#licensing-variables" class="list-group-item toc-h2">Licensing variables</a><a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios#email-notification-variables" class="list-group-item toc-h2">Email notification variables</a>
+</div>
+<h2 id="core-variables">Core variables</h2>
+
+<p id="core-variables">These are general variables used while provisioning your platform.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mandatory</th>
+      <th>Default</th>
+      <th>Description</th>
+      <th>Sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bcd_provider</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Infrastructure provider. Choose between <code class="highlighter-rouge">aws</code> and <code class="highlighter-rouge">static_inventory</code>. With <code class="highlighter-rouge">aws</code> provider, BCD may create and destroy EC2 instances of the Bonita stack.</td>
+      <td>aws</td>
+    </tr>
+    <tr>
+      <td>bcd_stack_id</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Bonita stack identifier used to group machines by stack membership. For AWS deployments the characters allowed are limited to letters, numbers and underscore.</td>
+      <td>uswest2_test</td>
+    </tr>
+    <tr>
+      <td>bcd_inventory</td>
+      <td>N</td>
+      <td>-</td>
+      <td>Ansible inventory path required when <code class="highlighter-rouge">bcd_provider</code> is <code class="highlighter-rouge">static_inventory</code>. Example static inventories are provided in the <code class="highlighter-rouge">ansible/inventory/vagrant</code> directory.</td>
+      <td>ansible/inventory/vagrant/1-machine/inventory</td>
+    </tr>
+    <tr>
+      <td>bonita_on_single_host</td>
+      <td>N</td>
+      <td>false</td>
+      <td>Set to <code class="highlighter-rouge">True</code> when all containers of the Bonita stack is deployed on a single host.</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>configuration</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Configuration filename used to group variables for common deployment types. The corresponding YAML file must exist in the <code class="highlighter-rouge">ansible/vars</code> directory.</td>
+      <td>aws_vars</td>
+    </tr>
+    <tr>
+      <td>ansible_ssh_user</td>
+      <td>N</td>
+      <td>ubuntu</td>
+      <td>SSH user used to connect to target hosts.</td>
+      <td>ubuntu</td>
+    </tr>
+    <tr>
+      <td>ansible_private_key_file</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Path to the private SSH key used to connect to target hosts.</td>
+      <td>~/.ssh/ABC_us-west-2.pem</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="aws-provider-variables">AWS provider variables</h2>
+
+<p>The following variables are specific to AWS deployments ie. when <code class="highlighter-rouge">bcd_provider</code> is set to <code class="highlighter-rouge">aws</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mandatory</th>
+      <th>Default</th>
+      <th>Description</th>
+      <th>Sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ec2_region</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>AWS region.</td>
+      <td>us-west-2</td>
+    </tr>
+    <tr>
+      <td>ec2_security_group</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Security group id for the target instances.</td>
+      <td>sg-944888f1</td>
+    </tr>
+    <tr>
+      <td>ec2_security_group_name</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Security group name for the target instances.</td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td>ec2_subnet_ids</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Subnet id for the target instances.</td>
+      <td>subnet-aa14e0cf</td>
+    </tr>
+    <tr>
+      <td>ec2_keypair</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Key pair name for the target instances. Linked to ansible_private_key_file.</td>
+      <td>jenkins_ansible_us-west-2</td>
+    </tr>
+    <tr>
+      <td>ec2_discovery_iam_role</td>
+      <td>N</td>
+      <td>-</td>
+      <td>Name of the IAM role to attach to EC2 instances to allow Hazelcast EC2 auto-discovery. This is MANDATORY when deploying a Bonita cluster on AWS with BCD.</td>
+      <td>ClusterBCD</td>
+    </tr>
+    <tr>
+      <td>ec2_vpc_destination_variable</td>
+      <td>N</td>
+      <td>-</td>
+      <td>Type of network address the EC2 dynamic inventory script should use. For instance, if you are running the BCD controller <strong>from outside EC2</strong>, the <code class="highlighter-rouge">vpc_destination_variable</code> parameter should be set to <code class="highlighter-rouge">ip_address</code>. If you are running the BCD controller <strong>from within EC2</strong>, the <code class="highlighter-rouge">vpc_destination_variable</code> parameter should be set to <code class="highlighter-rouge">private_ip_address</code>.</td>
+      <td>ip_address</td>
+    </tr>
+    <tr>
+      <td>boto_path</td>
+      <td>N</td>
+      <td>~/.boto</td>
+      <td>Path to the Boto file with the AWS credentials.</td>
+      <td>~/.boto</td>
+    </tr>
+    <tr>
+      <td>rds</td>
+      <td>N</td>
+      <td>false</td>
+      <td>Use an existing AWS RDS database instance. By default this parameter is set to <code class="highlighter-rouge">false</code> to create an EC2 instance for Bonita database.</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>aws_ami</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Common AMI for all EC2 instances. Depends on AWS region. Should be Ubuntu 14.04 (trusty) or Ubuntu 16.04 (xenial) and ebs-ssd type.</td>
+      <td>ami-fc4f5e85</td>
+    </tr>
+    <tr>
+      <td>aws_database_instance_type</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>EC2 instance type for the database instance.</td>
+      <td>t2.micro</td>
+    </tr>
+    <tr>
+      <td>aws_bonita_instance_type</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>EC2 instance type for the Bonita instances.</td>
+      <td>t2.micro</td>
+    </tr>
+    <tr>
+      <td>aws_load_balancer_instance_type</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>EC2 instance type for the load balancer instance.</td>
+      <td>t2.micro</td>
+    </tr>
+    <tr>
+      <td>aws_assumed_iam_role</td>
+      <td>N</td>
+      <td>-</td>
+      <td>An IAM role can be assumed, so all requests are run as that role. This can be useful for connecting across different accounts, or to limit user access. Set this parameter if you want to assume an IAM role while deploying on AWS. It is useful in an AWS organization with IAM users and multiple AWS accounts. See <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_organizations">AWS Organizations</a></td>
+      <td>arn:aws:iam::123456789012:role/BCD</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="bonita-variables">Bonita variables</h2>
+
+<p>The following parameters are specific to the Bonita instances.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mandatory</th>
+      <th>Default</th>
+      <th>Description</th>
+      <th>Sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bonita_version</td>
+      <td>Y</td>
+      <td>-</td>
+      <td>Bonita version. Used for the Docker tar.gz filename</td>
+      <td>7.7.0</td>
+    </tr>
+    <tr>
+      <td>bonita_edition</td>
+      <td>N</td>
+      <td>performance</td>
+      <td>Allowed values: teamwork, efficiency, performancen, community. Used while generating Bonita licenses.</td>
+      <td>performance</td>
+    </tr>
+    <tr>
+      <td>bonita_cluster_mode</td>
+      <td>N</td>
+      <td>false</td>
+      <td>Activates cluster mode for Bonita.</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>bonita_cluster_qty</td>
+      <td>N</td>
+      <td>1</td>
+      <td>Number of instances for Bonita. This variable is also used in EC2 mode for the number of Bonita EC2 instance.</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>bonita_port</td>
+      <td>N</td>
+      <td>8081</td>
+      <td>Bonita HTTP port.</td>
+      <td>8081</td>
+    </tr>
+    <tr>
+      <td>bonita_db_vendor</td>
+      <td>N</td>
+      <td>postgres</td>
+      <td>Database vendor (postgres, mysql, oracle).</td>
+      <td>postgres</td>
+    </tr>
+    <tr>
+      <td>bonita_db_host</td>
+      <td>N</td>
+      <td>-</td>
+      <td>Database host (usually retrieved from inventory).</td>
+      <td>postgres.a1bac2defghi.us-west-2.rds.amazonaws.com</td>
+    </tr>
+    <tr>
+      <td>bonita_db_port</td>
+      <td>N</td>
+      <td>5432</td>
+      <td>Database port.</td>
+      <td>5432</td>
+    </tr>
+    <tr>
+      <td>bonita_db_admin_user</td>
+      <td>N</td>
+      <td>postgres</td>
+      <td>Admin user on database instance.</td>
+      <td>root</td>
+    </tr>
+    <tr>
+      <td>bonita_db_admin_pass</td>
+      <td>N</td>
+      <td>mysecretpassword</td>
+      <td>Admin password on database instance.</td>
+      <td>password</td>
+    </tr>
+    <tr>
+      <td>bonita_http_api</td>
+      <td>N</td>
+      <td>false</td>
+      <td>Activates the Bonita <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization#toc9">HTTP API</a>.</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>bonita_rest_api_dyn_auth_checks</td>
+      <td>N</td>
+      <td>true</td>
+      <td>Activates <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/rest-api-authorization#toc2">dynamic authorization checking</a> on REST API.</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>bonita_published_ports_extra</td>
+      <td>N</td>
+      <td>[]</td>
+      <td>A list of additional host-to-container port mappings (<code class="highlighter-rouge">&lt;host_port&gt;:&lt;container_port&gt;</code>) to publish.</td>
+      <td>[ ‘9020:9010’, ‘2222:1111’ ]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="licensing-variables">Licensing variables</h2>
+
+<p>In order that BCD retrieves Bonita licenses during the deployment of your platform, you need to set the following variables in your scenario:</p>
+
+<div class="alert alert-info">
+<p>These information are provided by Bonitasoft when you purchase the BCD add-on. Contact your sales representative for further details.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lic_ws_login</td>
+      <td>Login to Bonitasoft license webservice.</td>
+      <td>acme</td>
+    </tr>
+    <tr>
+      <td>lic_ws_password</td>
+      <td>Password to Bonitasoft license webservice.</td>
+      <td>Secr3t</td>
+    </tr>
+    <tr>
+      <td>lic_sub_login</td>
+      <td>Subscription Login provided by Bonitasoft. It has an email address format.</td>
+      <td>john.doe@acme.com</td>
+    </tr>
+    <tr>
+      <td>lic_sub_password</td>
+      <td>Subscription Password provided by Bonitasoft.</td>
+      <td>SomePassword</td>
+    </tr>
+    <tr>
+      <td>lic_sub_id</td>
+      <td>Subscription ID provided by Bonitasoft. It’s a string of 15 characters.</td>
+      <td>a0bA0000001B2Cd</td>
+    </tr>
+    <tr>
+      <td>lic_type</td>
+      <td>Type of license in [<code class="highlighter-rouge">production</code>|<code class="highlighter-rouge">development</code>|<code class="highlighter-rouge">qualification</code>|<code class="highlighter-rouge">trial</code>].</td>
+      <td>trial</td>
+    </tr>
+    <tr>
+      <td>lic_name</td>
+      <td>Full name of the licensee. This field can only contain alphanumeric characters, dashes, underscores and spaces.</td>
+      <td>John Doe</td>
+    </tr>
+    <tr>
+      <td>lic_company</td>
+      <td>Company name.</td>
+      <td>ACME Inc</td>
+    </tr>
+    <tr>
+      <td>lic_email</td>
+      <td>Email address where the license will be sent.</td>
+      <td>john.doe@acme.com</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="email-notification-variables">Email notification variables</h2>
+
+<p>An email can be sent automatically with Bonita stack details at the end of the deployment phase. This feature uses <a href="http://docs.ansible.com/ansible/latest/mail_module.html">Ansible mail module</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mandatory</th>
+      <th>Default</th>
+      <th>Description</th>
+      <th>Sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mail_notification</td>
+      <td>N</td>
+      <td>false</td>
+      <td>Enable email notification or not.</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>mail_host</td>
+      <td>N</td>
+      <td>-</td>
+      <td>The SMTP server host.</td>
+      <td>smtp.gmail.com</td>
+    </tr>
+    <tr>
+      <td>mail_port</td>
+      <td>N</td>
+      <td>-</td>
+      <td>The SMTP port.</td>
+      <td>465</td>
+    </tr>
+    <tr>
+      <td>mail_username</td>
+      <td>N</td>
+      <td>-</td>
+      <td>The SMTP username.</td>
+      <td>john.doe@acme.com</td>
+    </tr>
+    <tr>
+      <td>mail_password</td>
+      <td>N</td>
+      <td>-</td>
+      <td>The SMTP password.</td>
+      <td>SomePassword</td>
+    </tr>
+    <tr>
+      <td>mail_from</td>
+      <td>N</td>
+      <td>-</td>
+      <td>The email-address the mail is sent from. May contain address and phrase.</td>
+      <td>john.doe@acme.com (John Doe)</td>
+    </tr>
+    <tr>
+      <td>mail_to</td>
+      <td>N</td>
+      <td>-</td>
+      <td>The email-address(es) the mail is being sent to. This is a comma-separated list, which may contain address and phrase portions.</td>
+      <td>John Doe &lt;john.doe@acme.com&gt;, Suzie Something &lt;sue@example.com&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>
