@@ -25,8 +25,8 @@ import * as _ from "lodash";
 // const ELASTICSEARCH_URL = 'https://doc-bonita-test-4287920661.us-west-2.bonsaisearch.net';
 // const ELASTICSEARCH_URL = 'https://xCZhXB7YkE:pjbWUxmPNz2VYLh@doc-bonita-test-4287920661.us-west-2.bonsaisearch.net';
 
-// const url_domaine = "http://localhost:4000/proto_doc"
-const url_domaine = "https://pbelabbes.github.io/bonita_doc"
+const url_domaine = "http://localhost:4000/bonita_doc"
+// const url_domaine = "https://pbelabbes.github.io/bonita_doc"
 const path_array = window.location.href.split(url_domaine)[1].split('/')
 console.log(path_array) 
 
@@ -45,7 +45,7 @@ console.log(sk);
 const HitItem = (props) => (
  
   <div className={props.bemBlocks.item().mix(props.bemBlocks.container("item"))}>
-    <em>{props.result._source.url}</em>
+    
     <a href={`${url_domaine}${props.result._source.url}`}>
       <div className={props.bemBlocks.item("title")}
         dangerouslySetInnerHTML={{ __html: _.get(props.result, "highlight.title", false) || props.result._source.title }}></div>

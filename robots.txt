@@ -1,1 +1,1 @@
-Sitemap: https://pbelabbes.github.io/bonita_doc/sitemap.xml
+Sitemap: http://localhost:4000/bonita_doc/sitemap.xml
