@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head --><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>BCD Command Line Interface | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="BCD Command Line Interface" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bonita Continuous Delivery CLI" />
+<meta property="og:description" content="Bonita Continuous Delivery CLI" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-17T12:13:54+02:00" />
+<script type="application/ld+json">
+{"description":"Bonita Continuous Delivery CLI","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli","headline":"BCD Command Line Interface","dateModified":"2018-07-17T12:13:54+02:00","datePublished":"2018-07-17T12:13:54+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="react-search"></div>
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">
+            
+            <img src="/bonita_doc/assets/img/logo_bcd.png" />
+            
+                
+
+                <span>Bcd  1.0</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/release_notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#tutorials" aria-controls="tutorials"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Tutorials</strong></a><ul id="tutorials" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/tutorials/aws_prerequisites">AWS prerequisites</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/tutorials/licensing_prerequisites">Licensing prerequisites</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/tutorials/quickstart">Quick start</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bonita-container-custom-initialization" aria-controls="bonita-container-custom-initialization"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita container custom initialization</strong></a><ul id="bonita-container-custom-initialization" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init">Custom initialization overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/how_to_configure_rest_api_authorization">How to configure REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/tutorials/troubleshooting_guide">Troubleshooting guide</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/scenarios">Scenario variables reference</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bcd-controller-docker-image" aria-controls="bcd-controller-docker-image"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD Controller Docker image</strong></a><ul id="bcd-controller-docker-image" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/bcd-controller-docker-image/docker">Docker image overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli">BCD Command Line Interface</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-continuous-delivery-doc/edit/1.0/md/cli.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="bonita-continuous-delivery-cli">Bonita Continuous Delivery CLI</h1>
+
+<p>This is a command-line tool for Bonita Continuous Delivery.</p>
+
+<div class="list-group"><a href="/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli#install" class="list-group-item toc-h2">Install</a><a href="/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli#usage" class="list-group-item toc-h2">Usage</a><a href="/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli#examples" class="list-group-item toc-h3">Examples</a><a href="/bonita_doc/bcd/1.0/bcd-controller-docker-image/cli#multi-command-chaining" class="list-group-item toc-h3">Multi command chaining</a>
+</div>
+<h2 id="install">Install</h2>
+
+<p id="install">The CLI is provided as a Python package. Install the package locally as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd cli
+$ pip install --user .
+</code></pre></div></div>
+
+<p>This will make the <code class="highlighter-rouge">bcd</code> command available under <code class="highlighter-rouge">$HOME/.local/bin</code>.</p>
+
+<p>Basically make sure to add <code class="highlighter-rouge">$HOME/.local/bin</code> to your <code class="highlighter-rouge">PATH</code> environment variable in order to make your environment aware of the <code class="highlighter-rouge">bcd</code> command.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>The <code class="highlighter-rouge">bcd</code> command takes a mandatory option called <code class="highlighter-rouge">scenario</code> through the <code class="highlighter-rouge">-s / --scenario</code> command line option.</p>
+
+<p>Then the <code class="highlighter-rouge">bcd</code> command provides the following subcommands in order to drive Bonita Continuous Delivery module:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: bcd [OPTIONS] COMMAND1 [ARGS]... [COMMAND2 [ARGS]...]...
+
+  Bonita Continuous Delivery CLI.
+
+Options:
+  -s, --scenario PATH    YAML scenario file (required)
+  -y, --yes              Execute action without confirmation prompt
+  -v, --verbose          Enable Ansible verbose mode
+  --nocolor              Turn output colorization off
+  -e, --extra-vars TEXT  Extra vars for Ansible (multiple) - Variables are
+                         passed using the key=value syntax.
+  -h, --help             Show this help message
+
+Commands:
+  status    Show the platform status
+  create    Create AWS instances
+  deploy    Deploy Bonita stack
+  undeploy  Undeploy Bonita stack
+  destroy   Destroy AWS machines (EC2 instances)
+</code></pre></div></div>
+
+<h3 id="examples">Examples</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bcd -s scenarios/uswest2_cluster.yml create
+
+$ bcd -s scenarios/vagrant_single.yml -e mail_notification=no -y deploy
+
+$ bcd -s scenarios/uswest2_performance.yml destroy --dry-run
+</code></pre></div></div>
+
+<h3 id="multi-command-chaining">Multi command chaining</h3>
+
+<p>The BCD CLI allows to invoke more than one command in one go. This is useful to chain commands as a pipeline. If one command fails then <code class="highlighter-rouge">bcd</code> stops executing any subsequent command it may have.</p>
+
+<p>For example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bcd -s scenarios/uswest2_cluster.yml -y create deploy
+</code></pre></div></div>
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>
