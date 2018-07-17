@@ -1,1 +1,1 @@
-Sitemap: https://pbelabbes.github.io/proto_doc/sitemap.xml
+Sitemap: https://pbelabbes.github.io/bonita_doc/sitemap.xml
