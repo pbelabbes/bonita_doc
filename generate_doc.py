@@ -7,8 +7,6 @@ repos = {
     "bcd":"/home/bonitasoft/dev/bonita-continuous-delivery-doc",
     "ici":"/home/bonitasoft/dev/bonita-ici-doc"
 }
-
-java_parseur = "/home/bonitasoft/IdeaProjects/taxo_to_arch/out/production/taxo_to_arch"
 destPath = "/home/bonitasoft/dev/proto_doc/"
 
 elasticSearchUrl = "localhost:9200"
@@ -46,7 +44,7 @@ if sys.argv[1] in repos:
 
     print "try to generate documention %s %s ..." % (path, version)
     
-    generator.generate_doc(path,version, destPath)
+    generator.generate_doc(repo, path,version, destPath)
 
     print "... GENERATION SUCCESSFUL ..."
 

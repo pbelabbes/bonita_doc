@@ -124,27 +124,13 @@ def generateFiles():
             dest.writelines(f.content)  
 
 
-def generate_doc(docSitePath, version, destPath):
+def generate_doc(doc, docSitePath, version, destPath):
 
     urlToMd = docSitePath+"/md/"
     taxonomy = urlToMd +"taxonomy.md"
-    urlToNwMd = destPath
+    urlToNwMd = destPath+"_"+doc+"/"+version
 
-    docSite = docSitePath.split('/')[len(docSitePath.split('/'))-1]
-    
-    if  docSite == "bonita-doc":
-        urlToNwMd +="_bonita/" + version 
-        docSite = "bonita"  
-    
-    elif docSite == "bonita-continuous-delivery-doc":
-        urlToNwMd +="_bcd/"+version
-        docSite = "bcd"
-
-    elif docSite == "bonita-ici-doc":
-        urlToNwMd +="_ici/"+version
-        docSite = "ici"
-
-    generateFrontMatter(taxonomy, version, docSite, urlToMd, urlToNwMd)
+    generateFrontMatter(taxonomy, version, doc, urlToMd, urlToNwMd)
 
     generateFiles()
 

@@ -279,22 +279,12 @@ order : %d
         excerpt_limit = 100
         categories=""
         if self.categs :
-            # print self.categs
             categories = '"'+"\",\"".join(self.categs)+"\""
-            # print categories
         now = str(datetime.datetime.now())
         print now
         slug = self.base_name.replace(".md","")
         url = "/"+JekyllMdFile.getPath(self.base_name)+"/"+slug
-        # print self.full_text_content.replace("'","") + "\n"
-        # content_size = len(self.full_text_content.replace("'",""))
-        # print content_size
-        content = self.cleanLine(self.full_text_content.replace("'","")) #1025
-        # fake_content = self.cleanLine(self.full_text_content.replace("'",""))[991:992] #1000
-        # fake_content = self.cleanLine(fake_content)  
-        # print "->"+fake_content+"<-"
-        # print string.whitespace
-                # fake_content = fake_content.translate(None, string.ponctuation)
+        content = self.cleanLine(self.full_text_content.replace("'",""))
         res = """ {
             "draft": false,
             "categories": [ 
