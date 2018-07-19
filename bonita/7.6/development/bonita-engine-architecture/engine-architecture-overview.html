@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head --><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Bonita Engine architecture overview | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="Bonita Engine architecture overview" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bonita Engine architecture overview" />
+<meta property="og:description" content="Bonita Engine architecture overview" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-19T14:47:47+02:00" />
+<script type="application/ld+json">
+{"description":"Bonita Engine architecture overview","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview","headline":"Bonita Engine architecture overview","dateModified":"2018-07-19T14:47:47+02:00","datePublished":"2018-07-19T14:47:47+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid main_nav">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.8">7.8 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.4">7.4 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+        <div id="react-search"></div>
+      </div>
+     
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">
+            
+            <img src="/bonita_doc/assets/img/logo_bonita.png" />
+            
+                
+
+                <span>Bonita  7.6</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/release-notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#application-and-process-design" aria-controls="application-and-process-design"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Application and Process Design</strong></a><ul id="application-and-process-design" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/bonita-bpm-overview">Bonita overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#application-and-process-design-overview" aria-controls="application-and-process-design-overview"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Application and process design overview</strong></a><ul id="application-and-process-design-overview" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/application-and-process-design-overview/getting-started-tutorial">Getting started tutorial</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/application-and-process-design-overview/key-concepts">Key concepts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/application-and-process-design-overview/comparison-of-7-x-and-6-x">Comparison of 7.x and 6.x</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/application-and-process-design-overview/lifecycle-and-profiles">Lifecycle and profiles</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/application-and-process-design-overview/design-methodology">Design methodology</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/bonita-bpm-studio-preferences">Bonita Studio preferences</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/bonita-bpm-studio-hints-and-tips">Bonita Studio hints and tips</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#organization" aria-controls="organization"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Organization</strong></a><ul id="organization" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/organization/organization-overview">Organization overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/organization/approaches-to-managing-organizations-and-actor-mapping">Approaches to managing organizations and actor mapping</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/organization/organization-management-in-bonita-bpm-studio">Organization management in Bonita Studio</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/organization/custom-user-information-in-bonita-bpm-studio">Custom User Information in Bonita Studio</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/organization/ldap-synchronizer">LDAP synchronizer</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#profiles" aria-controls="profiles"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Profiles</strong></a><ul id="profiles" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/profiles/profiles-overview">Profiles overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/profiles/profileCreation">Profiles editor</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#process-modeling" aria-controls="process-modeling"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Process modeling</strong></a><ul id="process-modeling" class="collapse"><li><a role="button" data-toggle="collapse"  href="#diagrams" aria-controls="diagrams"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Diagrams</strong></a><ul id="diagrams" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/diagram-overview">Diagram overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/pools-and-lanes">Pools and lanes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/diagram-tasks">Tasks</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/gateways">Gateways</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/transitions">Transitions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/events">Events</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/called-processes">Called processes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/event-subprocesses">Event subprocesses</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/text-annotations">Text annotations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/diagrams/migrate-a-process-from-bonita-open-solution-5-x">Migrate a process from Bonita Open Solution 5.x</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/naming-conventions">Naming conventions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/generate-process-documentation">Generate process documentation</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/refactoring">Refactoring</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/actors">Actors</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/actor-filtering">Actor filters</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-modeling/iteration">Iteration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#data" aria-controls="data"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Data</strong></a><ul id="data" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/data-handling-overview">Data handling overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/define-and-deploy-the-bdm">Define and deploy the BDM</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/specify-data-in-a-process-definition">Specify data in a process definition</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/parameters">Parameters</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/contracts-and-contexts">Contracts and contexts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/documents">Documents</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/create-a-complex-data-type">Complex data types</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/define-a-search-index">Define a search key</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/expressions-and-scripts">Expressions and scripts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/data/operations">Operations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#page-and-form-development" aria-controls="page-and-form-development"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Page and form development</strong></a><ul id="page-and-form-development" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/page-and-form-development-overview">Page and form development overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#ui-designer" aria-controls="ui-designer"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>UI Designer</strong></a><ul id="ui-designer" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/ui-designer-overview">UI Designer overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/create-or-modify-a-page">Create or modify UI artifacts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/widgets">Widgets</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/widget-properties">Widget properties</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#widget-use-examples" aria-controls="widget-use-examples"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Widget use examples</strong></a><ul id="widget-use-examples" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/widget-use-examples/repeat-a-container-for-a-collection-of-data">Repeat a container for a collection of data</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/fragments">Fragments</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/custom-widgets">Custom widgets</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/variables">Variables</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/appearance">Appearance</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/assets">Assets</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/multi-language-pages">Multi-language pages</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/ui-designer/migrate-a-form-from-6-x">Migrate a form from 6.x</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/6-x-legacy-forms">6.x legacy forms</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/page-and-form-development/cache-configuration-and-policy">Cache configuration and policy</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/applicationCreation">Application descriptor</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#connectivity" aria-controls="connectivity"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Connectivity</strong></a><ul id="connectivity" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/connectivity-overview">Connectivity overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/alfresco">Alfresco</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/cmis">CMIS</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#database" aria-controls="database"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Database</strong></a><ul id="database" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/database/list-of-database-connectors">List of database connectors</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/database/database-connector-configuration">Database connector configuration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/database/graphical-query-builder">Graphical query builder</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/database/initialize-a-variable-from-a-database-without-scripting-or-java-code">Initialize a variable from a database without scripting or Java code</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/insert-data-in-a-docx-odt-template">Insert data in a .docx/.odt template</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/google-calendar">Google Calendar</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/jasper-5">Jasper</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/ldap">LDAP</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/messaging">Messaging</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/generate-pdf-from-an-office-document">Generate PDF from an Office document</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/salesforce">Salesforce</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/sap-jco-2">SAP JCo 2</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/sap-jco-3">SAP JCo 3</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/script">Script</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/twitter">Twitter</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#web-service" aria-controls="web-service"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Web service</strong></a><ul id="web-service" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/web-service/web-service-connector-overview">Web service connector overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/connectivity/web-service/web-service-tutorial">Web service connector tutorial</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#reporting" aria-controls="reporting"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Reporting</strong></a><ul id="reporting" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/reporting/reporting-overview">Reporting overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/reporting/set-up-a-reporting-database">Set up a reporting database</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/reporting/set-up-kpis">Set up KPIs</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/reporting/create-a-report">Create a report</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/import-and-export-a-process">Import and export a process</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#process-configuration" aria-controls="process-configuration"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Process configuration</strong></a><ul id="process-configuration" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-configuration/process-configuration-overview">Process configuration overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-configuration/environments">Environments</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-configuration/configuring-a-process">Configure a process</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-configuration/manage-jar-files">Manage JAR files</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-configuration/managing-dependencies">Manage dependencies</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#process-testing" aria-controls="process-testing"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Process testing</strong></a><ul id="process-testing" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-testing/process-testing-overview">Process testing overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-testing/configure-a-test-organization">Configure a test organization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-testing/run-a-process-from-bonita-bpm-studio-for-testing">Run a process from Bonita Studio for testing</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/process-testing/log-files">Log files</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/build-a-process-for-deployment">Build a process for deployment</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/application-and-process-design/workspaces-and-repositories">Workspaces and repositories</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#installation" aria-controls="installation"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Installation</strong></a><ul id="installation" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/bonita-bpm-installation-overview">Bonita installation overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/bonita-bpm-studio-installation">Bonita Studio installation</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#basic-bonita-platform-installation" aria-controls="basic-bonita-platform-installation"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Basic Bonita Platform installation</strong></a><ul id="basic-bonita-platform-installation" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/hardware-and-software-requirements">Hardware and software requirements</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/tomcat-bundle">Tomcat bundle</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/wildfly-bundle">WildFly bundle</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/deploy-bundle">Deploy bundle</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/BonitaBPM_platform_setup">Platform configuration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/database-configuration">Database creation and customization to work with Bonita</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/first-steps-after-setup">First steps after setup</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/licenses">Licenses</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#advanced-bonita-platform-installation" aria-controls="advanced-bonita-platform-installation"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Advanced Bonita Platform installation</strong></a><ul id="advanced-bonita-platform-installation" class="collapse"><li><a role="button" data-toggle="collapse"  href="#security-and-authentication" aria-controls="security-and-authentication"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Security and authentication</strong></a><ul id="security-and-authentication" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/user-authentication-overview">User authentication overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/active-directory-or-ldap-authentication">Active Directory or LDAP authentication</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/single-sign-on-with-cas">Single sign-on with CAS</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/single-sign-on-with-saml">Single sign-on with SAML</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/enforce-password-policy">Enforce password policy</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/rest-api-authorization">REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/csrf-security">CSRF security</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/enable-cors-in-tomcat-bundle">Enable CORS in Tomcat bundle</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/ssl">SSL</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/security-and-authentication/tenant_admin_credentials">Tenant administrator credentials</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/set-log-and-archive-levels">Set log and archive levels</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/configurable-archive">Configurable Archive</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/performance-tuning">Performance tuning</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/performance-troubleshooting">Performance troubleshooting</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/use-gzip-compression">Use gzip compression</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/two-main-types-of-deployment">Two main types of deployment</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bonita-in-a-cluster" aria-controls="bonita-in-a-cluster"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita in a cluster</strong></a><ul id="bonita-in-a-cluster" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/bonita-in-a-cluster/overview-of-bonita-bpm-in-a-cluster">Overview of Bonita in a cluster</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/bonita-in-a-cluster/install-a-bonita-bpm-cluster">Install a Bonita cluster</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/bonita-in-a-cluster/cluster-administration">Cluster administration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/advanced-bonita-platform-installation/multi-tenancy-and-tenant-configuration">Multi-tenancy and tenant configuration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#platform-installation-examples" aria-controls="platform-installation-examples"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Platform installation examples</strong></a><ul id="platform-installation-examples" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/platform-installation-examples/ubuntu-openjdk-tomcat-postgresql">Ubuntu + OpenJDK + Tomcat + PostgreSQL</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/back-up-bonita-bpm-platform">Back up Bonita Platform</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#migration" aria-controls="migration"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Migration</strong></a><ul id="migration" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/migration/migration-overview">Migration overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/migration/migrate-from-an-earlier-version-of-bonita-bpm">Migrate from an earlier version of Bonita</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/installation/upgrade-from-community-to-a-subscription-edition">Community to Subscription upgrade</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#bonita-portal-administration" aria-controls="bonita-portal-administration"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita Portal Administration</strong></a><ul id="bonita-portal-administration" class="collapse"><li><a role="button" data-toggle="collapse"  href="#bonita-portal-interface" aria-controls="bonita-portal-interface"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita Portal interface</strong></a><ul id="bonita-portal-interface" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/bonita-portal-interface/bonita-bpm-portal-interface-overview">Bonita Portal overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/bonita-portal-interface/user-task-list">User task list</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/bonita-portal-interface/languages">Languages</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/bonita-portal-interface/log-in-and-log-out">Log in and log out</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/bonita-portal-interface/about">About Bonita Portal</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/mobile-portal">Mobile Portal</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#process-maintenance" aria-controls="process-maintenance"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Process maintenance</strong></a><ul id="process-maintenance" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/process-maintenance/processes">Processes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/process-maintenance/cases">Cases</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/process-maintenance/tasks">Tasks</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/process-maintenance/subtasks">Subtasks</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/process-maintenance/monitoring">Monitoring</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/process-maintenance/pause-and-resume-bpm-services">Pause and resume services</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/process-maintenance/bdm-management-in-bonita-bpm-portal">BDM Management in Bonita Portal</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/applications">Applications</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#resources" aria-controls="resources"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Resources</strong></a><ul id="resources" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/resources/resource-management">Resource management</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/resources/pages">Pages</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/resources/forms">Forms</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/resources/layouts">Layouts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/resources/themes">Themes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/resources/api-extensions">REST API extensions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/live-update">Live update</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#organization-in-bonita-portal" aria-controls="organization-in-bonita-portal"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Organization in Bonita Portal</strong></a><ul id="organization-in-bonita-portal" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/organization-in-bonita-portal/organization-in-bonita-bpm-portal-overview">Organization in Bonita Portal overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#organization-maintenance" aria-controls="organization-maintenance"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Organization maintenance</strong></a><ul id="organization-maintenance" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/import-export-an-organization">Import/export an organization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/group">Manage groups</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/role">Manage roles</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#manage-users" aria-controls="manage-users"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage users</strong></a><ul id="manage-users" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/manage-users/manage-a-user">Manage a user</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/manage-users/deactivate-a-user">Deactivate a user</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/custom-user-information-in-bonita-bpm-portal">Custom User Information in Bonita Portal</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/analytics">Analytics</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#user-profiles" aria-controls="user-profiles"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>User profiles</strong></a><ul id="user-profiles" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/user-profiles/administrator-rights">Administrator rights</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/user-profiles/process-manager">Process manager</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/user-profiles/custom-profiles">Custom profiles</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/user-profiles/deploying-profiles-with-export-and-import">Deploy profiles with export and import</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#look-feel" aria-controls="look-feel"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Look & Feel</strong></a><ul id="look-feel" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/look-feel/managing-look-feel">Manage Look & Feel</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/look-feel/creating-a-new-look-feel">Create a new Look & Feel</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/bonita-portal-administration/search-index">Search keys</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#development" aria-controls="development"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Development</strong></a><ul id="development" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/software-extensibility">Software extensibility</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bonita-artifacts" aria-controls="bonita-artifacts"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita artifacts</strong></a><ul id="bonita-artifacts" class="collapse"><li><a role="button" data-toggle="collapse"  href="#connectors" aria-controls="connectors"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Connectors</strong></a><ul id="connectors" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-artifacts/connectors/connectors-overview">Connectors overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-artifacts/connectors/connector-development-toolkit">Connector development toolkit</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-artifacts/creating-an-actor-filter">Create an actor filter</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/api-glossary">API glossary</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#rest-api" aria-controls="rest-api"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>REST API</strong></a><ul id="rest-api" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/rest-api-overview">REST API overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/application-api">application API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/bdm-api">bdm API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/bpm-api">bpm API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/customuserinfo-api">customuserinfo API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/form-api">form API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/identity-api">identity API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/platform-api">platform API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/portal-api">portal API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/system-api">system API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/rest-api-extensions">REST API extensions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/rest-api/manage-files-using-upload-servlet-and-rest-api">Manage files using upload servlet and REST API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#engine-api" aria-controls="engine-api"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Engine API</strong></a><ul id="engine-api" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/engine-api-overview">Engine API overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/create-your-first-project-with-the-engine-apis-and-maven">Create your first project with the Engine APIs and Maven</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/configure-client-of-bonita-bpm-engine">Configure connection to Bonita Engine</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#examples" aria-controls="examples"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Examples</strong></a><ul id="examples" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/examples/manage-a-process">Manage a process</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/examples/handle-a-failed-activity">Handle a failed activity</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/examples/manage-an-organization">Manage an organization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/examples/manage-users">Manage users</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/examples/handling-documents">Handle documents</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/examples/create-administration-tools">Create administration tools</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/examples/restore-default-look-feel">Restore the default Look & Feel</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/examples/manage-the-platform">Manage the platform</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/using-list-and-search-methods">List and search methods</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/engine-api/log-in-with-cas">Log in with CAS</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-bpm-portal-urls">Bonita Portal URLs</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bonita-engine-architecture" aria-controls="bonita-engine-architecture"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita Engine architecture</strong></a><ul id="bonita-engine-architecture" class="collapse"><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview">Bonita Engine architecture overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#services" aria-controls="services"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Services</strong></a><ul id="services" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/services/event-handlers">Event handlers</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/services/queriable-logging">Queriable logger</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/services/technical-logging">Technical logger</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/execution-sequence-states-and-transactions">Execution sequence, states, and transactions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/shared-transactions">Shared transactions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#living-application" aria-controls="living-application"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Living application</strong></a><ul id="living-application" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/living-application/customize-living-application-layout">Customize living application layout</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/logging">Logs</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/preloading-the-forms-cache">Preload the forms cache</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/building-community-edition-from-source">Build Bonita Community edition from source files</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#continuous-integration" aria-controls="continuous-integration"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Continuous integration</strong></a><ul id="continuous-integration" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/continuous-integration/automating-builds">Automate builds</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/development/continuous-integration/set-up-continuous-integration">Set up continuous integration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/uid-modal-tutorial">Create a modal window using CSS</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/uid-case-overview-tutorial">Create a case overview page using the UI Designer</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/optimize-user-tasklist">Create unique task names for the user task list</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/manage-control-in-forms">Control and validate forms in the UI Designer</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/list-of-documents">Manage a list of documents</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/bo-multiple-refs-tutorial">Manage multiple references in Business Objects</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/custom-authorization-rule-mapping">Map authorization rules</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/rta-mail-template">Use the rich textarea widget in a mail template</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/datetimes-management-tutorial">Manage dates and times in BDM and User Interfaces</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.6/howtos/bdm-in-rest-api">Manage BDM in custom Rest APIs</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-doc/edit/7.6/md/engine-architecture-overview.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="bonita-engine-architecture-overview">Bonita Engine architecture overview</h1>
+
+<p>This page describes the Bonita Engine.</p>
+
+<div class="list-group"><a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview#overview" class="list-group-item toc-h2">Overview</a><a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview#apis" class="list-group-item toc-h2">APIs</a><a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview#bpm-services" class="list-group-item toc-h2">BPM services</a><a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview#generic-services" class="list-group-item toc-h2">Generic services</a><a href="/bonita_doc/bonita/7.6/development/bonita-engine-architecture/engine-architecture-overview#packaging" class="list-group-item toc-h2">Packaging</a>
+</div>
+<h2 id="overview">Overview</h2>
+
+<p id="overview">The Bonita Engine is the runtime processor at the core of Bonita.  It executes processes, handling actions related to tasks, such as database access, and housekeeping actions such as logging. The Engine is composed of a number of services and APIs. The services are either BPM services or generic services.</p>
+
+<p><img src="images/images-6_0/dev_arch_engine_architecture_simple.png" alt="engine architecture diagram" class="img-responsive" /></p>
+
+<p>The Bonita Engine component services are completely configurable using the <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/BonitaBPM_platform_setup">plaform setup tool</a> to retrieve the current configuration and update it.</p>
+
+<p>Services are provided to the Engine using a ServiceAccessor. By default, this uses Spring to bind services and to retrieve service instances.
+The Spring configuration files are present in the classpath but beans can be added or overridden using configuration files stored in database under the <strong>CONFIGURATION</strong>  table.
+These files are all suffixed with -custom.xml and contain Spring bean declaration examples.
+Theses files can be retrieved and updated using the <a href="/bonita_doc/bonita/7.6/installation/basic-bonita-platform-installation/BonitaBPM_platform_setup">platform setup tool</a>.</p>
+
+<p>Folder  <code class="highlighter-rouge">setup/platform_conf/[initial|current]/tenant_template_engine</code> contains tenant-level template configuration files used when creating a new tenant (Subscription edition):</p>
+
+<ul>
+  <li><code class="highlighter-rouge">bonita-tenant-community-custom.properties</code> : contains as comments all the available properties that can be overridden at tenant level.</li>
+  <li><code class="highlighter-rouge">bonita-tenants-custom.xml</code>: XML file can be modified to add any Spring bean you need to add/override at tenant level.</li>
+</ul>
+
+<p>Folder  <code class="highlighter-rouge">setup/platform_conf/current/tenants/[TENANT_ID]/tenant_engine</code> where <code class="highlighter-rouge">[TENANT_ID]</code> is your tenant id (e.g. <code class="highlighter-rouge">1</code>). Contains same files use for an already existing tenant.</p>
+
+<p>The Engine can be installed on a Java Virtual Machine (JVM), in any web/Java EE container, or can be used as a simple Java library.</p>
+
+<h2 id="apis">APIs</h2>
+
+<p>This section contains a summary of the Bonita Engine APIs. For details of the APIs, the methods and related objects, see the 
+<a href="http://documentation.bonitasoft.com/javadoc/api/7.6/index.html">Javadoc</a>.
+| | |
+|:-|:-|
+| Identity API | Manages information about an organization, that is, the set of users who can act in processes. Handles creation, modification, and deletion of organizations, groups, roles, memberships, and users.|<br />
+| Organization API | Import or export an organization.|<br />
+| Process API | Handles actions related to processes (deploy, enable, start, disable, delete), executes activities, updates process data, search for a retrieve process entities.|<br />
+| Login API | Logs in to the engine in a platform and creates a session.|<br />
+| Monitoring API | Retrieves information about current activity, such as the number of users logged in, or the number of processes currently being executed.|<br />
+| Log API | provides access to business logs, for searching and to retrieve information about current or archived processes.|<br />
+| Platform command API | Creates, starts, stops platform.|<br />
+| Document API | Manages documents that are attached to a process instance.|<br />
+| Theme API | Manages the Look &amp; Feel of the Bonita Portal web and mobile interfaces and forms.|<br />
+| Tenant Management API | Used to pause service in a tenant for maintenance, to resume service, and to check whether a tenant is paused. Available in Teamwork, Efficiency, and Performance editions.|</p>
+
+<p>There is also a Web API, which is for internal use only, and a Command API, which is primarily for internal use.</p>
+
+<h2 id="bpm-services">BPM services</h2>
+
+<p>BPM services are related to BPM activities.</p>
+
+<h4 id="actor-mapping">Actor mapping</h4>
+<p>| | |
+|:-|:-|
+| Description: | Manage mapping between actors and users, roles, and groups. | 
+| Used by:  |-| 
+| Implementation: | org.bonitasoft.engine.actor.mapping.impl.ActorMappingServiceImpl|</p>
+
+<h4 id="category">Category</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Manage categories of processes. A category is a way to classify processes. Categories are handled manually by administrators in Bonita Portal and are visible to portal users.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Command service</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.category.impl.CategoryServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes: Store categories with the persistence service</p>
+
+<h4 id="connector">Connector</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Execute a connector using the ConnectorDefinition: get the connector from the file system, evaluate expressions of input parameters, instantiate/execute the connector and then execute output operations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Command service</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.connector.impl.ConnectorServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="expression-resolver">Expression resolver</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Evaluate expressions and the associated dependencies. The expression resolver default implementation take all expressions and dependencies, flattens them and orders them by type. It then evaluate all expressions starting with expressions that are known to have no dependencies. All expressions that are evaluated at the same time have the same context of evaluation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Any service that evaluates expressions</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.expression.control.api.impl.ExpressionResolverServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="login">Login</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Log in to or out of the Engine.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">APIs</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.login.LoginServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="platform-login">Platform login</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Log in to or out of the Engine at the platform level.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">APIs</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.platform.login.impl.PlatformLoginServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="operation">Operation</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Execute operations that update data. The Operation service can use different types of update method.  The default methods, called Operators, are ASSIGNMENT, JAVA_METHOD, and XPATH_UPDATE_QUERY.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Engine service, APIs when updating data using an operation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.operation.impl.OperationServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="parameter">Parameter</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">For the Performance, Efficiency, and Teamwork editions, manage parameters of a process. Parameters are set for the scope of a process definition and are designed to be used as global configuration of a process, for example, you could store the URL of a database you use in some connectors.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Engine, APIs, ExpressionService (using the contributed evaluator) when reading and updating parameters</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.parameter.propertyfile.PropertyFileParameterService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Relies on Java properties in a file to store and retrieve parameters</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="process-comment">Process comment</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Create, update, get, list, or delete comments attached to a process instance.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">APIs</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.process.comment.api.impl.SCommentServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Relies on persistence service to store comments</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="process-definition">Process definition</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle process definition objects.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Engine</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.process.definition.ProcessDefinitionServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Stores definition in file system and in cache using XML</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="engine">Engine</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handles process execution.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">APIs when executing processes or activities</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">the Engine itself</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="process-instance">Process instance</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle process instance objects.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Engine</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.process.instance.impl.ProcessInstanceServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Relies on the persistence service to store objects</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="supervisor-mapping">Supervisor mapping</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Define the mapping between a process definition and the user who supervises it.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">APIs</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.supervisor.mapping.impl.SupervisorMappingServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="user-filter">User filter</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Read and execute a userfilter that filters the set of users eligible to carry out a pending task.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Engine</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.filter.impl.UserFilterServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses the cache and read user filter of the file system</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="generic-services">Generic services</h2>
+
+<p>Generic services  perform actions that are not related to BPM but are required for successful process execution. No generic service has a dependency on a BPM service.</p>
+
+<h4 id="archive">Archive</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Store and retrieve objects that will no longer change.  For example, a process instance that is finished is archived using this service.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">ProcessInstance service to store ArchivedProcessInstance objects</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.archive.impl.ArchiveServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="authentication">Authentication</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Check user credentials using a map.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Login service in Bonita Teamwork, Efficiency, and Performance editions</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.authentication.impl.GenericAuthenticationServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses the Identity service to check user credentials</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="querieable-logs">Querieable logs</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Log information related to business actions. For example, ?Activity ‘step1’ was created with id = 12? or ?Connector email-1.0.0 was successfully executed on activity 1547?. By default, log information is stored in a database for easy query.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Any service storing objects: ?deleted activity[..]?  Scheduler service: ?Job executed […]?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementations:</td>
+      <td style="text-align: left">org.bonitasoft.engine.services.impl.SyncBusinessLoggerServiceImpl (Community edition: insert logs directly in database)  org.bonitasoft.engine.log.api.impl.BatchBusinessLoggerImpl (Teamwork, Efficiency, and Performance editions: inserts all logs in batch at the end of the transaction)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tenant-cache">Tenant cache</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Store objects in the cache, and retrieve them. The service handles different caches that can be configured separately.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">ProcessDefinition service, Connector service, Expression service: put reusable definition objects in cache</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.cache.ehcache.EhCacheCacheService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses EhCache to cache objects</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="platform-cache">Platform cache</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Store objects in the cache, and retrieve them. The service handles different caches that can be configured separately.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">ProcessDefinition service, Connector service, Expression service: put reusable definition objects in cache</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.cache.ehcache.PlatformEhCacheCacheService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses EhCache to cache objects</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="classloader">ClassLoader</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">An abstraction layer of the classloader, making it easy to change the classloader implementation at runtime. There is a hierarchy of classloaders, with a platform classloader handling items used by the whole platform, and a process classloader for items specify to a process. Each classloader is identified by a type and an Id.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Server APIs, to create and set the classloader at platform level.  Engine, to handle classloader of type process</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.classloader.ClassLoaderServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Relies on the dependency service to load the jar put in dependencies for a specific classloader</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="platform-command">Platform command</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Register and execute platform commands. Commands are Java classes that can be executed by the engine using the API. Using this service you can create your own code to be put server side and call it from a client.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">API to execute platform-level commands</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.platform.command.impl.PlatformCommandServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses persistence service to store commands</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="connector-executor">Connector executor</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Execute a connector: take the instantiated Connector object, set its parameters, and execute it.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Connector service, to execute the instantiated connector</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.connector.impl.ConnectorExecutorImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="data">Data</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle DataSource objects, which describe how to retrieve and store data on an internal or external system. The Engine contains two default implementations: org.bonitasoft.engine.data.instance.DataInstanceDataSourceImpl, which handles data stored in database, and org.bonitasoft.engine.core.data.instance.impl.TransientDataInstanceDataSource, which handles data stored in memory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">DataInstance service, to get the data source of a data definition to get its value</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.data.DataServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="datainstance">DataInstance</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle data instance objects. A data instance is a variable that has a name, a type, and a value. This service also handles expressions of type VARIABLE_TYPE. A VARIABLE_TYPE expression references a data instance. When an expression is evaluated, the value of the data instance is returned.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Process API, Process executor, all services that access data</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.data.DataInstanceServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses the persistence service to store data instances</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="dependency">Dependency</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Declare Java dependencies on business objects. These dependencies have a name and a content that is the JAR itself. For example, a process that uses an email connector has a dependency on javamail.jar that is declared at deployment.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Engine, to declare process dependencies  ClassloaderService, to retrieve dependencies of process</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.dependency.impl.DependencyServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Dependency information is stored in database</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="platform-dependency">Platform dependency</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Declare dependencies between entities that are related to the platform, for example,  platform commands declare platform dependencies.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Platform Command service, to declare dependency of platform commands</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.dependency.impl.PlatformDependencyServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Dependency information is stored in database</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="document">Document</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Store content and properties of a document and map the document to an instance of a process.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Engine APIs when retrieving documents.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.core.document.api.impl.DocumentServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">The mapping of the document is not stored in the same table as the documetn itself.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="expression">Expression</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Evaluate an expression using the evaluator provided by another service (but do not evaluate dependencies of the expression). This service is extended by evaluators specific to the kind of expression to be evaluated. For example, in the Performance, Efficiency, and Teamwork editions, the ParameterService contributes an evaluator to evaluate expressions that reference a parameter. To add a new kind of expression, contribute a class implementing org.bonitasoft.engine.expression.ExpressionExecutorStrategy to the ExpressionExecutorStrategy class.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">ExpressionResolverService. to evaluate an expression and its dependencies</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.expression.impl.ExpressionServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="identity">Identity</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle information about elements of an organization (users, groups, roles, memberships).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">ProcessExecutor, to resolve actor mappings.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.identity.impl.IdentityServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="incident">Incident</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Service that reports incidents to an administrator.  An incident is an error that cannot be handled by the engine. The default implementation log is a file named “Incidents.log” inside the tenant folder.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Mainly by the work service.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.incident.IncidentServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="job">Job</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle and trace execution of internal jobs of the engine.  A job is an internal action that can be triggered once or several times. (e.g. Timers are implemented using jobs.)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Scheduler service.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.scheduler.impl.JobServiceImpl,</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="lock">Lock</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Enable synchronization of code execution. The service enables creation of shared locks and exclusive locks. If a shared lock is taken out, other shared locks can also be taken out. If an exclusive lock is taken out, it blocks execution until the lock is released.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">ProcessExecutor, for canceling a process or for merging execution of branches</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.lock.impl.MemoryLockService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses java.util.concurrent.locks.ReentrantReadWriteLock objects that are in memory only</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="monitoring">Monitoring</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Monitor Engine activity, such as active transactions, active users, or JVM status.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.monitoring.impl.MonitoringServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tenant-monitoring">Tenant Monitoring</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Provide metrics on a tenant.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">com.bonitasoft.engine.monitoring.impl.TenantMonitoringServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="platform-monitoring">Platform Monitoring</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Provide metrics on a platform.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">com.bonitasoft.engine.monitoring.impl.PlatformMonitoringServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="persistence">Persistence</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle storage of objects in a persistent medium. There are two services, bonita-persistence-read for reading objects and bonita-persistence-api for reading and writing objects. The default implementation stores objects in the database, but the service could be implemented for any other type of persistent storage. The persistence service gives a unique identifier to an object.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">All services reading persistent objects (such as processInstanceService) use bonita-persistence-read. All services creating or modifying objects use bonita-persistence-api.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">Hibernate</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="platform">Platform</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle creation, activation, and deletion of platform.  The platform is the foundation of the Engine: creating the platform means creating database tables that are used by the Engine.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.platform.impl.PlatformServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses the persistence service to create platform.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="profile">Profile</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle profiles. A profile is an entity with a name, description, and icon path that is associated with a user, group, role, or membership. A profile entity is used by Bonita Portal to determine a user’s profile (user, process manager, or administrator).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">API, used by Bonita Portal to modify user profiles.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.profile.impl.ProfileServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Uses persistence service to store privileges</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="recorder">Recorder</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">A layer between the persistence service and all services that need to store objects. It ensures that events are triggered and that queriable log entries are written.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">All services storing objects. For example, the ProcessInstanceService stores a ProcessInstanceObject using the recorder Implementation: org.bonitasoft.engine.recorder.impl.RecorderImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="reporting">Reporting</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle storage, retrieval, and update of reports.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">com.bonitasoft.engine.core.reporting.ReportingServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="scheduler">Scheduler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle jobs and ensure that they are executed at the required time. There are three kinds of trigger: OneShotTrigger to execute a job once only at a given time, RepeatTrigger to execute a job a finite number of times at a given interval, and CronTrigger to execute a job according to a Unix-type structure.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">ProcessEngine, for timers and for launching the job that matches a message event</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">QuartzSchedulerService, org.bonitasoft.engine.scheduler.impl.SchedulerServiceImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Relies on Quartz to launch jobs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="session">Session</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle user sessions. A session is an object stored in memory that contains several kinds of information about the client that uses it, for example, userId, ClientIp, ExpirationDate.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">LoginService,SchedulerService,WorkService to create sessions</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.session.impl.SessionServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="platform-session">Platform session</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle platform sessions. These sessions are created when something logs in to the platform.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">PlatformLoginService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.platform.session.impl.PlatformSessionServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="theme">Theme</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handle storage, retrieval, and update of portal themes.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">API.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.theme.impl.ThemeServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="transaction">Transaction</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Handles business transactions. A business transaction is a high-level transaction that contains several technical transactions.  This service is compatible with JTA.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">Almost all services, including persistence service to register technical transactions.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.transaction.TransactionServiceImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="technical-logger">Technical logger</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">An abstraction layer used to access the logger implementation. Clients of this service can log information using different levels: TRACE, DEBUG, INFO, WARNING, ERROR.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">All services that log information in the technical log.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">TechnicalLoggerSLF4JImpl</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Implementation based on SLF4J</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="work">Work</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Trigger work for immediate execution but asynchronously.  Unlike the scheduler service, which uses persistent storage, the Work service stores data in memory for better performance. This means that clients of the service must handle restart if a triggered work does not complete. For example, if the JVM shuts down, when it restarts the client must check for incomplete work and re-trigger it.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">ProcessExecutor, to trigger work to execute flow elements one after another</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementation:</td>
+      <td style="text-align: left">org.bonitasoft.engine.work.ExecutorWorkService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Notes:</td>
+      <td style="text-align: left">Trigger launches work in a ThreadPool. For Community Edition, work items are launched in sequence, each one in a new thread. For Teamwork, Efficiency, and Performance Editions, work items are triggered in multiple threads.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="xml">XML</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description:</td>
+      <td style="text-align: left">Parse and write XML files.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Used by:</td>
+      <td style="text-align: left">BusinessArchiveBuilder, to read/write process definitions  ConnectorService, to read connector definition</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Implementations:</td>
+      <td style="text-align: left">org.bonitasoft.engine.xml.parse.SAXParser (parse using sax)<br /> org.bonitasoft.engine.xml.SAXValidator (validate using sax)<br /> org.bonitasoft.engine.xml.DOMWriter (write using DOM)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="packaging">Packaging</h2>
+
+<p>The Engine is provided as three .jar files:</p>
+
+<ul>
+  <li>bonita-common contains code that is used by both the server and client sides of the application. 
+For example, the API interface is accessed both on the server side, which contains the API implementations, and on the client side, which has a proxy on the API. It also contains objects such as BusinessArchive, which is the JavaObject representation of a .bar file.</li>
+  <li>bonita-server contains code used on by the server. For example, it contains service implementations, the services accessor, and API implementations.</li>
+  <li>bonita-client contains client-only code. For example, it contains the Accessor service for the APIs, which is not in the common or server packages to prevent the server code calling the client-side API accessor.</li>
+</ul>
+
+<p>In the Performance, Efficiency, and Teamwork editions, these jar files are bonita-common-sp.jar, bonita-server-sp.jar, and bonita-client-sp.jar.</p>
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>

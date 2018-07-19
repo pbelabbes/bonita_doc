@@ -116,7 +116,7 @@ order : %d
 
         if "(images/" in line :
             # print "images in process..."
-            self.image_management(line)
+            line = self.image_management(line)
             clean = False
 
         if  "](" in line and ".md" in line:
@@ -151,14 +151,22 @@ order : %d
 
     def image_management(self,line):
         split_line = line.split("](")
-
+        print line
+        nw_line = split_line[0]
         lenSplitLine = len(split_line)
         for i in range(1,lenSplitLine):
-            img_uri = split_line[i].split(")")[0]
-
+            split_line_2 = split_line[i].split(")")
+            img_uri = split_line_2[0]
+            nw_line += "]("+img_uri+"){:.img-responsive}"
+            lenSplit2 = len(split_line_2)
+            if(lenSplit2 > 1 ):
+                for i in (1,len(split_line_2)-1):
+                    nw_line += split_line_2[i]
             if "\"" in img_uri : img_uri = img_uri.split(" \"")[0]
             # print "insert images ... "
             self.insertImg(img_uri)
+        
+        return nw_line
 
     
     
