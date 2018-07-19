@@ -5,5 +5,5 @@ _bonita
 _bcd
 _ici
 *.pyc
-node_modules/*/readme.md
-node_modules/*/README.md
+*readme.md
+*README.md
