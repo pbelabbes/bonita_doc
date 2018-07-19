@@ -134,7 +134,7 @@ class Search extends Component {
             <div className="_Search_display_wrapper">
 
               <div className={"search__results " + this.state.resultsClass} >
-                <HitsStats component={customHitStats} />
+                
                 {/* search results */}
                 (   <Hits hitsPerPage={10}
                   highlightFields={["title", "text", "url"]}
