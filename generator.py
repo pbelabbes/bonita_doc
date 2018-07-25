@@ -117,7 +117,7 @@ def generateFiles():
         # print f.parts
         with open(f.path +"/"+  f.base_name, "w") as dest:
           
-            dest.write(f.front_matter)
+            dest.write(f.get_front_matter())
             if f.hasHTML : dest.write('{::options parse_block_html="true" /}\n')
             # content = f.content.split("\n")
             f.injectParts()

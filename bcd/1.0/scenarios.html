@@ -18,15 +18,15 @@
 <meta name="generator" content="Jekyll v3.8.2" />
 <meta property="og:title" content="Scenario variables reference" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bonita Platform Provisioning scenarios" />
-<meta property="og:description" content="Bonita Platform Provisioning scenarios" />
+<meta name="description" content="Bonita Platform Provisioning scenarios. Bonita Platform Provisioning scenariosWith scenarios, you can define your infrastructure, Bonita installation and potential tests you want to execute. A scenario is a YAML Ansible variable file injected in Ansible with the command -e \&quot;@/path/to/scenario.yml\&quot;. The variab" />
+<meta property="og:description" content="Bonita Platform Provisioning scenarios. Bonita Platform Provisioning scenariosWith scenarios, you can define your infrastructure, Bonita installation and potential tests you want to execute. A scenario is a YAML Ansible variable file injected in Ansible with the command -e \&quot;@/path/to/scenario.yml\&quot;. The variab" />
 <link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0/scenarios" />
 <meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/1.0/scenarios" />
 <meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-07-19T18:06:31+02:00" />
+<meta property="article:published_time" content="2018-07-25T16:59:39+02:00" />
 <script type="application/ld+json">
-{"description":"Bonita Platform Provisioning scenarios","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/scenarios","headline":"Scenario variables reference","dateModified":"2018-07-19T18:06:31+02:00","datePublished":"2018-07-19T18:06:31+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/scenarios"},"@context":"http://schema.org"}</script>
+{"description":"Bonita Platform Provisioning scenarios. Bonita Platform Provisioning scenariosWith scenarios, you can define your infrastructure, Bonita installation and potential tests you want to execute. A scenario is a YAML Ansible variable file injected in Ansible with the command -e \\&quot;@/path/to/scenario.yml\\&quot;. The variab","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/scenarios","headline":"Scenario variables reference","dateModified":"2018-07-25T16:59:39+02:00","datePublished":"2018-07-25T16:59:39+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/scenarios"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- favicons and rss -->
@@ -186,7 +186,7 @@
 </code></pre></div></div>
 <p>The following sections describe the main and mandatory variables.</p>
 
-<div class="list-group"><a href="/bonita_doc/bcd/1.0/scenarios#infrastructure-and-misc" class="list-group-item toc-h2">Infrastructure and misc.</a><a href="/bonita_doc/bcd/1.0/scenarios#vagrant-scenarios" class="list-group-item toc-h3">Vagrant scenarios</a><a href="/bonita_doc/bcd/1.0/scenarios#on-premises-scenarios" class="list-group-item toc-h3">On-premises scenarios</a><a href="/bonita_doc/bcd/1.0/scenarios#aws-cloud-scenarios" class="list-group-item toc-h3">AWS Cloud scenarios</a><a href="/bonita_doc/bcd/1.0/scenarios#bonita" class="list-group-item toc-h2">Bonita</a><a href="/bonita_doc/bcd/1.0/scenarios#email-notification" class="list-group-item toc-h2">Email notification</a>
+<div class="list-group"><a href="/bonita_doc/bcd/1.0/scenarios#infrastructure-and-misc" class="list-group-item toc-h2">Infrastructure and misc.</a><a href="/bonita_doc/bcd/1.0/scenarios#infrastructure-and-misc-vagrant-scenarios" class="list-group-item toc-h3">Vagrant scenarios</a><a href="/bonita_doc/bcd/1.0/scenarios#infrastructure-and-misc-on-premises-scenarios" class="list-group-item toc-h3">On-premises scenarios</a><a href="/bonita_doc/bcd/1.0/scenarios#infrastructure-and-misc-aws-cloud-scenarios" class="list-group-item toc-h3">AWS Cloud scenarios</a><a href="/bonita_doc/bcd/1.0/scenarios#bonita" class="list-group-item toc-h2">Bonita</a><a href="/bonita_doc/bcd/1.0/scenarios#email-notification" class="list-group-item toc-h2">Email notification</a>
 </div>
 <h2 id="infrastructure-and-misc">Infrastructure and misc.</h2>
 
@@ -234,13 +234,13 @@
   </tbody>
 </table>
 
-<h3 id="vagrant-scenarios">Vagrant scenarios</h3>
+<h3 id="infrastructure-and-misc-vagrant-scenarios">Vagrant scenarios</h3>
 <p>In case of Vagrant scenario, for testing purposes. The configuration file value should be <code class="highlighter-rouge">vagrant_vars</code>.</p>
 
-<h3 id="on-premises-scenarios">On-premises scenarios</h3>
+<h3 id="infrastructure-and-misc-on-premises-scenarios">On-premises scenarios</h3>
 <p>In case of on-premises scenario. An inventory with all the corresponding machines should be used. A configuration file similar to <code class="highlighter-rouge">vagrant_vars</code> can be used.</p>
 
-<h3 id="aws-cloud-scenarios">AWS Cloud scenarios</h3>
+<h3 id="infrastructure-and-misc-aws-cloud-scenarios">AWS Cloud scenarios</h3>
 <p>In case of AWS deployments. The configuration file value should be  <code class="highlighter-rouge">aws_vars</code> in this case.</p>
 
 <table>

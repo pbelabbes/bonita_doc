@@ -39,14 +39,15 @@ class JekyllMdFile(object):
 
         self.full_text_content =""
 
-        self.front_matter = """---
-layout : doc
-title : \"%s\"
-version : \"%s\"
-categories:\n%s
-order : %d
----
-""" % (self.title, self.version, self.getCategs(), self.order)
+        self.multilign = { "active" : False, "key" :""}
+        self.is_front_matter = False
+        self.front_matter = {}
+        self.front_matter['title'] = '"'+self.title+'"'
+        self.front_matter['version'] = '"'+self.version+'"'
+        self.front_matter['order'] = self.order
+        self.front_matter['categories'] = '\n'+self.getCategs()
+
+
 
         # print "front matter of %s is %s\n" % (self.base_name, self.front_matter) 
 
@@ -85,10 +86,45 @@ order : %d
             result += "\n" if index < len(self.categs)-1 else ""
         return result
 
-    
+    def get_front_matter(self):
+        print self.front_matter
+        if "description" not in self.front_matter :
+            self.front_matter["description"] = ">-\n "+self.full_text_content[0:320]
+        res = "---\n"
+        res += "layout : doc\n"
+        for key in self.front_matter :
+            res+= '%s : %s\n' % (key, self.front_matter[key])
+        res+="---\n"
+        return res
+
     def  parseLine(self,line):
 
         clean = True 
+
+        if "---" in line[:3] and not self.content:
+             self.is_front_matter = not self.is_front_matter
+             line = ""
+
+        if self.is_front_matter :
+
+            if self.multilign["active"] :
+                print "multi"
+                self.front_matter[self.multilign["key"]] += line
+
+                if ': ' in line :
+                    self.multilign["active"]=False  
+                    print "end multiligne"
+            elif ':' in line :
+                key = line.split(':')[0].strip(string.whitespace)
+                field = "".join(line.split(':')[1:])
+                # print "-" + line
+                if '>-' in line :
+                    self.multilign["active"] = True
+                    self.multilign["key"] = key
+                self.front_matter[key]=field
+            line =""
+            # print self.front_matter
+                    
 
         if ":fa-" in line :
             fa = line.split(':')[1]
@@ -100,18 +136,28 @@ order : %d
             if not self.hasHTML : self.hasHTML = True
             clean = False
 
+        if line[0:1] =="#" :
+            self.full_text_content += line.replace("\n",". ").replace("#","") 
+            
+
         if line[0:3] == "## " :
             part = line.strip("## ").strip("\n")
             self.addH2(part)
             line = "\n## "+part+"\n{:#"+slugify(part)+"}\n"
-            self.full_text_content += part
+            self.full_text_content += part +". "
             # print line
 
         if line[0:4] == "### " :
+            
+            
+           
             part = line.strip("### ").strip("\n")
             self.addH3(part)
-            line = "\n### "+part+"\n{:#"+slugify(part)+"}\n"
-            self.full_text_content += part
+            part_path = ""
+            if(self.parts ):
+                part_path = self.parts[-1]["title"]+"-"+part
+            line = "\n### "+part+"\n{:#"+slugify(part_path)+"}\n"
+            self.full_text_content += part +". "
             # print line
 
         if "(images/" in line :
@@ -262,10 +308,10 @@ order : %d
         lg = '<div class="list-group">'
 
         for part in self.parts :
-            lg+='<a href="{{"'+ JekyllMdFile.getPath(self.base_name)+self.base_name.strip('.md') +'" | relative_url}}'+'#'+slugify(part['title']) +'" class="list-group-item toc-h2">'+part['title']+'</a>'
+            lg+='<a href="{{"'+ JekyllMdFile.getPath(self.base_name)+self.base_name.split('.md')[0] +'" | relative_url}}'+'#'+slugify(part['title']) +'" class="list-group-item toc-h2">'+part['title']+'</a>'
 
             for sub in part['h3']:
-                lg+='<a href="{{"'+ JekyllMdFile.getPath(self.base_name)+self.base_name.strip('.md') +'" | relative_url}}'+'#'+slugify(sub) +'" class="list-group-item toc-h3">'+sub+'</a>'
+                lg+='<a href="{{"'+ JekyllMdFile.getPath(self.base_name)+self.base_name.split('.md')[0] +'" | relative_url}}'+'#'+slugify(part['title']+"-"+sub) +'" class="list-group-item toc-h3">'+sub+'</a>'
     
         lg += '\n</div>'
 

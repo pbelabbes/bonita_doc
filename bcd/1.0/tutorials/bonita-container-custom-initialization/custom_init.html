@@ -18,15 +18,15 @@
 <meta name="generator" content="Jekyll v3.8.2" />
 <meta property="og:title" content="Custom initialization overview" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bonita Container Custom Initialization" />
-<meta property="og:description" content="Bonita Container Custom Initialization" />
+<meta name="description" content="Bonita Container Custom Initialization. Bonita Container Custom InitializationThe Bonita Docker container deployed by BCD can be further customized thanks to a custom initialization mechanism.This feature relies on the ability to extend the Bonita Docker image through custom .sh s" />
+<meta property="og:description" content="Bonita Container Custom Initialization. Bonita Container Custom InitializationThe Bonita Docker container deployed by BCD can be further customized thanks to a custom initialization mechanism.This feature relies on the ability to extend the Bonita Docker image through custom .sh s" />
 <link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init" />
 <meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init" />
 <meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-07-19T18:06:31+02:00" />
+<meta property="article:published_time" content="2018-07-25T16:59:39+02:00" />
 <script type="application/ld+json">
-{"description":"Bonita Container Custom Initialization","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init","headline":"Custom initialization overview","dateModified":"2018-07-19T18:06:31+02:00","datePublished":"2018-07-19T18:06:31+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init"},"@context":"http://schema.org"}</script>
+{"description":"Bonita Container Custom Initialization. Bonita Container Custom InitializationThe Bonita Docker container deployed by BCD can be further customized thanks to a custom initialization mechanism.This feature relies on the ability to extend the Bonita Docker image through custom .sh s","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init","headline":"Custom initialization overview","dateModified":"2018-07-25T16:59:39+02:00","datePublished":"2018-07-25T16:59:39+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- favicons and rss -->
@@ -180,13 +180,13 @@
 
 <p>This feature relies on the ability to extend the <a href="https://hub.docker.com/_/bonita/">Bonita Docker image</a> through custom <code class="highlighter-rouge">*.sh</code> shell scripts.</p>
 
-<div class="list-group"><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#where-should-i-put-custom-initialization-scripts" class="list-group-item toc-h2">Where should I put custom initialization scripts?</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#static-initialization-files" class="list-group-item toc-h3">Static initialization files</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#dynamic-initialization-files" class="list-group-item toc-h3">Dynamic initialization files</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#when-are-custom-initialization-scripts-invoked" class="list-group-item toc-h2">When are custom initialization scripts invoked?</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#in-which-order-are-custom-initialization-scripts-invoked" class="list-group-item toc-h2">In which order are custom initialization scripts invoked?</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#examples" class="list-group-item toc-h2">Examples</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#1-config-workers-sh" class="list-group-item toc-h3">1. config-workers.sh</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#2-config-cluster-sh-j2" class="list-group-item toc-h3">2. config-cluster.sh.j2</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#3-register-event-handler-sh" class="list-group-item toc-h3">3. register-event-handler.sh</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#4-deploy-probe-sh" class="list-group-item toc-h3">4. deploy-probe.sh</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#5-more-examples-about-rest-api-authorization" class="list-group-item toc-h3">5. More examples about REST API authorization</a>
+<div class="list-group"><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#where-should-i-put-custom-initialization-scripts" class="list-group-item toc-h2">Where should I put custom initialization scripts?</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#where-should-i-put-custom-initialization-scripts-static-initialization-files" class="list-group-item toc-h3">Static initialization files</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#where-should-i-put-custom-initialization-scripts-dynamic-initialization-files" class="list-group-item toc-h3">Dynamic initialization files</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#when-are-custom-initialization-scripts-invoked" class="list-group-item toc-h2">When are custom initialization scripts invoked?</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#in-which-order-are-custom-initialization-scripts-invoked" class="list-group-item toc-h2">In which order are custom initialization scripts invoked?</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#examples" class="list-group-item toc-h2">Examples</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#examples-1-config-workers-sh" class="list-group-item toc-h3">1. config-workers.sh</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#examples-2-config-cluster-sh-j2" class="list-group-item toc-h3">2. config-cluster.sh.j2</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#examples-3-register-event-handler-sh" class="list-group-item toc-h3">3. register-event-handler.sh</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#examples-4-deploy-probe-sh" class="list-group-item toc-h3">4. deploy-probe.sh</a><a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/custom_init#examples-5-more-examples-about-rest-api-authorization" class="list-group-item toc-h3">5. More examples about REST API authorization</a>
 </div>
 <h2 id="where-should-i-put-custom-initialization-scripts">Where should I put custom initialization scripts?</h2>
 
 <p id="where-should-i-put-custom-initialization-scripts">Custom initialization files can be <strong>static</strong> or they can be <strong>dynamic</strong> while relying on runtime variables. Dynamic initialization files then leverage the <a href="http://docs.ansible.com/ansible/latest/playbooks_templating.html">Jinja2 templating framework used by Ansible</a>.</p>
 
-<h3 id="static-initialization-files">Static initialization files</h3>
+<h3 id="where-should-i-put-custom-initialization-scripts-static-initialization-files">Static initialization files</h3>
 
 <p>Static custom initialization files must be placed in BCD’s <code class="highlighter-rouge">roles/bonita/files/custom-init.d</code> folder. All files from this folder will be uploaded to the target host regardless their extension. However only the files with a <code class="highlighter-rouge">.sh</code> extension will be executed.</p>
 
@@ -201,7 +201,7 @@
 │   │   │   └── register-event-handler.sh
 </code></pre></div></div>
 
-<h3 id="dynamic-initialization-files">Dynamic initialization files</h3>
+<h3 id="where-should-i-put-custom-initialization-scripts-dynamic-initialization-files">Dynamic initialization files</h3>
 
 <p>Dynamic custom initialization files must be placed in BCD’s <code class="highlighter-rouge">roles/bonita/templates/custom-init.d</code> folder. All files with a <code class="highlighter-rouge">.j2</code> extension will be uploaded to the target host and stripped from the <code class="highlighter-rouge">.j2</code> suffix. However only the files with a <code class="highlighter-rouge">.sh.j2</code> extension will be executed.</p>
 
@@ -256,17 +256,17 @@ For example:</p>
 
 <h2 id="examples">Examples</h2>
 
-<h3 id="1-config-workerssh">1. config-workers.sh</h3>
+<h3 id="examples-1-config-workers-sh">1. config-workers.sh</h3>
 
 <p>The <code class="highlighter-rouge">config-workers.sh</code> script is provided as part of BCD’s core scripts.
 In particular it shows how to further configure the server using <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/BonitaBPM_platform_setup">Bonita Platform setup tool</a>.</p>
 
-<h3 id="2-config-clustershj2">2. config-cluster.sh.j2</h3>
+<h3 id="examples-2-config-cluster-sh-j2">2. config-cluster.sh.j2</h3>
 
 <p>The <code class="highlighter-rouge">config-cluster.sh.j2</code> script template is provided as part of BCD’s core scripts.
 In particular it shows how to conditionally configure a cluster deployment on AWS using BCD variables and <a href="http://docs.ansible.com/ansible/latest/playbooks_templating.html">Jinja2 templating engine</a>.</p>
 
-<h3 id="3-register-event-handlersh">3. register-event-handler.sh</h3>
+<h3 id="examples-3-register-event-handler-sh">3. register-event-handler.sh</h3>
 
 <p>This sample script deploys and registers a Bonita engine Event handler as described in <a href="https://documentation.bonitasoft.com/bonita/${bonitaDocVersion}/event-handlers">Event handlers Documentation</a>.</p>
 
@@ -319,7 +319,7 @@ zip <span class="nt">-r</span> <span class="s2">"</span><span class="k">${</span
 <span class="nb">touch</span> <span class="k">${</span><span class="nv">indicator_path</span><span class="k">}</span>
 </code></pre></div></div>
 
-<h3 id="4-deploy-probesh">4. deploy-probe.sh</h3>
+<h3 id="examples-4-deploy-probe-sh">4. deploy-probe.sh</h3>
 
 <p>This sample script deploys <a href="https://github.com/psi-probe/psi-probe/wiki">PSI Probe</a> (an <em>Advanced manager and monitor for Apache Tomcat</em>) along with Bonita in the Tomcat bundle.</p>
 
@@ -383,7 +383,7 @@ curl <span class="nt">-sSL</span> <span class="nt">-o</span> server/webapps/prob
 <span class="nt">&lt;/tomcat-users&gt;</span>
 </code></pre></div></div>
 
-<h3 id="5-more-examples-about-rest-api-authorization">5. More examples about REST API authorization</h3>
+<h3 id="examples-5-more-examples-about-rest-api-authorization">5. More examples about REST API authorization</h3>
 
 <p>See <a href="/bonita_doc/bcd/1.0/tutorials/bonita-container-custom-initialization/how_to_configure_rest_api_authorization">how to configure REST API authorization</a>.</p>
 

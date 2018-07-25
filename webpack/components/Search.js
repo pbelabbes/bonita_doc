@@ -136,10 +136,11 @@ class Search extends Component {
               <div className={"search__results " + this.state.resultsClass} >
                 
                 {/* search results */}
+                <HitsStats component={customHitStats}/>
                 (   <Hits hitsPerPage={5}
                   highlightFields={["title", "text", "url"]}
                   itemComponent={HitItem} />
-                  <Pagination showNumbers={true}/>
+                  <Pagination showNumbers={false}/>
                 {/* if there are no results */}
                 <NoHits className="sk-hits" translations={{
                   "NoHits.NoResultsFound": "No results were found for ' {query} '",
