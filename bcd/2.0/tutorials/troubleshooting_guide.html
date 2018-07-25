@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Troubleshooting guide | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="Troubleshooting guide" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Troubleshooting guide. Troubleshooting guideIf you encounter issues during the usage of BCD due to a bad configuration or a network problem, it’s interesting to know that you could be able to simply relaunch your command (create, deploy) after fixing the configuration or the network and it should resume from where it" />
+<meta property="og:description" content="Troubleshooting guide. Troubleshooting guideIf you encounter issues during the usage of BCD due to a bad configuration or a network problem, it’s interesting to know that you could be able to simply relaunch your command (create, deploy) after fixing the configuration or the network and it should resume from where it" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-25T17:16:31+02:00" />
+<script type="application/ld+json">
+{"description":"Troubleshooting guide. Troubleshooting guideIf you encounter issues during the usage of BCD due to a bad configuration or a network problem, it’s interesting to know that you could be able to simply relaunch your command (create, deploy) after fixing the configuration or the network and it should resume from where it","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide","headline":"Troubleshooting guide","dateModified":"2018-07-25T17:16:31+02:00","datePublished":"2018-07-25T17:16:31+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid main_nav">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.8">7.8 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.4">7.4 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+        <div id="react-search"></div>
+      </div>
+     
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">
+            
+            <img src="/bonita_doc/assets/img/logo_bcd.png" />
+            
+                
+
+                <span>Bcd  2.0</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/release_notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/requirements-and-compatibility">Requirements and compatibility</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/getting_started">Getting started</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#tutorials" aria-controls="tutorials"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Tutorials</strong></a><ul id="tutorials" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/tutorials/aws_prerequisites">AWS prerequisites</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#bcd-services-and-scenarios" aria-controls="bcd-services-and-scenarios"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD services and scenarios</strong></a><ul id="bcd-services-and-scenarios" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_controller">Controller Docker image</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#tutorials" aria-controls="tutorials"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Tutorials</strong></a><ul id="tutorials" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/tutorials/licensing_prerequisites">Licensing prerequisites</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#bcd-services-and-scenarios" aria-controls="bcd-services-and-scenarios"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD services and scenarios</strong></a><ul id="bcd-services-and-scenarios" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/bcd_cli">Command-line interface</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#tutorials" aria-controls="tutorials"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Tutorials</strong></a><ul id="tutorials" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/tutorials/quickstart">Quick start</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#bcd-services-and-scenarios" aria-controls="bcd-services-and-scenarios"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD services and scenarios</strong></a><ul id="bcd-services-and-scenarios" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-services-and-scenarios/scenarios">Scenario file reference</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#tutorials" aria-controls="tutorials"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Tutorials</strong></a><ul id="tutorials" class="collapse"><li><a role="button" data-toggle="collapse"  href="#bonita-container-custom-initialization" aria-controls="bonita-container-custom-initialization"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita container custom initialization</strong></a><ul id="bonita-container-custom-initialization" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/tutorials/bonita-container-custom-initialization/custom_init">Custom initialization overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_prerequisites">Configure Amazon Web Services (AWS) for BCD</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#tutorials" aria-controls="tutorials"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Tutorials</strong></a><ul id="tutorials" class="collapse"><li><a role="button" data-toggle="collapse"  href="#bonita-container-custom-initialization" aria-controls="bonita-container-custom-initialization"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita container custom initialization</strong></a><ul id="bonita-container-custom-initialization" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/tutorials/bonita-container-custom-initialization/how_to_configure_rest_api_authorization">How to configure REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_sso">Configure AWS single sign-on</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#tutorials" aria-controls="tutorials"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Tutorials</strong></a><ul id="tutorials" class="collapse"><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide">Troubleshooting guide</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/aws_organizations">Assume IAM role within AWS Organizations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/scenarios">Scenario variables reference</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bcd-controller-docker-image" aria-controls="bcd-controller-docker-image"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD Controller Docker image</strong></a><ul id="bcd-controller-docker-image" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-controller-docker-image/docker">Docker image overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/deploy_with_static_inventory">Deploy with a static inventory</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#bcd-controller-docker-image" aria-controls="bcd-controller-docker-image"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>BCD Controller Docker image</strong></a><ul id="bcd-controller-docker-image" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/bcd-controller-docker-image/cli">BCD Command Line Interface</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li><a role="button" data-toggle="collapse"  href="#manage-bonita-stacks" aria-controls="manage-bonita-stacks"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita stacks</strong></a><ul id="manage-bonita-stacks" class="collapse"><li><a role="button" data-toggle="collapse"  href="#customize-the-bonita-container" aria-controls="customize-the-bonita-container"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Customize the Bonita container</strong></a><ul id="customize-the-bonita-container" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/custom_init">Using initialization scripts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_configure_rest_api_authorization">Configuring REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li></ul></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-stacks/customize-the-bonita-container/how_to_enable_remote_monitoring_jmx">Enabling remote monitoring with JMX</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#manage-bonita-living-applications" aria-controls="manage-bonita-living-applications"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage Bonita Living Applications</strong></a><ul id="manage-bonita-living-applications" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build">Build a Living App repository</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_deploy">Deploy Living App artifacts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/manage-bonita-living-applications/livingapp_build_and_deploy">Build and deploy (Best Practices)</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/how_to_use_bcd_with_data_encrypted">Use BCD with sensitive data encrypted</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/howtos/jenkins_example">Integrate BCD with Jenkins</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bcd/2.0/troubleshooting_guide">Troubleshooting guide</a></li></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-continuous-delivery-doc/edit/2.0/md/troubleshooting_guide.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="troubleshooting-guide">Troubleshooting guide</h1>
+
+<p>If you encounter issues during the usage of BCD due to a bad configuration or a network problem, it’s interesting to know that you could be able to simply relaunch your command (create, deploy) after fixing the configuration or the network and it should resume from where it was.</p>
+
+<div class="list-group"><a href="/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide#common-issues" class="list-group-item toc-h2">Common issues</a><a href="/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide#common-issues-invalidamiid-notfound-and-invalidsubnetid-notfound" class="list-group-item toc-h3">InvalidAMIID.NotFound and InvalidSubnetID.NotFound</a><a href="/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide#accessing-bonita-logs" class="list-group-item toc-h2">Accessing Bonita logs</a><a href="/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide#debugging-ansible-facts" class="list-group-item toc-h2">Debugging Ansible Facts</a><a href="/bonita_doc/bcd/2.0/tutorials/troubleshooting_guide#accessing-ansible-logs" class="list-group-item toc-h2">Accessing Ansible Logs</a>
+</div>
+<h2 id="common-issues">Common issues</h2>
+
+<h3 id="common-issues-invalidamiid-notfound-and-invalidsubnetid-notfound">InvalidAMIID.NotFound and InvalidSubnetID.NotFound</h3>
+
+<p>If while you launch a <code class="highlighter-rouge">create</code> command in order to create instances on AWS you get errors like these:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[...]
+InvalidAMIID.NotFound: The image id '[ami-fc4f5e85]' does not exist
+[...]
+Error launching source instance: InvalidSubnetID.NotFound: The subnet ID 'subnet-ab123456' does not exist
+[...]
+</code></pre></div></div>
+
+<p>You should check that <code class="highlighter-rouge">ec2_subnet_ids</code> and <code class="highlighter-rouge">aws_ami</code> correspond to the region set into <code class="highlighter-rouge">ec2_region</code>.
+You may also check that rights linked to your AWS credentials (<code class="highlighter-rouge">.boto</code> or <code class="highlighter-rouge">.aws</code>) correspond to the actions in your scenario.</p>
+
+<h2 id="accessing-bonita-logs">Accessing Bonita logs</h2>
+
+<p>In order to troubleshoot issues you may need to consult Bonita logs.</p>
+
+<p>To do so, first you need to identify the target server where the Bonita container is running.
+It’s possible through the <code class="highlighter-rouge">bcd status</code> command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bcd -y -s scenarios/myscenario.yml status
+
+[...]
+[10:44:12.802] TASK [List Docker containers.] **************************************************************************************************
+[...]
+IP: 54.191.90.85
+FQDN: ec2-54-191-90-85.us-west-2.compute.amazonaws.com
+
+Docker running containers
+--
+CONTAINER ID        IMAGE                                  CREATED             STATUS              NAMES
+5d73a2446245        bonitasoft/bonita-subscription:7.6.2   6 minutes ago       Up 6 minutes        bonita8081
+[...]
+</code></pre></div></div>
+
+<p>Then you will need to connect on this server (either through the IP or FQDN) using <code class="highlighter-rouge">ssh</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -i ~/.ssh/my_key.pem ubuntu@54.191.90.85
+</code></pre></div></div>
+
+<p>You can now display the logs using:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker logs bonita8081
+</code></pre></div></div>
+
+<p>If you want to copy all the logs (bonita, catalina) you can use <code class="highlighter-rouge">docker cp</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker cp bonita8081:/opt/bonita/BonitaSubscription-7.6.2-Tomcat-8.5.23/server/logs/ /tmp/
+</code></pre></div></div>
+
+<p>Then you will be able to retrieve all the files through a <code class="highlighter-rouge">scp</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp -i ~/.ssh/my_key.pem ubuntu@54.191.90.85:/tmp/logs /tmp/
+</code></pre></div></div>
+
+<h2 id="debugging-ansible-facts">Debugging Ansible Facts</h2>
+
+<p>Ansible facts are local variables registered in hosts. It is possible to save them in JSON files with the <code class="highlighter-rouge">setup</code> command.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd bonita-continuous-delivery
+$ bcd -y -s scenarios/myscenario.yml create deploy
+$ ansible all -vv -i inventory/ec2/ec2_wrapper.sh -m setup -u ubuntu --private-key=~/.ssh/my_key.pem --tree tmp_facts/
+</code></pre></div></div>
+<p>This command will identify every EC2 instance (depending of <code class="highlighter-rouge">bcd_stack_id</code> set into ec2.ini by the last <code class="highlighter-rouge">bcd deploy</code> command) and put its facts into the <code class="highlighter-rouge">tmp_facts</code> directory.</p>
+
+<h2 id="accessing-ansible-logs">Accessing Ansible Logs</h2>
+
+<p>In order to troubleshoot issues, you may need to consult Ansible logs.</p>
+
+<p>By default, the path of the log is <code class="highlighter-rouge">/var/log/ansible.log</code> in your Docker container. You can change this location modifying 
+the variable <code class="highlighter-rouge">log_path</code> in the Ansible configuration file located in <code class="highlighter-rouge">ansible.cfg</code>.</p>
+
+<p>If you want to persist the log, you can add a <strong><em>volume</em></strong> in when you run <code class="highlighter-rouge">docker run</code> command like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --rm -t -i --name bcd-controller \
+    -v &lt;local_path_to_.boto&gt;:/home/bonita/.boto \
+    -v &lt;local_path_to_bonita-continuous-delivery_folder&gt;:/home/bonita/bonita-continuous-delivery \
+    -v &lt;local_path_to_ssh_private_key&gt;:/home/bonita/.ssh/&lt;ssh_private_key&gt; \
+    -v &lt;local_path_to_your_ansible_log&gt;:/var/log/ansible.log \
+    bonitasoft/bcd-controller /bin/bash
+</code></pre></div></div>
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>

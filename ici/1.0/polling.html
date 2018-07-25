@@ -18,15 +18,15 @@
 <meta name="generator" content="Jekyll v3.8.2" />
 <meta property="og:title" content="Poll data from Bonita Engine database" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Poll data from Bonita platform to ICI Module" />
-<meta property="og:description" content="Poll data from Bonita platform to ICI Module" />
+<meta name="description" content="Poll data from Bonita platform to ICI Module. Poll data from Bonita platform to ICI ModuleIn order to learn from the history of all executed processes in Bonita platform, ICI backend need to access and poll data from Bonita platform database.The first time ICI backend is launched, all data regarding case and task exe" />
+<meta property="og:description" content="Poll data from Bonita platform to ICI Module. Poll data from Bonita platform to ICI ModuleIn order to learn from the history of all executed processes in Bonita platform, ICI backend need to access and poll data from Bonita platform database.The first time ICI backend is launched, all data regarding case and task exe" />
 <link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/ici/1.0/polling" />
 <meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/ici/1.0/polling" />
 <meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-07-25T16:59:39+02:00" />
+<meta property="article:published_time" content="2018-07-25T17:16:31+02:00" />
 <script type="application/ld+json">
-{"description":"Poll data from Bonita platform to ICI Module","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/ici/1.0/polling","headline":"Poll data from Bonita Engine database","dateModified":"2018-07-25T16:59:39+02:00","datePublished":"2018-07-25T16:59:39+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/ici/1.0/polling"},"@context":"http://schema.org"}</script>
+{"description":"Poll data from Bonita platform to ICI Module. Poll data from Bonita platform to ICI ModuleIn order to learn from the history of all executed processes in Bonita platform, ICI backend need to access and poll data from Bonita platform database.The first time ICI backend is launched, all data regarding case and task exe","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/ici/1.0/polling","headline":"Poll data from Bonita Engine database","dateModified":"2018-07-25T17:16:31+02:00","datePublished":"2018-07-25T17:16:31+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/ici/1.0/polling"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- favicons and rss -->
@@ -180,7 +180,7 @@
 
 <p>The first time ICI backend is launched, all data regarding case and task execution is retrieved from the Bonita platform database. Then, every 15 minutes (default configuration), a job updates the module with data of newly executed tasks and cases.</p>
 
-<div class="list-group"><a href="/bonita_doc/ici/1.0/polling#configuration" class="list-group-item toc-h2">Configuration</a><a href="/bonita_doc/ici/1.0/polling#manage-polling-executions" class="list-group-item toc-h2">Manage polling executions</a><a href="/bonita_doc/ici/1.0/polling#troubleshooting" class="list-group-item toc-h2">Troubleshooting</a><a href="/bonita_doc/ici/1.0/polling#polling-errors" class="list-group-item toc-h3">Polling errors</a><a href="/bonita_doc/ici/1.0/polling#deleted-cases" class="list-group-item toc-h3">Deleted cases</a>
+<div class="list-group"><a href="/bonita_doc/ici/1.0/polling#configuration" class="list-group-item toc-h2">Configuration</a><a href="/bonita_doc/ici/1.0/polling#manage-polling-executions" class="list-group-item toc-h2">Manage polling executions</a><a href="/bonita_doc/ici/1.0/polling#troubleshooting" class="list-group-item toc-h2">Troubleshooting</a><a href="/bonita_doc/ici/1.0/polling#troubleshooting-polling-errors" class="list-group-item toc-h3">Polling errors</a><a href="/bonita_doc/ici/1.0/polling#troubleshooting-deleted-cases" class="list-group-item toc-h3">Deleted cases</a>
 </div>
 <h2 id="configuration">Configuration</h2>
 
@@ -217,13 +217,13 @@ It can be useful to decrease it when you want to limit the impact of the ICI mod
 
 <h2 id="troubleshooting">Troubleshooting</h2>
 
-<h3 id="polling-errors">Polling errors</h3>
+<h3 id="troubleshooting-polling-errors">Polling errors</h3>
 
 <p>When a polling execution fails, it can be seen in error on the ICI backend. By default it can be accessed on <a href="http://localhost:8082/">http://localhost:8082/</a>.</p>
 
 <p>More information would be available in output logs on the ICI backend, either in the Standard output or in the log file <code class="highlighter-rouge">logs/bonita-ici.log</code></p>
 
-<h3 id="deleted-cases">Deleted cases</h3>
+<h3 id="troubleshooting-deleted-cases">Deleted cases</h3>
 
 <p>When a started case is already polled in ICI storage and then deleted in Bonita platform, this case is still present 
 in ICI storage and will still be displayed in Operation Management Living app, but this overview can’t be displayed 

@@ -50,7 +50,7 @@ if sys.argv[1] in repos:
 
     print "try to indexing documentation ..."
 
-    # generator.indexingDocuments(elasticSearchUrl, repo, version)
+    generator.indexingDocuments(elasticSearchUrl, repo, version)
   
     print "... INDEXATION SUCCESSFUL ..."
 
