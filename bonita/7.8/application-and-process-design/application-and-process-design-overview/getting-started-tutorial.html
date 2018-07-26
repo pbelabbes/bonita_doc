@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- head -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1"> 
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+    <link rel="stylesheet" href="/bonita_doc/assets/main.css">
+    <!-- <link rel="stylesheet" href="/bonita_doc/assets/richleland-pygments-css/vs.css"> --> 
+    <!-- jekyll-seo-tag -->
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Getting started tutorial | Bonitasoft Documentation Prototype</title>
+<meta name="generator" content="Jekyll v3.8.2" />
+<meta property="og:title" content="Getting started tutorial" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Getting started tutorial. Getting started tutorialThis tutorial explains how to create an application that includes a process. The application is created using the Bonita Community Edition, and uses features that are available in all editions. The example application is a business travel tool.Important these instruct" />
+<meta property="og:description" content="Getting started tutorial. Getting started tutorialThis tutorial explains how to create an application that includes a process. The application is created using the Bonita Community Edition, and uses features that are available in all editions. The example application is a business travel tool.Important these instruct" />
+<link rel="canonical" href="https://pbelabbes.github.io/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial" />
+<meta property="og:url" content="https://pbelabbes.github.io/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial" />
+<meta property="og:site_name" content="Bonitasoft Documentation Prototype" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-26T10:49:51+02:00" />
+<script type="application/ld+json">
+{"description":"Getting started tutorial. Getting started tutorialThis tutorial explains how to create an application that includes a process. The application is created using the Bonita Community Edition, and uses features that are available in all editions. The example application is a business travel tool.Important these instruct","@type":"BlogPosting","url":"https://pbelabbes.github.io/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial","headline":"Getting started tutorial","dateModified":"2018-07-26T10:49:51+02:00","datePublished":"2018-07-26T10:49:51+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pbelabbes.github.io/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- favicons and rss -->
+    <link rel="alternate" type="application/rss+xml" title="Bonitasoft Documentation Prototype" href="/bonita_doc/feed.xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bonita_doc/assets/favicon/bonita-32_0.png">
+</head>
+<body>
+    <!-- header --><div class="documentationHeader">
+    <nav class="navbar navbar-default">
+      <div id="top-links" class="container-fluid">
+          <div class="row">
+             <ul class="inline pull-right">
+                 <li><a href="http://www.bonitasoft.com/about-us/news" style="color: white">News</a></li>
+                 <li><a href="http://community.bonitasoft.com/" style="color: white">Community</a></li>
+                 <li><a href="http://customer.bonitasoft.com/" style="color: white">Customer portal</a></li>
+                 <li><a href="http://partner.bonitasoft.com/home" style="color: white">Partners</a></li>
+             </ul>
+          </div>
+      </div>
+      <div class="container-fluid main_nav">
+        <div class="navbar-header">
+          <a class="logo">
+            <img alt="Bonitasoft" src="/bonita_doc/assets/img/logo_white.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="dropdown" >
+            <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonita <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.8">7.8 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.7">7.7 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.6">7.6 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.5">7.5 </a>
+                </li>
+      
+                
+                <li role="menuitem">
+                        <a class="version" href="https://pbelabbes.github.io/bonita_doc/bonita/7.4">7.4 </a>
+                </li>
+      
+                
+                
+                <!-- <li class="menu-item dropdown dropdown-submenu">
+                    <a class="dropdown-toggle">Other versions</a>
+                    <ul class="dropdown-menu">
+                        <li >
+                            <a href="" class="version"></a>
+                        </li>
+                    </ul>
+                </li> -->
+  
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a class="version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add-ons <span class="caret"></span></a>
+          <ul class="dropdown-menu" >
+
+              
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">bcd</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/2.0">2.0</a>
+                                </li>
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/bcd/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+               
+              
+                
+                    <li class="menu-item dropdown dropdown-submenu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ici</a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="addOnVersion" >
+                                    <a class="version" href="https://pbelabbes.github.io/bonita_doc/ici/1.0">1.0</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </li>
+                
+                
+               
+              
+                
+                
+               
+              
+          </ul>
+          </li>
+        </ul>
+        <div id="react-search"></div>
+      </div>
+     
+    </nav>
+  </div><div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><div id="navigationHeader" class="documentationNavigationHeader">
+    <h2><a href="https://pbelabbes.github.io/bonita_doc/bonita/7.8">
+            
+            <img src="/bonita_doc/assets/img/logo_bonita.png" />
+            
+                
+
+                <span>Bonita  7.8</span>
+        </a>
+    </h2>
+</div>
+
+<div class="documentationNavigation">
+  
+    <!-- Create an array to store the current category --><!-- Start iterate in categories  -->
+    <ul><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/release-notes">Release notes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#application-and-process-design" aria-controls="application-and-process-design"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Application and Process Design</strong></a><ul id="application-and-process-design" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/bonita-bpm-overview">Bonita overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#application-and-process-design-overview" aria-controls="application-and-process-design-overview"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Application and process design overview</strong></a><ul id="application-and-process-design-overview" class="collapse"><li class="active" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial">Getting started tutorial</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/key-concepts">Key concepts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/comparison-of-7-x-and-6-x">Comparison of 7.x and 6.x</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/lifecycle-and-profiles">Lifecycle and profiles</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/design-methodology">Design methodology</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/bonita-bpm-studio-preferences">Bonita Studio preferences</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/bonita-bpm-studio-hints-and-tips">Bonita Studio hints and tips</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#organization" aria-controls="organization"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Organization</strong></a><ul id="organization" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/organization/organization-overview">Organization overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/organization/approaches-to-managing-organizations-and-actor-mapping">Approaches to managing organizations and actor mapping</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/organization/organization-management-in-bonita-bpm-studio">Organization management in Bonita Studio</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/organization/custom-user-information-in-bonita-bpm-studio">Custom User Information in Bonita Studio</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/organization/ldap-synchronizer">LDAP synchronizer</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#profiles" aria-controls="profiles"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Profiles</strong></a><ul id="profiles" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/profiles/profiles-overview">Profiles overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/profiles/profileCreation">Profiles editor</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#process-modeling" aria-controls="process-modeling"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Process modeling</strong></a><ul id="process-modeling" class="collapse"><li><a role="button" data-toggle="collapse"  href="#diagrams" aria-controls="diagrams"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Diagrams</strong></a><ul id="diagrams" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/diagram-overview">Diagram overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/pools-and-lanes">Pools and lanes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/diagram-tasks">Tasks</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/gateways">Gateways</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/transitions">Transitions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/events">Events</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/called-processes">Called processes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/event-subprocesses">Event subprocesses</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/text-annotations">Text annotations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/diagrams/migrate-a-process-from-bonita-open-solution-5-x">Migrate a process from Bonita Open Solution 5.x</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/naming-conventions">Naming conventions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/generate-process-documentation">Generate process documentation</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/refactoring">Refactoring</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/actors">Actors</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/actor-filtering">Actor filters</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/iteration">Iteration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#data" aria-controls="data"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Data</strong></a><ul id="data" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/data/data-handling-overview">Data handling overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/data/define-and-deploy-the-bdm">Define and deploy the BDM</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#define-access-control-on-business-objects" aria-controls="define-access-control-on-business-objects"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Define access control on business objects</strong></a><ul id="define-access-control-on-business-objects" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/define-access-control-on-business-objects/specify-data-in-a-process-definition">Specify data in a process definition</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/define-access-control-on-business-objects/parameters">Parameters</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/define-access-control-on-business-objects/contracts-and-contexts">Contracts and contexts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/define-access-control-on-business-objects/documents">Documents</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/define-access-control-on-business-objects/create-a-complex-data-type">Complex data types</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/define-access-control-on-business-objects/define-a-search-index">Define a search key</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/define-access-control-on-business-objects/expressions-and-scripts">Expressions and scripts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/define-access-control-on-business-objects/operations">Operations</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#page-and-form-development" aria-controls="page-and-form-development"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Page and form development</strong></a><ul id="page-and-form-development" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/page-and-form-development-overview">Page and form development overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#ui-designer" aria-controls="ui-designer"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>UI Designer</strong></a><ul id="ui-designer" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/ui-designer-overview">UI Designer overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/create-or-modify-a-page">Create or modify UI artifacts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/widgets">Widgets</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/widget-properties">Widget properties</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#widget-use-examples" aria-controls="widget-use-examples"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Widget use examples</strong></a><ul id="widget-use-examples" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/widget-use-examples/repeat-a-container-for-a-collection-of-data">Repeat a container for a collection of data</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/fragments">Fragments</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/custom-widgets">Custom widgets</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/variables">Variables</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/appearance">Appearance</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/assets">Assets</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/multi-language-pages">Multi-language pages</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/ui-designer/migrate-a-form-from-6-x">Migrate a form from 6.x</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/6-x-legacy-forms">6.x legacy forms</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/page-and-form-development/cache-configuration-and-policy">Cache configuration and policy</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/applicationCreation">Application descriptor</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#connectivity" aria-controls="connectivity"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Connectivity</strong></a><ul id="connectivity" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/connectivity-overview">Connectivity overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/alfresco">Alfresco</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/cmis">CMIS</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#database" aria-controls="database"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Database</strong></a><ul id="database" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/database/list-of-database-connectors">List of database connectors</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/database/database-connector-configuration">Database connector configuration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/database/graphical-query-builder">Graphical query builder</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/database/initialize-a-variable-from-a-database-without-scripting-or-java-code">Initialize a variable from a database without scripting or Java code</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/insert-data-in-a-docx-odt-template">Insert data in a .docx/.odt template</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/google-calendar">Google Calendar</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/ldap">LDAP</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/messaging">Messaging</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/generate-pdf-from-an-office-document">Generate PDF from an Office document</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/salesforce">Salesforce</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/sap-jco-2">SAP JCo 2</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/sap-jco-3">SAP JCo 3</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/script">Script</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/twitter">Twitter</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#web-service" aria-controls="web-service"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Web service</strong></a><ul id="web-service" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/web-service/web-service-connector-overview">Web service connector overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/connectivity/web-service/web-service-tutorial">Web service connector tutorial</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#reporting" aria-controls="reporting"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Reporting</strong></a><ul id="reporting" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/reporting/reporting-overview">Reporting overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/reporting/set-up-a-reporting-database">Set up a reporting database</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/reporting/set-up-kpis">Set up KPIs</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/reporting/create-a-report">Create a report</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/import-and-export-a-process">Import and export a process</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#process-configuration" aria-controls="process-configuration"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Process configuration</strong></a><ul id="process-configuration" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-configuration/process-configuration-overview">Process configuration overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-configuration/environments">Environments</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-configuration/configuring-a-process">Configure a process</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-configuration/manage-jar-files">Manage JAR files</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-configuration/managing-dependencies">Manage dependencies</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#process-testing" aria-controls="process-testing"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Process testing</strong></a><ul id="process-testing" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-testing/process-testing-overview">Process testing overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-testing/configure-a-test-organization">Configure a test organization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-testing/run-a-process-from-bonita-bpm-studio-for-testing">Run a process from Bonita Studio for testing</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-testing/log-files">Log files</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/application-and-process-design/build-a-process-for-deployment">Build a process for deployment</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#installation" aria-controls="installation"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Installation</strong></a><ul id="installation" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/bonita-bpm-installation-overview">Bonita installation overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/bonita-bpm-studio-installation">Bonita Studio installation</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#basic-bonita-platform-installation" aria-controls="basic-bonita-platform-installation"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Basic Bonita Platform installation</strong></a><ul id="basic-bonita-platform-installation" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/basic-bonita-platform-installation/hardware-and-software-requirements">Hardware and software requirements</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/basic-bonita-platform-installation/tomcat-bundle">Tomcat bundle</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/basic-bonita-platform-installation/wildfly-bundle">WildFly bundle</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/basic-bonita-platform-installation/deploy-bundle">Deploy bundle</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/basic-bonita-platform-installation/BonitaBPM_platform_setup">Platform configuration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/basic-bonita-platform-installation/database-configuration">Database creation and customization to work with Bonita</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/basic-bonita-platform-installation/first-steps-after-setup">First steps after setup</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/basic-bonita-platform-installation/licenses">Licenses</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#advanced-bonita-platform-installation" aria-controls="advanced-bonita-platform-installation"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Advanced Bonita Platform installation</strong></a><ul id="advanced-bonita-platform-installation" class="collapse"><li><a role="button" data-toggle="collapse"  href="#security-and-authentication" aria-controls="security-and-authentication"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Security and authentication</strong></a><ul id="security-and-authentication" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/user-authentication-overview">User authentication overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/active-directory-or-ldap-authentication">Active Directory or LDAP authentication</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/single-sign-on-with-cas">Single sign-on with CAS</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/single-sign-on-with-saml">Single sign-on with SAML</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/enforce-password-policy">Enforce password policy</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/rest-api-authorization">REST API authorization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/csrf-security">CSRF security</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/enable-cors-in-tomcat-bundle">Enable CORS in Tomcat bundle</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/ssl">SSL</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/security-and-authentication/tenant_admin_credentials">Tenant administrator credentials</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/set-log-and-archive-levels">Set log and archive levels</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/configurable-archive">Configurable Archive</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/performance-tuning">Performance tuning</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/performance-troubleshooting">Performance troubleshooting</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/use-gzip-compression">Use gzip compression</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/two-main-types-of-deployment">Two main types of deployment</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bonita-in-a-cluster" aria-controls="bonita-in-a-cluster"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita in a cluster</strong></a><ul id="bonita-in-a-cluster" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/bonita-in-a-cluster/overview-of-bonita-bpm-in-a-cluster">Overview of Bonita in a cluster</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/bonita-in-a-cluster/install-a-bonita-bpm-cluster">Install a Bonita cluster</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/bonita-in-a-cluster/cluster-administration">Cluster administration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/advanced-bonita-platform-installation/multi-tenancy-and-tenant-configuration">Multi-tenancy and tenant configuration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#platform-installation-examples" aria-controls="platform-installation-examples"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Platform installation examples</strong></a><ul id="platform-installation-examples" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/platform-installation-examples/ubuntu-openjdk-tomcat-postgresql">Ubuntu + OpenJDK + Tomcat + PostgreSQL</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/back-up-bonita-bpm-platform">Back up Bonita Platform</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#migration" aria-controls="migration"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Migration</strong></a><ul id="migration" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/migration/migration-overview">Migration overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/migration/migrate-from-an-earlier-version-of-bonita-bpm">Migrate from an earlier version of Bonita</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/installation/upgrade-from-community-to-a-subscription-edition">Community to Subscription upgrade</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#bonita-portal-administration" aria-controls="bonita-portal-administration"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita Portal Administration</strong></a><ul id="bonita-portal-administration" class="collapse"><li><a role="button" data-toggle="collapse"  href="#bonita-portal-interface" aria-controls="bonita-portal-interface"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita Portal interface</strong></a><ul id="bonita-portal-interface" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/bonita-portal-interface/bonita-bpm-portal-interface-overview">Bonita Portal overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/bonita-portal-interface/user-task-list">User task list</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/bonita-portal-interface/languages">Languages</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/bonita-portal-interface/log-in-and-log-out">Log in and log out</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/bonita-portal-interface/about">About Bonita Portal</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/mobile-portal">Mobile Portal</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#process-maintenance" aria-controls="process-maintenance"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Process maintenance</strong></a><ul id="process-maintenance" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/process-maintenance/processes">Processes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/process-maintenance/cases">Cases</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/process-maintenance/tasks">Tasks</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/process-maintenance/subtasks">Subtasks</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/process-maintenance/monitoring">Monitoring</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/process-maintenance/pause-and-resume-bpm-services">Pause and resume services</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/process-maintenance/bdm-management-in-bonita-bpm-portal">BDM Management in Bonita Portal</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/applications">Applications</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#resources" aria-controls="resources"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Resources</strong></a><ul id="resources" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/resources/resource-management">Resource management</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/resources/pages">Pages</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/resources/forms">Forms</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/resources/layouts">Layouts</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/resources/themes">Themes</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/resources/api-extensions">REST API extensions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/live-update">Live update</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#organization-in-bonita-portal" aria-controls="organization-in-bonita-portal"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Organization in Bonita Portal</strong></a><ul id="organization-in-bonita-portal" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/organization-in-bonita-portal/organization-in-bonita-bpm-portal-overview">Organization in Bonita Portal overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#organization-maintenance" aria-controls="organization-maintenance"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Organization maintenance</strong></a><ul id="organization-maintenance" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/import-export-an-organization">Import/export an organization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/group">Manage groups</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/role">Manage roles</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#manage-users" aria-controls="manage-users"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Manage users</strong></a><ul id="manage-users" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/manage-users/manage-a-user">Manage a user</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/manage-users/deactivate-a-user">Deactivate a user</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/organization-in-bonita-portal/organization-maintenance/custom-user-information-in-bonita-bpm-portal">Custom User Information in Bonita Portal</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/analytics">Analytics</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#user-profiles" aria-controls="user-profiles"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>User profiles</strong></a><ul id="user-profiles" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/user-profiles/administrator-rights">Administrator rights</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/user-profiles/process-manager">Process manager</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/user-profiles/custom-profiles">Custom profiles</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/user-profiles/deploying-profiles-with-export-and-import">Deploy profiles with export and import</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#look-feel" aria-controls="look-feel"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Look & Feel</strong></a><ul id="look-feel" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/look-feel/managing-look-feel">Manage Look & Feel</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/look-feel/creating-a-new-look-feel">Create a new Look & Feel</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/bonita-portal-administration/search-index">Search keys</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#development" aria-controls="development"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Development</strong></a><ul id="development" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/software-extensibility">Software extensibility</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bonita-artifacts" aria-controls="bonita-artifacts"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita artifacts</strong></a><ul id="bonita-artifacts" class="collapse"><li><a role="button" data-toggle="collapse"  href="#connectors" aria-controls="connectors"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Connectors</strong></a><ul id="connectors" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-artifacts/connectors/connectors-overview">Connectors overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-artifacts/connectors/connector-development-toolkit">Connector development toolkit</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-artifacts/creating-an-actor-filter">Create an actor filter</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/api-glossary">API glossary</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#rest-api" aria-controls="rest-api"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>REST API</strong></a><ul id="rest-api" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/rest-api-overview">REST API overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/application-api">application API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/access-control-api">access control API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/bdm-api">bdm API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/bpm-api">bpm API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/customuserinfo-api">customuserinfo API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/form-api">form API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/identity-api">identity API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/platform-api">platform API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/portal-api">portal API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/system-api">system API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/tenant-api">tenant API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/rest-api-extensions">REST API extensions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/rest-api/manage-files-using-upload-servlet-and-rest-api">Manage files using upload servlet and REST API</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#engine-api" aria-controls="engine-api"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Engine API</strong></a><ul id="engine-api" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/engine-api-overview">Engine API overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/create-your-first-project-with-the-engine-apis-and-maven">Create your first project with the Engine APIs and Maven</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/configure-client-of-bonita-bpm-engine">Configure connection to Bonita Engine</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#examples" aria-controls="examples"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Examples</strong></a><ul id="examples" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/examples/manage-a-process">Manage a process</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/examples/handle-a-failed-activity">Handle a failed activity</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/examples/manage-an-organization">Manage an organization</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/examples/manage-users">Manage users</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/examples/handling-documents">Handle documents</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/examples/create-administration-tools">Create administration tools</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/examples/restore-default-look-feel">Restore the default Look & Feel</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/examples/manage-the-platform">Manage the platform</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/using-list-and-search-methods">List and search methods</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/engine-api/log-in-with-cas">Log in with CAS</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-bpm-portal-urls">Bonita Portal URLs</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#bonita-engine-architecture" aria-controls="bonita-engine-architecture"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Bonita Engine architecture</strong></a><ul id="bonita-engine-architecture" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-engine-architecture/engine-architecture-overview">Bonita Engine architecture overview</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#services" aria-controls="services"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Services</strong></a><ul id="services" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-engine-architecture/services/event-handlers">Event handlers</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-engine-architecture/services/queriable-logging">Queriable logger</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-engine-architecture/services/technical-logging">Technical logger</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-engine-architecture/execution-sequence-states-and-transactions">Execution sequence, states, and transactions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/bonita-engine-architecture/shared-transactions">Shared transactions</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li><a role="button" data-toggle="collapse"  href="#living-application" aria-controls="living-application"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Living application</strong></a><ul id="living-application" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/living-application/customize-living-application-layout">Customize living application layout</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/logging">Logs</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/preloading-the-forms-cache">Preload the forms cache</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/workspaces-and-repositories">Workspaces and repositories</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/building-community-edition-from-source">Build Bonita Community edition from source files</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li><a role="button" data-toggle="collapse"  href="#continuous-integration" aria-controls="continuous-integration"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Continuous integration</strong></a><ul id="continuous-integration" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/continuous-integration/automating-builds">Automate builds</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/development/continuous-integration/set-up-continuous-integration">Set up continuous integration</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul></li><li><a role="button" data-toggle="collapse"  href="#howtos" aria-controls="howtos"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><strong>Howtos</strong></a><ul id="howtos" class="collapse"><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/uid-modal-tutorial">Create a modal window using CSS</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/uid-case-overview-tutorial">Create a case overview page using the UI Designer</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/optimize-user-tasklist">Create unique task names for the user task list</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/manage-control-in-forms">Control and validate forms in the UI Designer</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/list-of-documents">Manage a list of documents</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/bo-multiple-refs-tutorial">Manage multiple references in Business Objects</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/custom-authorization-rule-mapping">Map authorization rules</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/rta-mail-template">Use the rich textarea widget in a mail template</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/datetimes-management-tutorial">Manage dates and times in BDM and User Interfaces</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/bdm-in-rest-api">Manage BDM in custom Rest APIs</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --><li class="" ><i class="fa fa-circle-o" aria-hidden="true"></i> <a href="/bonita_doc/bonita/7.8/howtos/share-a-repository-on-github">Share a repository on GitHub</a></li><!-- create an array with all categories corresponding to a node in the taxonomy  --></ul></li></ul>
+</div></div>
+            <div class="col-md-9 content--noPaddingRight" >
+                <div class="documentationContent">
+                    <div class="documentationPage">
+                            <a href="https://github.com/bonitasoft/bonita-doc/edit/7.8/md/getting-started-tutorial.md" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+                       <article>
+                        <h1 id="getting-started-tutorial">Getting started tutorial</h1>
+
+<p>This tutorial explains how to create an application that includes a process. The application is created using the Bonita Community Edition, and uses features that are available in all editions. The example application is a business travel tool.</p>
+
+<p><strong>Important:</strong> these instructions are also available as a <a href="http://www.bonitasoft.com/resources/videos/getting-started-tutorial">video</a>. The complete solution is available on <a href="https://github.com/Bonitasoft-Community/getting-started-turorial">GitHub</a>.</p>
+
+<p>Here is the use-case: <em>An employee opens the Travel Tool application to view their pending and approved travel requests. They create a new travel request. Then the request is sent to the employee’s manager.
+The manager reviews the request and approves or refuses it.</em></p>
+
+<p>In a real travel management application, there would be several process steps after approval: estimating costs, possibly getting a second level of approval if the cost passes a certain threshold, submitting an expenses claim after the travel, reviewing the expenses claim, escalating anything out of policy, and authorizing payment. However, for this tutorial you will consider only the first part of the process, where a travel request is submitted and then reviewed.</p>
+
+<p>This tutorial assumes that you are a developer using Bonita for the first time.
+It gives instructions for using Bonita Studio, the UI Designer, and Bonita Portal. It assumes you are familiar with JavaScript, JSON and REST APIs.</p>
+
+<p>Use Bonita Studio to define your process, including using the UI Designer to create pages and forms. Then use Bonita Portal to build the application.</p>
+
+<p>This is the recommended sequence for creating an application, but generally application pages, data model and processes are defined in parallel and evolve as you go deeper in the application details:</p>
+
+<div class="list-group"><a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial#design-application-pages" class="list-group-item toc-h2">Design application pages</a><a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial#create-the-data-model" class="list-group-item toc-h2">Create the data model</a><a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial#create-the-process-definition" class="list-group-item toc-h2">Create the process definition</a><a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial#create-forms" class="list-group-item toc-h2">Create forms</a><a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial#run-process" class="list-group-item toc-h2">Run process</a><a href="/bonita_doc/bonita/7.8/application-and-process-design/application-and-process-design-overview/getting-started-tutorial#build-the-application" class="list-group-item toc-h2">Build the application</a>
+</div>
+<h2 id="design-application-pages">Design application pages</h2>
+
+<p id="design-application-pages">The first step in creating an application is to design the application pages in the UI Designer using dummy data, creating a prototype application as seen by users. This enables you to review the application with the stakeholders and get validation of the application design before proceeding to more complex tasks.</p>
+
+<p>The Bonita Studio UI Designer is an environment for creating application pages and forms. To start the UI Designer, click the UI Designer icon in the Bonita Studio coolbar (at the top of the screen). The UI Designer opens in a browser.</p>
+
+<p>The travel tool has a home page that displays a list of pending and approved travel requests to the current user. It contains a button for starting a new travel request.</p>
+
+<p>There are also some forms that are associated with the travel management process:</p>
+
+<ul>
+  <li>Create a travel request</li>
+  <li>Review a travel request and approve or refuse it</li>
+</ul>
+
+<p>The easiest way to create these forms is from the process definition, so that is what you will do later in the tutorial.</p>
+
+<p>The following sections explain how to create the application page and then populate it with dummy data. At any stage, you can click <strong><em>Preview</em></strong> and see a preview of the layout of the page as it will appear to users.
+Remember to click <strong><em>Save</em></strong> to save your work frequently.</p>
+
+<h4 id="create-travel-tool-home-page">Create travel tool home page</h4>
+
+<p>In Bonita Studio, start the UI Designer by clicking the icon in the coolbar. This opens the UI Designer in your browser, at the home page.</p>
+
+<ul>
+  <li>In the UI Designer home page, click on the <strong><em>Create</em></strong> button. This brings a pop-up.</li>
+  <li>In the pop-up, set the type to <em>Application page</em> and name to <em>TravelTool</em>. The name must not contain spaces or special characters. This name is used in Bonita to identify the page. It is not displayed to the application user.</li>
+  <li>Click on <strong><em>Create</em></strong>. This opens the new page in the Page editor.</li>
+</ul>
+
+<p>Create the page structure by dragging widgets from the palette on the left and dropping them on the whiteboard (the central panel).
+Specify the characteristics of a widget by selecting it and updating the properties in the panel on the right. Add the following widgets:</p>
+
+<ul>
+  <li>A TEXT widget, with the <strong>Text</strong> property set to <em>username</em>.</li>
+  <li>A TITLE widget, with the <strong>Text</strong> property set to <em>Travel tool</em>.</li>
+  <li>A TEXT widget, with text introducing the application: <code class="highlighter-rouge">This page lists your pending and approved travel requests.</code></li>
+  <li>A CONTAINER for the user pending requests, with the following widgets:
+    <ul>
+      <li>A TITLE widget with a lower title level than the page title (for example, “Level 3”), with the text <code class="highlighter-rouge">My pending requests</code>.</li>
+      <li>A TABLE widget for listing pending travel requests, with the following properties:
+        <ul>
+          <li><strong>Headers</strong> set to <code class="highlighter-rouge">Departure date, Number of nights, Hotel needed, Destination, Reason</code></li>
+          <li><strong>Columns key</strong> set to <code class="highlighter-rouge">departureDate, numberOfNights, hotelNeeded, destination, reason</code></li>
+        </ul>
+      </li>
+      <li>A LINK widget with text <code class="highlighter-rouge">Create new travel request</code> and <strong>Style</strong> property set to primary.</li>
+    </ul>
+  </li>
+  <li>A CONTAINER for the user approved requests, with the following widgets:
+    <ul>
+      <li>A TITLE widget with a lower title level than the page title (for example, “Level 3”), with the text <code class="highlighter-rouge">My approved requests</code>.</li>
+      <li>A TABLE widget for listing approved travel requests, with the following properties:
+        <ul>
+          <li><strong>Headers</strong> set to <code class="highlighter-rouge">Departure date, Number of nights, Hotel needed, Destination, Reason</code>.</li>
+          <li><strong>Columns key</strong> set to <code class="highlighter-rouge">departureDate, numberOfNights, hotelNeeded, destination, reason</code>.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>When you have added the widgets, click <strong><em>Preview</em></strong> to see how the page displays. <br />
+Change the arrangement of the widgets in the whiteboard using drag and drop and using the <strong>Width</strong> property, until you are happy with the result.</p>
+
+<p>Remember to click the topmost <strong><em>Save</em></strong> button, or type <code class="highlighter-rouge">Ctrl+S</code> to save your work.</p>
+
+<h4 id="add-dummy-data">Add dummy data</h4>
+
+<p>Now use some dummy data to see how the tables will look when there is data. <br />
+First create a variable containing the data, and then bind the variable to the widget <strong>Value</strong> property. <br />
+In the application, the real data will be business data retrieved by a REST API call. <br />
+The dummy data for the travel requests is in JSON. You need two JSON variables, <code class="highlighter-rouge">myPendingRequests</code> and <code class="highlighter-rouge">myApprovedRequests</code>.</p>
+
+<p>To create <strong>myPendingRequests</strong>:</p>
+
+<ol>
+  <li>In the <strong>Variables</strong> panel (at the bottom of the page), click <strong><em>Create a new variable</em></strong>.</li>
+  <li>Enter the variable name, <strong>myPendingRequests</strong>.</li>
+  <li>Select the JSON type.</li>
+  <li>Enter this value:</li>
+</ol>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grenoble"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"departureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-09"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"numberOfNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hotelNeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bonita 7.2 launch"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"refusalReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"departureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-09"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"numberOfNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hotelNeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paris"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open source conference"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"refusalReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"departureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-07"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"numberOfNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"hotelNeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BPAD training"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"refusalReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Click <strong><em>Save</em></strong>.</li>
+  <li>Select the table widget for the pending requests.</li>
+  <li>In the <strong>Content</strong> property, click the link icon at the right (“<strong>fx</strong>”), then click in the box and choose <code class="highlighter-rouge">myPendingRequests</code> from the list of variables (start typing the variable name to get auto-completion).</li>
+  <li>Click <strong><em>Preview</em></strong> to see the page with data for pending requests.<br />
+  Now follow the same steps to create <code class="highlighter-rouge">myApprovedRequests</code> with the following content:
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tokyo"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"departureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-10"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"numberOfNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"hotelNeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BPM for HR conference"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"refusalReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"departureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-11"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"numberOfNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"hotelNeeded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meetings with team"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"refusalReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>When you have defined this variable, select the table widget for the approved requests and set the value of the <strong>Content</strong> property to <code class="highlighter-rouge">myApprovedRequests</code> (remember to click on the “<strong>fx</strong>” icon).</p>
+
+<h4 id="review-and-improve-the-page">Review and improve the page</h4>
+
+<p>You now have a prototype of the <em>TravelTool</em> page with dummy data. View the prototype, and adjust the arrangement of the widgets until you are happy with the appearance of the page. <br />
+You can drag and drop widgets to reorder them, and you can change properties including <strong>Width</strong> and <strong>Alignment</strong>. For example, to improve this page, you could make the following changes:</p>
+
+<ul>
+  <li>Select the username widget, and change the <strong>Alignment</strong> to <code class="highlighter-rouge">right</code>.</li>
+  <li>Select the “Travel Tool” title and drag it beside the username. The size of the username widget will automatically adjust, so that both widgets are in the same row.</li>
+  <li>Select the “Create new travel request” link widget and change the <strong>Alignment</strong> to <code class="highlighter-rouge">center</code>.</li>
+</ul>
+
+<h2 id="create-the-data-model">Create the data model</h2>
+
+<p>There are two stages to defining variables: first you define the business data model, and then you specify how the process handles objects of the model. <br />
+The model is defined as a set of Java classes, and the process uses instances of these classes. If you are not familiar with the terminology, all you need to remember is that the model is the global definition, with a collection of structured variables.<br />
+For your process, you select the subset that is relevant.</p>
+
+<p>First, we will create the business data model, which will then be available for all processes. We will use a model with one object:</p>
+
+<ul>
+  <li><em>TravelRequest</em> contains the details of the travel that is being requested and its approval status.</li>
+</ul>
+
+<p>To define the business data model:</p>
+
+<ol>
+  <li>Go to the <strong>Development</strong> menu, choose <strong>Business Data Model</strong>, and then choose <strong>Manage…</strong>. This opens the dialog to manage the business data model.</li>
+  <li>Beside the list of business object types, click <strong><em>Add</em></strong>. A temporary type name, such as <em>BusinessObject1</em> is added to the list.</li>
+  <li>Click on the temporary name, and change it to <em>TravelRequest</em>.</li>
+  <li>
+    <p>Select the <em>TravelRequest</em> business object type, and add its attributes. This table shows the attributes and their types:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Data type</th>
+          <th>Mandatory</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>userId</td>
+          <td>Long</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>departureDate</td>
+          <td>Date Only</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>numberOfNights</td>
+          <td>Integer</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>hotelNeeded</td>
+          <td>Boolean</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>destination</td>
+          <td>String</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>reason</td>
+          <td>String</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>status</td>
+          <td>String</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>refusalReason</td>
+          <td>String</td>
+          <td>no</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<p>To add each attribute:</p>
+<ol>
+  <li>In the <strong>Attributes</strong> tab, click <strong><em>Add</em></strong>. A temporary attribute name (“attribute1”) is added to the Name column.</li>
+  <li>Change the temporary name to the attribute name.</li>
+  <li>Select the type from the drop-down list. To display the list, click at the right end of the <strong>Type</strong> column.</li>
+  <li>There are no <strong>Multiple</strong> attributes in this object, so you can ignore this column.</li>
+  <li>In the <strong>Mandatory</strong> column, check the box for the attributes that are mandatory.</li>
+  <li>Add a custom query that you will use to search for data using both the userId and the status:
+    <ol>
+      <li>In the <strong>Queries</strong> tab, select <strong>Custom</strong>.</li>
+      <li>Click <strong><em>Add</em></strong>. A temporary query name (“query1”) is added to the <strong>Name</strong> column.</li>
+      <li>Change the temporary name to <code class="highlighter-rouge">findByUserIdAndStatus</code>.</li>
+      <li>Click in the query column, and then click the edit icon at the right. This opens a popup with a proposed custom query that uses all the attributes.</li>
+      <li>In the <strong>JPQL Query</strong> field, remove these lines:</li>
+    </ol>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AND t.departureDate = :departureDate
+AND t.numberOfNights = :numberOfNights
+AND t.hotelNeeded = :hotelNeeded
+AND t.destination = :destination
+AND t.reason = :reason
+AND t.refusalReason = :refusalReason
+</code></pre></div>    </div>
+
+    <ol>
+      <li>In the Parameters list, delete all the attributes except <em>userId</em> and <em>status</em>.</li>
+      <li>Click <strong><em>OK</em></strong> to save the query.</li>
+    </ol>
+  </li>
+  <li>Click <strong><em>Finish</em></strong> to save the business data model.</li>
+</ol>
+
+<h2 id="create-the-process-definition">Create the process definition</h2>
+
+<h4 id="create-the-diagram">Create the diagram</h4>
+
+<p>The first stage is to create the new diagram, which you do using Bonita Studio. While you are working on a diagram, save your work from time to time, by clicking the <strong><em>Save</em></strong> icon in the coolbar (at the top of the screen) or typing <code class="highlighter-rouge">CTRL+S</code>.<br />
+Create the diagram as follows:</p>
+
+<ol>
+  <li>Click <strong><em>New diagram</em></strong> on the Bonita Studio Welcome page. This creates an almost empty diagram for you to start updating:
+    <ul>
+      <li>The large rectangle with a name at the left is the <strong>pool</strong>.</li>
+      <li>Inside the pool there is a <strong>lane</strong>, which is also a rectangle. You can see the border of the lane at the left side, beside the pool name. The other borders of the lane coincide with the pool border so are not visible.</li>
+      <li>The green circle in the lane is a <strong>start event</strong>.</li>
+      <li>The blue box in the lane is a <strong>human task</strong>.</li>
+    </ul>
+  </li>
+  <li>The first thing to do is to give the diagram a more descriptive name. Click on the diagram outside the pool, then go to the <strong>Details</strong> panel. This is the area on the bottom-right of the screen.</li>
+  <li>In the <strong>General</strong> tab, <strong>Diagram</strong> pane, click <strong><em>Edit…</em></strong> next to the <strong>Name</strong> field.</li>
+  <li>Enter the new diagram name, <em>Simple Travel Request</em>, in the popup and click <strong><em>OK</em></strong>. You can see in the tab at the top of the whiteboard that the diagram name has changed.</li>
+  <li>Now give the Pool a more descriptive name. Select the pool by clicking in the space between the pool border and the lane border at the left side of the diagram.
+Then go to the <strong>Details</strong> panel, <strong>General</strong> tab, <strong>Pool</strong> pane, and click <strong><em>Edit…</em></strong> next to the <strong>Name</strong> field. Enter the new pool name, <em>Travel Request</em>, in the popup.
+When you have renamed the diagram and the pool, the diagram looks like this:</li>
+</ol>
+
+<p><img src="images/images-6_0/7.0-getting-started-renamed-diagram.png" alt="Diagram with names changed" class="img-responsive" /></p>
+
+<ol>
+  <li>This process starts when an employee fills in a travel request form. You do not need to create a task for this because it is this action that triggers the process to start. This is known as process instantiation. A <strong>form for process instantiation</strong> is defined at the pool level.</li>
+  <li>Define what happens after the user submits a request form: the manager reviews the travel request and approves or refuses it. You can use the example task that was added to the diagram automatically. Click on the task name and change it to <em>Manager review</em>.</li>
+  <li>In a future evolution of this process, the next task would be to send the travel request details to the admin team so they can handle the booking. For now, though we are just interested in getting the first part of the process working, so add an end after the review task. You can do this by dragging the end icon (red circle) from the palette to the whiteboard, and then connecting to the <em>Manager review</em> task with a flow element.</li>
+</ol>
+
+<p>When you have finished, your diagram should look like this:</p>
+
+<p><img src="images/images-6_0/7.0-getting-started-completed-diagram.png" alt="Completed diagram" class="img-responsive" /></p>
+
+<h4 id="define-business-variables">Define business variables</h4>
+
+<p>You have already defined the data model, but now you need to specify how the model is applied to this process.<br />
+Define a <em>travelRequest</em> business variable, which is an instance of the <em>TravelRequest</em> object type. Follow these steps:</p>
+
+<ol>
+  <li>Select the pool.</li>
+  <li>Go to the <strong>Details</strong> panel, <strong>Data</strong> tab, <strong>Pool variables</strong> pane and click <strong><em>Add…</em></strong> beside the Business variables box.</li>
+  <li>In the Name field, type <em>travelRequest</em>.</li>
+  <li>Add a description to document your development if you want to.</li>
+  <li>From the Business Object list, choose <em>TravelRequest</em>.</li>
+  <li>Do not configure the default value. The default value uses information that is in the contract, so you will define it later.</li>
+  <li>Click <strong><em>Finish</em></strong> to save the definition.</li>
+</ol>
+
+<p>The attributes of <em>travelRequest</em> are the information that is used in the process. There are no other variables to define.</p>
+
+<h4 id="create-contracts">Create contracts</h4>
+
+<p>A contract is the specification of what a form must return to the process instance. Define a contract for process instantiation, and for each human task.</p>
+
+<p>The contract does not need to include information that is sent from the process instance to the form. This is included in the context, which is the set of information passed to the form. You cannot configure the context.</p>
+
+<p>The information that you specify in the contract is a subset of the information used in the process.<br />
+To specify the process instantiation contract, select the pool and follow these steps:</p>
+
+<ol>
+  <li>Go to the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane.</li>
+  <li>In the <strong>Inputs</strong> tab, click <strong><em>Add from data…</em></strong>. This opens a popup for creating the contract using the business data variables that are defined for the process.</li>
+  <li>Select <em>travelRequest</em> and click <strong><em>Next</em></strong>.</li>
+  <li>Specify the attributes to include. By default, all the attributes are checked, so uncheck those that are not relevant: <em>userId</em>, <em>status</em> and <em>refusalReason</em>.</li>
+  <li>Leave the radio button on automatic generation of initialization script.</li>
+  <li>Click <strong><em>Finish</em></strong> and safely ignore the warning related to contract generation as we will take care of those in time.</li>
+</ol>
+
+<p>Now that the case instantiation contract is set up, we will add two constraints on its values. <br />
+The first one will ensure that the departure date is in the future and the second will validate that the number of nights is greater or equal to zero.</p>
+
+<ol>
+  <li>Still in the <strong>Contract</strong> pane, switch to the <strong>Constraints</strong> tab and click <strong><em>Add</em></strong>. This adds a placeholder constraint.</li>
+  <li>Click on the placeholder name and change it to <em>departureInFuture</em>.</li>
+  <li>Click in the <strong>Expression</strong> field, then click on the icon that appears at the right of the field. This opens a popup where you can enter the constraint expression.</li>
+  <li>Define the constraint with this script:<code class="highlighter-rouge">travelRequestInput.departureDate.isAfter(java.time.LocalDate.now())</code></li>
+  <li>In the <strong>Error message</strong> column, add this text: <code class="highlighter-rouge">Departure date must be in the future.</code></li>
+  <li>Add a second constraint as following:
+    <ul>
+      <li>Name: <code class="highlighter-rouge">zeroOrMoreNights</code></li>
+      <li>Expression: <code class="highlighter-rouge">travelRequestInput.numberOfNights &gt;= 0</code></li>
+      <li>Error message: <code class="highlighter-rouge">Number of nights must be greater or equal to zero.</code></li>
+    </ul>
+  </li>
+</ol>
+
+<p>In the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane, <strong>Inputs</strong> tab click the arrow next to <strong>travelRequestInput</strong> to expand the list of attributes.<br />
+For each attribute, add a <strong>Description</strong>. The description is displayed in the automatically generated form used for process testing, so include information that will help the user complete the form correctly, as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>departureDate</td>
+      <td>Specify the date that the travel starts</td>
+    </tr>
+    <tr>
+      <td>numberOfNights</td>
+      <td>Enter the number of nights</td>
+    </tr>
+    <tr>
+      <td>hotelNeeded</td>
+      <td>Specify if you need a hotel reservation</td>
+    </tr>
+    <tr>
+      <td>destination</td>
+      <td>Enter the destination city</td>
+    </tr>
+    <tr>
+      <td>reason</td>
+      <td>Explain the reason for this travel. Give the business justification</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The process instantiation contract is now complete.</p>
+
+<p>The contract for the <em>Manager review</em> task only has two inputs, <em>status</em> and <em>refusalReason</em>, so you can create it directly instead of from data.<br />
+It also has a constraint: a <em>refusalReason</em> must be specified if the manager refuses the request. To define this contract:</p>
+
+<ol>
+  <li>Select the <em>Manager review</em> task.</li>
+  <li>Go to the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane.</li>
+  <li>
+    <p>In the <strong>Inputs</strong> tab, click <strong><em>Add</em></strong> and specify the following attributes:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Multiple</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>status</td>
+          <td>Text</td>
+          <td>No</td>
+          <td>Indicate whether you approve or refuse this request</td>
+        </tr>
+        <tr>
+          <td>refusalReason</td>
+          <td>Text</td>
+          <td>No</td>
+          <td>If you refuse a request, you must give a reason</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Go to the <strong>Constraints</strong> tab and click <strong><em>Add</em></strong>. This adds a placeholder constraint.</li>
+  <li>Click on the placeholder name and change it to <em>reasonRequired</em>.</li>
+  <li>Click in the <strong>Expression</strong> field, then click on the icon that appears at the right of the field. This opens a popup where you can enter the constraint expression.</li>
+  <li>Define the constraint with this script:
+<code class="highlighter-rouge">status == "approved" || (status == "refused" &amp;&amp; refusalReason?.trim())</code></li>
+  <li>In the <strong>Error message</strong> column, add this text: <code class="highlighter-rouge">If you refuse a request, you must give a reason.</code></li>
+</ol>
+
+<h4 id="define-business-object-initial-values">Define business object initial values</h4>
+
+<p>Now that the contract is defined, you can configure the initial value of <em>travelRequest</em>, as follows:</p>
+
+<ol>
+  <li>Select the pool and go to the <strong>Details</strong> panel, <strong>Data</strong> tab, <strong>Pool variables</strong> pane.</li>
+  <li>Double-click <em>travelRequest</em> to edit it.</li>
+  <li>Click the pencil icon beside the <strong>Default value</strong> field. This opens the expression editor.</li>
+  <li>An <em>initTravelRequest()</em> script was automatically generated to initialize our data with the contract. We will complete this script by setting up the <em>userId</em> and <em>status</em> attributes.<br />
+Insert the following code after the first line:
+    <div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">travelRequestVar</span><span class="o">.</span><span class="na">userId</span> <span class="o">=</span> <span class="n">BonitaUsers</span><span class="o">.</span><span class="na">getProcessInstanceInitiator</span><span class="o">(</span><span class="n">apiAccessor</span><span class="o">,</span> <span class="n">processInstanceId</span><span class="o">).</span><span class="na">id</span>
+<span class="n">travelRequestVar</span><span class="o">.</span><span class="na">status</span> <span class="o">=</span> <span class="s2">"pending"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Click <strong><em>OK</em></strong> to save the expression.</li>
+  <li>Click <strong><em>OK</em></strong> again to save the updated object definition.</li>
+</ol>
+
+<h4 id="update-business-object-with-review-data">Update business object with review data</h4>
+
+<p>You need to define operations to update the business object with the values entered for <em>status</em> and <em>refusalReason</em> in the <em>Manager review</em> form.<br />
+Select the <em>Manager review</em> task, and go to the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Operations</strong> pane. First define the operation for <em>status</em>, as follows:</p>
+
+<ol>
+  <li>Create a new operation by clicking <strong><em>Add</em></strong>.</li>
+  <li>In the first field, click the down-arrow to display a list of variables on which an operation can be performed, and double-click <em>travelRequest</em>.</li>
+  <li>Click the <strong><em>Takes value of</em></strong> link. This opens a popup listing the available operations. Choose <strong><em>Use a Java method</em></strong>. The popup displays a list of available methods. Click <strong><em>setStatus(String) - void</em></strong>, and then click <strong><em>OK</em></strong>.</li>
+  <li>In the last field, click the down-arrow to display a list of variables, and double-click <em>status</em>.</li>
+</ol>
+
+<p>Repeat these steps to define the operation for <em>refusalReason</em>.</p>
+
+<p>When both of the operations are defined, the <strong>Details</strong> panel should look like this:</p>
+
+<p><img src="images/images-6_0/7.0-getting-started-operations.png" alt="Manager review operations" class="img-responsive" /></p>
+
+<h4 id="specify-actors">Specify actors</h4>
+
+<p>The next stage is to define who carries out the steps in the process. This is done by assigning <a href="/bonita_doc/bonita/7.8/application-and-process-design/process-modeling/actors">actors</a>. <br />
+An actor is a placeholder for the person who will do a task. <br />
+When you configure a process, you make the connection between the actors defined in the process definition and the real-world people who will do process steps. <br />
+Bonita Studio comes with a test organization, called ACME, which you can use for testing. In this example, we have two people, the employee who initiates the process, and the employee’s manager.<br />
+The managers are also employees, so you can use the same actor for process instantiation and for the review task, but use a filter to specify who does the approval step. This is how it works:</p>
+
+<ol>
+  <li>In the diagram, select the pool and go to the <strong>Details</strong> panel, <strong>General</strong> tab, <strong>Actors</strong> pane. This is where you define all the actors for the process.<br />
+By default, there is already an Employee actor, which is defined for testing. You can change the organization and the actors later, but for initial testing, this will work fine.<br />
+The default settings mean that any employee in the organization can start a case of the travel request process. You do not need to change anything.</li>
+  <li>Next, select the <em>Manager review</em> step and define who can do this. This step will be done by the manager of the person who initiated the request.<br />
+All the managers are also employees, and the employee actor is defined for the lane, so check the button for <strong>Use the actor defined in the lane</strong>.</li>
+  <li>To make sure that the review task is sent to the right manager, use an actor filter:
+    <ol>
+      <li>Click the actor filter <strong><em>Set…</em></strong> button.</li>
+      <li>Open up the list of process actor filters.</li>
+      <li>Select <strong>Initiator manager</strong>. This means that the review task is to be done by the manager of the person who submitted the request that initiated the process. Click <strong><em>Next</em></strong></li>
+      <li>Specify a name for the actor filter definition, <em>requestersManager</em>, and click <strong><em>Finish</em></strong>.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>The process is now defined. The next section shows you how to configure and run it to verify that the process definition is correct before you define forms and create the application.</p>
+
+<h4 id="run-process-with-temporary-forms">Run process with temporary forms</h4>
+
+<p>You can run a process that is in development before you create forms, by using temporary forms that are created automatically.<br />
+This section explains how to configure the process and run it from Bonita Studio.</p>
+
+<p>Before you can run the process, you need to configure it. For the first run we will use the default setting.</p>
+
+<p>You can run the process and see the temporary forms, to check that the process definition is correct.</p>
+
+<ol>
+  <li>Click <strong><em>Run</em></strong> in the coolbar. This opens a browser window, logs you in to Bonita Portal as Walter Bates (user used for authentication in the default process configuration), and displays the travel request form.</li>
+  <li>Fill out the form. Make sure that you use the right format for each field in the temporary forms (“yyyy-mm-dd” format for dates and either “true” or “false” value for booleans).</li>
+  <li>When you have filled out the form, click <strong><em>Start</em></strong>. This submits the form and starts the process instance.</li>
+  <li>At the top-right of the Portal window, click the arrow beside Walter’s name and choose <strong><em>Logout</em></strong>.</li>
+  <li>Log in as Walter’s manager, Helen Kelly, with username <code class="highlighter-rouge">helen.kelly</code> and password <code class="highlighter-rouge">bpm</code>. The <strong>Tasks</strong> view is displayed, where there is a task called <em>Manager review</em>.</li>
+  <li>Select the <em>Manager review</em> task. The temporary form for the manager review is displayed in the right hand panel.<br />
+It contains fields for the items defined in the contract for this step, but not the information that Walter entered in the request.<br />
+When you create your own forms, you will add this information, so that the manager can see the details of the request before approving or refusing it.<br />
+For now, you can see the form, so you have verified that the process definition is correct.</li>
+</ol>
+
+<h2 id="create-forms">Create forms</h2>
+
+<p>The easiest way to create a process form is to generate it automatically from the contract. This automatically creates a mapping between the process and the form and defines form data. You can then update the form manually to add or remove field, and to change the layout.</p>
+
+<p>While using the UI Designer, click <strong><em>Save</em></strong> frequently to save your work.</p>
+
+<p>To create the process instantiation form:</p>
+
+<ol>
+  <li>In Bonita Studio, select the pool and go to the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane.</li>
+  <li>At the top-right of the <strong>Details</strong> panel, click the UI Designer icon. This opens the UI Designer in a browser window, with the automatically generated form.</li>
+  <li>Change the form name. All forms that are generated automatically are called <em>newForm</em>, so you must rename them to avoid confusion.
+To do this, double-click on the name in the top bar, and then specify a new form name, <em>submitTravelRequest</em>.</li>
+</ol>
+
+<p>The form is now created. A form is a UI Designer page that is mapped to a process and a contract. A page is a collection of widgets, and each field is defined by a widget.<br />
+Widgets are arranged in rows and each row is divided into 12 columns. Each widget has a width that spans across one or more column. In addition to their width, widgets have a set of editable properties that can be set on the right side of the window.</p>
+
+<p>To change the appearance and behavior of a page, you update the widgets. At any time, you can click <strong><em>Preview</em></strong> to see how the page will look to a user.<br />
+To have more space to update the page, you can hide the <strong>Variables</strong> and <strong>Assets</strong> tabs, by clicking on the down-arrow.</p>
+
+<p>Before improving the look of the form, we will enforce some validation rules on the different fields:</p>
+
+<ol>
+  <li>Select the <em>Number Of Nights</em> widget and set its <em>Min value</em> property to <em>0</em>.</li>
+  <li>Preview the form and try to enter some values to make sure that the validation works. Submit button should be disabled until all widgets contain valid values.</li>
+</ol>
+
+<p>The form should now look like this in the page editor:</p>
+
+<p><img src="images/images-6_0/7.2-getting-started-inst-form-validation.png" alt="Process instantiation form" class="img-responsive" /></p>
+
+<p>Now that the form is functional, we are going to improve its appearance to make it more user-friendly:</p>
+
+<ol>
+  <li>Select the title widget, and change the <strong>Text</strong> property to <code class="highlighter-rouge">Submit a new travel request</code>.</li>
+  <li>Make the Departure date widget narrower. To do this, select it and change the value of the <strong>Width</strong> property to 4 columns.</li>
+  <li>Move the Destination widget up to the top of the form (below the title).</li>
+  <li>Move the Number of nights and Hotel needed widgets to the same row as the Departure date, and reduce the widths.<br />
+Note: when you add a widget to a row, it automatically takes all the remaining columns, so set the width after you move the widgets.</li>
+  <li>Clear the initial value for Number of nights to show the placeholder at run time:
+    <ol>
+      <li>In the <strong>Variables</strong> panel (at the bottom of the page), locate the row containing the <em>formInput</em> variable.</li>
+      <li>Click on the pencil icon located at the right side of this row.</li>
+      <li>Change the value of the <em>numberOfNights</em> attribute from <em>0</em> to <em>null</em>.</li>
+      <li>Click on <strong>Save</strong>.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>When you have finished, the preview of the form looks like this:</p>
+
+<p><img src="images/images-6_0/7.2-getting-started-inst-form-rendering.png" alt="Process instantiation form" class="img-responsive" /></p>
+
+<p>Now define the form for the <em>Manager review</em> task. Start by automatically generating the form from the context, then add widgets to display the request details for the manager to review. Follow these steps:</p>
+
+<ol>
+  <li>In Bonita Studio, select the <em>Manager review</em> task and go to the <strong>Details</strong> panel, <strong>Execution</strong> tab, <strong>Contract</strong> pane.</li>
+  <li>At the top-right of the <strong>Details</strong> panel, click the UI Designer icon. This generates a form and opens it in the UI Designer.</li>
+  <li>Change the form name to <em>reviewTravelRequest</em>.</li>
+  <li>Add a variable to get the information that the user enters in the request form. To do this:
+    <ol>
+      <li>In the <strong>Variables</strong> tab, click <strong><em>Create a new variable</em></strong>.</li>
+      <li>Specify the name, <em>request</em>.</li>
+      <li>Set the <strong>Type</strong> to <strong>External API</strong>.</li>
+      <li>Set the value to <code class="highlighter-rouge">../</code>.</li>
+      <li>Click <strong><em>Save</em></strong>.</li>
+    </ol>
+  </li>
+  <li>
+    <p>Add a variable to hold the different request status values:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>statusValues</td>
+          <td>JSON</td>
+          <td><code class="highlighter-rouge">[{"label": "Approve request", "value": "approved"},{"label": "Refuse request", "value": "refused"}]</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Edit the <em>formInput</em> variable and set the value for the <em>status</em> attribute to <em>“approved”</em>.</li>
+  <li>All of the other widgets you will add will be placed inside the form container (identified with a dashed border).</li>
+  <li>Add a title widget and set its text property to <code class="highlighter-rouge">Review travel request</code>. Set the <strong>Level</strong> property to Level 4, so it is the same size as the title of the form for creating a request.</li>
+  <li>
+    <p>Add read-only widgets to display the details of the travel request, using the following information:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Label</th>
+          <th>Widget type</th>
+          <th>Value binding</th>
+          <th>Read-only</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Destination</td>
+          <td>Input</td>
+          <td>request.destination</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>Departure date</td>
+          <td>Date picker</td>
+          <td>request.departureDate</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>Number of nights</td>
+          <td>Input</td>
+          <td>request.numberOfNights</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>Hotel needed</td>
+          <td>Checkbox</td>
+          <td>request.hotelNeeded</td>
+          <td>yes</td>
+        </tr>
+        <tr>
+          <td>Reason for travel</td>
+          <td>Text area</td>
+          <td>request.reason</td>
+          <td>yes</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Remove the “Refusal reason” widget that was added automatically, we will replace it by something more user-friendly in the next step.</li>
+  <li>
+    <p>Add a Text area widget with the following properties:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hidden</td>
+          <td><code class="highlighter-rouge">formInput.status === 'approved'</code> (click on “fx”/”bind” icon first)</td>
+        </tr>
+        <tr>
+          <td>Label</td>
+          <td>Refusal reason</td>
+        </tr>
+        <tr>
+          <td>Value</td>
+          <td><code class="highlighter-rouge">formInput.refusalReason</code></td>
+        </tr>
+        <tr>
+          <td>Required</td>
+          <td>yes</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The dynamic <em>Hidden</em> property will hide the widget when the request status is set to ‘approved’.
+Otherwise, the field will be marked as required and the form validation will prevent the user from refusing a request without a reason.</p>
+  </li>
+  <li>Remove the Status widget that was added automatically.</li>
+  <li>
+    <p>Add a Radio buttons widget with the following properties:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Label</td>
+          <td>Review decision</td>
+        </tr>
+        <tr>
+          <td>Available values (click on the “fx” binding icon next to the input field first)</td>
+          <td>statusValues</td>
+        </tr>
+        <tr>
+          <td>Displayed keys</td>
+          <td>label</td>
+        </tr>
+        <tr>
+          <td>Returned keys</td>
+          <td>value</td>
+        </tr>
+        <tr>
+          <td>Selected Value</td>
+          <td><code class="highlighter-rouge">formInput.status</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Preview the form to test the validation and rearrange the widgets until it looks like this in the editor:</li>
+</ol>
+
+<p><img src="images/images-6_0/7.2-getting-started-review-form.png" alt="Process instantiation form" class="img-responsive" /></p>
+
+<h2 id="run-process">Run process</h2>
+
+<p>You can now run the process using the forms that you created. Make sure that you have saved everything in the UI Designer. Then click <strong><em>Run</em></strong> in the Studio coolbar.</p>
+
+<p>Fill out the request form as Walter, then log in as Helen and do the review task.<br />
+When the review form is displayed, it contains the information that Walter entered in the request form. You can approve or refuse the request.</p>
+
+<p>Once process is finished you can see the request information as stored in the business data database in Bonita Studio:</p>
+<ol>
+  <li>From the menu bar, choose <strong>Development</strong> menu, choose <strong>Business Data Model</strong>, and then choose <strong>Brows data (h2 console)…</strong>. This opens the h2 (business data database) web interface in a web browser.</li>
+  <li>In the left tree menu click on TRAVELREQUEST. This will generate an SQL select query.</li>
+  <li>Click on <strong>Run (Ctrl+Enter)</strong> button. You should view all the requests created by running the Travel Request process.</li>
+</ol>
+
+<p>You process is now complete, so you can include it in an application.</p>
+
+<h2 id="build-the-application">Build the application</h2>
+
+<p>This section explains how to build the application from the pages and process that you have already created. There are the following steps:</p>
+
+<ol>
+  <li>In the UI Designer, update the application page to use business data instead of the dummy JSON data and to specify the connection between the page and the process.</li>
+  <li>In Bonita Portal, create the application.</li>
+</ol>
+
+<h4 id="update-the-traveltool-application-page">Update the TravelTool application page</h4>
+
+<p>In the UI Designer edit the TravelTool page and create the following variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>session</td>
+      <td>External API</td>
+      <td><code class="highlighter-rouge">../API/system/session/unusedId</code></td>
+    </tr>
+    <tr>
+      <td>processDef</td>
+      <td>External API</td>
+      <td><code class="highlighter-rouge">../API/bpm/process?p=0&amp;c=1&amp;f=name=Travel%20Request</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Update (edit) the following variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>myPendingRequests</td>
+      <td>External API</td>
+      <td><code class="highlighter-rouge">../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&amp;p=0&amp;c=10&amp;f=userId=&amp;f=status=pending</code></td>
+    </tr>
+    <tr>
+      <td>myApprovedRequests</td>
+      <td>External API</td>
+      <td><code class="highlighter-rouge">../API/bdm/businessData/com.company.model.TravelRequest?q=findByUserIdAndStatus&amp;p=0&amp;c=10&amp;f=userId=&amp;f=status=approved</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Now update the widgets to use the new variables:</p>
+
+<ol>
+  <li>Select the username widget at the top of the page, and update the <strong>Text</strong> to this value: ``.</li>
+  <li>For both pending and approved requests, set the <strong>Column keys</strong> to <code class="highlighter-rouge">departureDate | date, numberOfNights, hotelNeeded, destination, reason</code>, to set the date format.</li>
+</ol>
+
+<h4 id="link-button-to-process">Link button to process</h4>
+
+<p>When the user clicks the button on the Travel Tool page for creating a travel request, the application displays the form for creating a request.<br />
+This is the instantiation form for the Travel Request process.<br />
+To configure this, select the button and set the target URL property by first clicking on the change to bind to an expression button (‘fx’ to the right of the field) and then updating the expression to  <code class="highlighter-rouge">"/bonita/portal/resource/process/Travel%20Request/1.0/content/?id="+processDef[0].id</code>.</p>
+
+<p>After the user submits the form, the Tasks view of Bonita Portal is displayed.</p>
+
+<h4 id="build-application">Build application</h4>
+
+<p>To build the Travel Tool application, you need to export the page from the UI Designer, deploy the process, and then create the application in Bonita Portal.</p>
+
+<p>To export the page, click the <strong><em>Export</em></strong> icon in the Page editor (next to the Save button) or on the home page. The page is exported as a zip file in your default browser download location.</p>
+
+<p>To deploy the process, you can simply run it from Bonita Studio. If you have no changed the process since you last ran it, it is already deployed.</p>
+
+<p>To create your application in Bonita Portal:</p>
+
+<ol>
+  <li>Log in to Bonita Portal by clicking the Portal icon in the coolbar and click the arrow beside “User” and select “Administrator” to switch to Administrator profile .</li>
+  <li>From the menu bar, choose <strong>Resources</strong>, and then click <strong><em>Add</em></strong> and import the TravelTool page that you exported from the UI Designer.</li>
+  <li>Go to <strong>Applications</strong> and click <strong><em>New</em></strong>.</li>
+  <li>Name your application <em>Travel App</em>, set its URL to <em>travel</em>, and click <strong><em>Create</em></strong>. The application is created.</li>
+  <li>In the list of applications, click the edit (triple dot) icon to configure your new application.</li>
+  <li>In the <strong>Pages</strong> section, click <strong><em>Add</em></strong>.</li>
+  <li>Select the Travel tool page you imported. Set its URL to <em>requests</em>. Click <strong><em>Add</em></strong>.</li>
+  <li>Make this page the application home page by clicking on the home icon that appears when hovering on it.</li>
+  <li>Delete the default home page.</li>
+  <li>Check that the application is correctly defined, by clicking the URL. The travel requests summary page is displayed, with a link to the form to create a new request.
+When you click the link, the form for submitting a new travel requests is displayed.</li>
+</ol>
+
+<p>Congratulations, you have just created your first Living Application!</p>
+
+                       </article>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- scripts --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="/bonita_doc/assets/javascripts/active_link.js"></script>
+
+    <script src="/bonita_doc/assets/javascripts/collapse.js"></script>
+    <script src="/bonita_doc/assets/javascripts/bundle.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/react/0.14.7/react-dom.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/searchkit/0.10.0/bundle.js"></script></body>
+</html>
